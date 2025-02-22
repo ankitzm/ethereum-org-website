@@ -20,13 +20,13 @@ Aunque los enfoques varían, la mayoría de los métodos de prueba requieren la 
 
 ### ¿Por qué es importante probar contratos inteligentes? {#importance-of-testing-smart-contracts}
 
-Como los contratos inteligentes a menudo gestionan activos financieros de alto valor, los errores menores de programación pueden y a menudo llevan a [pérdidas masivas para los usuarios](https://rekt.news/leaderboard/). Las pruebas rigurosas pueden, sin embargo, ayudarle a descubrir problemas en el código de un contrato inteligente y arreglarlos antes del lanzamiento en la Red principal.
+Como los contratos inteligentes a menudo gestionan activos financieros de alto valor, los errores menores de programación pueden y a menudo llevan a [pérdidas masivas para los usuarios](https://rekt.news/leaderboard/). No obstante, las pruebas rigurosas pueden ayudarle a descubrir defectos y problemas en el código de un contrato inteligente de forma temprana y solucionarlos antes de lanzarlos en la red principal.
 
 Aunque es posible actualizar un contrato si se descubre un error, las actualizaciones son complejas y pueden [provocar errores](https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/) si se manejan incorrectamente. Actualizar un contrato invalida aún más el principio de inmutabilidad y carga a los usuarios con supuestos de confianza adicionales. Por el contrario, un plan integral para probar su contrato mitiga los riesgos de seguridad de los contratos inteligentes y reduce la necesidad de realizar actualizaciones complejas en la lógica después de su implementación.
 
 ## Métodos para probar contratos inteligentes {#methods-for-testing-smart-contracts}
 
-Los métodos para probar los contratos inteligentes de Ethereum se agrupan en dos categorías generales: **pruebas automáticas** y **pruebas manuales**. Las pruebas automáticas y las pruebas manuales ofrecen beneficios y compensaciones únicos, pero usted puede combinar ambas para crear un plan sólido para analizar sus contratos.
+Los métodos para probar los contratos inteligentes de Ethereum se dividen en dos grandes categorías: **pruebas automatizadas** y **pruebas manuales**. Las pruebas automáticas y las pruebas manuales ofrecen beneficios y compensaciones únicos, pero usted puede combinar ambas para crear un plan sólido para analizar sus contratos.
 
 ### Prueba automatizada {#automated-testing}
 
@@ -110,7 +110,7 @@ function auctionEnd() external {
 
 Se trata de un simple contrato de subasta diseñado para recibir ofertas durante el periodo de oferta. Si la `highestBid` (oferta más alta) aumenta, la oferta más alta anterior recibe su dinero; una vez finalizado el período de oferta, el `beneficiary` (beneficiario) llama al contrato para obtener su dinero.
 
-Pruebas unitarias para un contrato como este cubrirían diferentes funciones que un usuario podría invocar al interactuar con el contrato. Un ejemplo sería hacer una prueba unitaria que compruebe si un usuario puede hacer una oferta mientras la subasta está en curso (es decir, las llamadas a `bid()` son exitosas) o una que compruebe si un usuario puede hacer una oferta más alta que la actual `highestBid`.
+Pruebas unitarias para un contrato como este cubrirían diferentes funciones que un usuario podría invocar al interactuar con el contrato. Un ejemplo sería una prueba unitaria que compruebe si un usuario puede hacer una oferta mientras la subasta está en curso (las llamadas a `bid()` tienen éxito) o una que compruebe si un usuario puede hacer una oferta más alta que la `highestBid` (oferta más alta) actual.
 
 Entender el flujo de trabajo operacional de un contrato también ayuda a escribir pruebas unitarias que comprueben si la ejecución cumple los requisitos. Por ejemplo, el contrato de subasta especifica que los usuarios no puedan realizar ofertas cuando la subasta haya finalizado (es decir, cuando `auctionEndTime` sea inferior a `block.timestamp`). Así, un desarrollador podría ejecutar una prueba unitaria que compruebe si las llamadas a la función `bid()` tienen éxito o fallan cuando la subasta ha terminado (a saber, cuando `auctionEndTime` > `block.timestamp`).
 
@@ -138,19 +138,19 @@ La calidad de las herramientas utilizadas para ejecutar pruebas unitarias en sus
 
 Los marcos de pruebas unitarias para contratos inteligentes de Solidity están disponibles en diferentes lenguajes (principalmente JavaScript, Python y Rust). A continuación, puede encontrar algunas guías para obtener información sobre cómo comenzar a ejecutar pruebas unitarias con diferentes marcos de pruebas:
 
-- **[Ejecutar pruebas unitarias con Truffle](https://trufflesuite.com/docs/truffle/testing/testing-your-contracts/)**
 - **[Ejecutar pruebas unitarias con Brownie](https://eth-brownie.readthedocs.io/en/v1.0.0_a/tests.html)**
 - **[Ejecutar pruebas unitarias con Foundry](https://book.getfoundry.sh/forge/writing-tests)**
 - **[Ejecutar pruebas unitarias con Waffle](https://ethereum-waffle.readthedocs.io/en/latest/getting-started.html#writing-tests)**
 - **[Ejecutar pruebas unitarias con Remix](https://remix-ide.readthedocs.io/en/latest/unittesting.html#write-tests)**
 - **[Ejecutar pruebas unitarias con Ape](https://docs.apeworx.io/ape/stable/userguides/testing.html)**
 - **[Ejecutar pruebas unitarias con Hardhat](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)**
+- **[Ejecución de pruebas unitarias con Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)**
 
 ### Pruebas de integración {#integration-testing-for-smart-contracts}
 
 Mientras que las pruebas unitarias depuran las funciones de un contrato de forma aislada, las pruebas de integración evalúan los componentes de un contrato inteligente en su conjunto. Las pruebas de integración pueden detectar problemas que surjan de llamadas a múltiples contratos o interacciones entre diferentes funciones en un mismo contrato inteligente. Por ejemplo, pueden ayudar a comprobar si cosas como la [herencia](https://docs.soliditylang.org/en/v0.8.12/contracts.html#inheritance) e inyección de dependencias funcionan correctamente.
 
-Las pruebas de integración son útiles si su contrato adopta una arquitectura modular o interactúa con otros contratos en cadena durante la ejecución. Una forma de ejecutar pruebas de integración es [bifurcar la cadena de bloques](/glossary/#fork) a una altura específica (usando una herramienta como [Ganache](https://trufflesuite.com/docs/ganache/) o [Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks)) y simular interacciones entre su contrato y contratos implementados.
+Las pruebas de integración son útiles si su contrato adopta una arquitectura modular o interactúa con otros contratos en cadena durante la ejecución. Una forma de ejecutar pruebas de integración es [ bifurcar la cadena de bloques](/glossary/#fork) a una altura específica (usando una herramienta como [Forge](https://book.getfoundry.sh/forge/fork-testing) o [Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks) y simular las interacciones entre su contrato y los contratos desplegados.
 
 La cadena de bloques bifurcada se comportará de manera similar a la Red principal y tendrá cuentas con estados y saldos asociados. Pero solo actúa como un entorno de desarrollo local sandbox (aislado), lo que significa que no necesitará ETH real para las transacciones, por ejemplo, ni sus cambios afectarán el protocolo de Ethereum real.
 
@@ -189,9 +189,11 @@ Ejecutar pruebas basadas en propiedades típicamente comienza con la definición
 Una vez configurada correctamente, la herramienta de prueba basada en propiedades ejecutará las funciones del contrato inteligente con entradas generadas al azar. Si hay alguna violación de afirmación, obtendrá un informe con datos de entrada concretos que violan la propiedad en evaluación. Vea algunas de las siguientes guías para comenzar a ejecutar pruebas basadas en propiedades con diferentes herramientas:
 
 - **[Análisis estático de contratos inteligentes con Slither](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/slither#slither)**
+- **[Análisis estático de contratos inteligentes con Wake](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)**
 - **[Pruebas basadas en propiedades con Brownie](https://eth-brownie.readthedocs.io/en/stable/tests-hypothesis-property.html)**
 - **[Contratos de fuzzing con Foundry](https://book.getfoundry.sh/forge/fuzz-testing)**
 - **[Contratos de fuzzing con Echidna](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna#echidna-tutorial)**
+- **[Contratos de fuzzing con Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/fuzzing/)**
 - **[Ejecución simbólica de contratos inteligentes con Manticore](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/manticore#manticore-tutorial)**
 - **[Ejecución simbólica de contratos inteligentes con Mythril](https://mythril-classic.readthedocs.io/en/master/tutorial.html)**
 
@@ -239,7 +241,7 @@ Aun así, puede aumentar aún más la posibilidad de captar vulnerabilidades en 
 
 Las auditorías son realizadas por auditores con experiencia en encontrar casos de fallas de seguridad y malas prácticas de desarrollo en contratos inteligentes. Una auditoría generalmente incluirá pruebas (y posiblemente verificación formal), así como una revisión manual de toda la base de código.
 
-Por su parte, un programa de recompensa por errores generalmente involucra ofrecer una recompensa financiera a un individuo (comúnmente descrito como [hackers de sombrero blanco](<https://en.wikipedia.org/wiki/White_hat_(computer_security)>)) que descubra una vulnerabilidad en un contrato inteligente y lo divulgue a los desarrolladores. Las recompensas por detectar errores son similares a las auditorías, ya que implican pedir a otros que ayuden a encontrar defectos en los contratos inteligentes.
+Por su parte, un programa de recompensa por errores generalmente involucra ofrecer una recompensa financiera a un individuo (comúnmente descrito como [hackers de sombrero blanco](https://en.wikipedia.org/wiki/White_hat_(computer_security))) que descubra una vulnerabilidad en un contrato inteligente y lo divulgue a los desarrolladores. Las recompensas por detectar errores son similares a las auditorías, ya que implican pedir a otros que ayuden a encontrar defectos en los contratos inteligentes.
 
 La diferencia principal es que los programas de recompensas por errores están abiertos a la comunidad de desarrolladores y hackers más amplia y atraen a una amplia clase de hackers éticos y profesionales de seguridad independientes con habilidades y experiencia únicas. Esto puede ser una ventaja con respecto a las auditorías de contratos inteligentes, que dependen principalmente de equipos que pueden poseer conocimientos limitados o acotados.
 
@@ -249,13 +251,11 @@ La diferencia principal es que los programas de recompensas por errores están a
 
 - **[solidity-coverage:](https://github.com/sc-forks/solidity-coverage)** _Herramienta de cobertura de código para contratos inteligentes escritos en Solidity._
 
-- **Waffle:[ ](https://ethereum-waffle.readthedocs.io/en/latest/)**Un marco de trabajo para desarrollar y realizar pruebas de contratos inteligentes con nivel avanzado (basado en ethers.js)\_\_.
+- **Waffle:[ ](https://ethereum-waffle.readthedocs.io/en/latest/)**Un marco de trabajo para desarrollar y realizar pruebas de contratos inteligentes con nivel avanzado (basado en ethers.js)__.
 
 - **[Remix Tests:](https://github.com/ethereum/remix-project/tree/master/libs/remix-tests)** _Herramienta para probar contratos inteligentes de Solidity. Funciona debajo del plugin de Remix IDE "Solidity Unit Testing", que se utiliza para escribir y ejecutar casos de prueba para un contrato._
 
 - **[OpenZeppelin Test Helpers:](https://github.com/OpenZeppelin/openzeppelin-test-helpers)** _Biblioteca de afirmaciones para pruebas de contratos inteligentes de Ethereum. Asegúrese de que sus contratos se comporten como esperaba._
-
-- **[Truffle Tests:](https://hardhat.org/hardhat-runner/docs/guides/test-contracts#testing-contracts)** _Marco de pruebas automatizadas que facilita las pruebas de sus contratos._
 
 - **[Marco de pruebas unitarias de Brownie:](https://eth-brownie.readthedocs.io/en/v1.0.0_a/tests.html)** _Brownie utiliza Pytest, un marco de pruebas rico en funciones que le permite escribir pequeñas pruebas con código mínimo, escala bien para proyectos grandes y es altamente extendible._
 
@@ -265,6 +265,8 @@ La diferencia principal es que los programas de recompensas por errores están a
 
 - **[ApeWorx:](https://docs.apeworx.io/ape/stable/userguides/testing.html)** _Marco de desarrollo y pruebas basado en Python para contratos inteligentes dirigidos a la Máquina virtual de Ethereum._
 
+- **[Wake:](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)** _Marco basado en Python para pruebas unitarias y fuzzing con sólidas capacidades de depuración y soporte de pruebas entre cadenas, utilizando pytest y Anvil para una mejor experiencia de usuario y rendimiento. _
+
 ### Herramientas de pruebas basadas en propiedades {#property-based-testing-tools}
 
 #### Herramientas de análisis estático {#static-analysis-tools}
@@ -272,6 +274,10 @@ La diferencia principal es que los programas de recompensas por errores están a
 - **[Slither:](https://github.com/crytic/slither)** _Marco de análisis estático de Solidity basado en Python para encontrar vulnerabilidades, mejorar el funcionamiento del código y escribir análisis personalizados para contratos inteligentes._
 
 - **[Ethlint:](https://ethlint.readthedocs.io/en/latest/)** _Linter para hacer cumplir las mejores prácticas de estilo y seguridad para el lenguaje de programación de contratos inteligentes Solidity._
+
+- **[Cyfrin Aderyn](https://cyfrin.io/tools/aderyn)**: _Analizador estático basado en Rust, diseñado especificamente para la seguridad y el desarrollo de contratos inteligentes Web3._
+
+- **[Wake](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)**_: Marco de análisis estático basado en Python con detectores de vulnerabilidades y calidad de código, impresoras para extraer información útil del código y soporte para escribir submódulos personalizados._
 
 #### Herramientas de análisis dinámico {#dynamic-analysis-tools}
 
@@ -287,14 +293,12 @@ La diferencia principal es que los programas de recompensas por errores están a
 
 ## Tutoriales relacionados {#related-tutorials}
 
-- [Cómo configurar la Integración Continua (CI) de Travis o Circle para pruebas de Truffle](/developers/tutorials/solidity-and-truffle-continuous-integration-setup/)
 - [Visión general y comparación de productos de pruebas](/developers/tutorials/guide-to-smart-contract-security-tools/) \_
 - [Cómo utilizar Echidna para probar contratos inteligentes](/developers/tutorials/how-to-use-echidna-to-test-smart-contracts/)
 - [Cómo utilizar Manticore para encontrar errores en contratos inteligentes](/developers/tutorials/how-to-use-manticore-to-find-smart-contract-bugs/)
 - [Cómo usar Slither para encontrar errores en contratos inteligentes](/developers/tutorials/how-to-use-slither-to-find-smart-contract-bugs/)
 - [Cómo simular contratos de Solidity para pruebas](/developers/tutorials/how-to-mock-solidity-contracts-for-testing/)
-- [Cómo migrar de las pruebas de Truffle al entorno de prueba de OpenZeppelin](https://docs.openzeppelin.com/test-environment/0.1/migrating-from-truffle)
-- [Cómo probar contratos después de que han sido implementados en una red](https://fulldecent.blogspot.com/2019/04/testing-deployed-ethereum-contracts.html)
+- [Cómo ejecutar pruebas unitarias en Solidity usando Foundry](https://www.rareskills.io/post/foundry-testing-solidity)
 
 ## Más información {#further-reading}
 

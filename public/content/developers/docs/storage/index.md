@@ -38,14 +38,14 @@ Platforms with blockchain-based persistence:
 
 **Contract-based** persistence has the intuition that data cannot be replicated by every node and stored forever, and instead must be upkept with contract agreements. These are agreements made with multiple nodes that have promised to hold a piece of data for a period of time. They must be refunded or renewed whenever they run out to keep the data persisted.
 
-In most cases, instead of storing all data on-chain, the hash of where the data is located on a chain gets stored. This way, the entire chain doesn't need to scale to keep all of the data.
+In most cases, instead of storing all data onchain, the hash of where the data is located on a chain gets stored. This way, the entire chain doesn't need to scale to keep all of the data.
 
 Platforms with contract-based persistence:
 
 - [Filecoin](https://docs.filecoin.io/about-filecoin/what-is-filecoin/)
 - [Skynet](https://siasky.net/)
 - [Storj](https://storj.io/)
-- [0Chain](https://0chain.net/)
+- [Züs](https://zus.network/)
 - [Crust Network](https://crust.network)
 - [Swarm](https://www.ethswarm.org/)
 - [4EVERLAND](https://www.4everland.org/)
@@ -61,6 +61,7 @@ IPFS is a distributed system for storing and accessing files, websites, applicat
 - [IPFS Scan](https://ipfs-scan.io) _(IPFS pinning explorer)_
 - [4EVERLAND](https://www.4everland.org/)_（IPFS pinning service）_
 - [Filebase](https://filebase.com) _(IPFS Pinning Service)_
+- [Spheron Network](https://spheron.network/) _(IPFS/Filecoin pinning service)_
 
 SWARM is a decentralized data storage and distribution technology with a storage incentive system and a storage rent price oracle.
 
@@ -74,7 +75,7 @@ One of the most popular ways to make sure data is retained, is to use some type 
 
 Types of dStorage with a challenge mechanism:
 
-- 0Chain
+- Züs
 - Skynet
 - Arweave
 - Filecoin
@@ -87,7 +88,6 @@ There aren't great tools to measure the level of decentralization of platforms, 
 
 Decentralized tools without KYC:
 
-- 0Chain (implementing a non-KYC edition)
 - Skynet
 - Arweave
 - Filecoin
@@ -109,7 +109,7 @@ Proof-of-stake based:
 
 - Ethereum
 - Filecoin
-- 0Chain
+- Züs
 - Crust Network
 
 ## Related tools {#related-tools}
@@ -144,10 +144,10 @@ Proof-of-stake based:
 - [Documentation](https://docs.arweave.org/info/)
 - [Arweave](https://github.com/ArweaveTeam/arweave/)
 
-**0chain - _0Chain is a proof-of-stake dStorage platform with sharding and blobbers._**
+**Züs - _Züs is a proof-of-stake dStorage platform with sharding and blobbers._**
 
-- [0Chain.net](https://0chain.net/)
-- [Documentation](https://docs.0chain.net/0chain/)
+- [zus.network](https://zus.network/)
+- [Documentation](https://0chaindocs.gitbook.io/zus-docs)
 - [GitHub](https://github.com/0chain/)
 
 **Crust Network - _Crust is a dStorage platform on top of the IPFS._**
@@ -197,6 +197,12 @@ Proof-of-stake based:
 - [Kaleido](https://kaleido.io/)
 - [Documentation](https://docs.kaleido.io/kaleido-services/ipfs/)
 - [GitHub](https://github.com/kaleido-io)
+
+**Spheron Network - _Spheron is a platform-as-a-service (PaaS) designed for dApps looking to launch their applications on decentralized infra with best performance. It provides compute, decentralized storage, CDN & web hosting out of the box._**
+
+- [spheron.network](https://spheron.network/)
+- [Documentation](https://docs.spheron.network/)
+- [GitHub](https://github.com/spheronFdn)
 
 ## Further reading {#further-reading}
 

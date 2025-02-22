@@ -1,30 +1,42 @@
-import { HStack } from "@chakra-ui/react"
+import type { CSSProperties } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+
+import { HStack } from "@/components/ui/flex"
+
+import { screens } from "@/lib/utils/screen"
+
+import { langViewportModes } from "../../../../.storybook/modes"
 
 import MdxHeroComponent from "./"
 
-type MdxHeroType = typeof MdxHeroComponent
-
 const meta = {
   title: "Organisms / Layouts / Hero",
+  component: MdxHeroComponent,
   parameters: {
     layout: "none",
+    chromatic: {
+      modes: {
+        ...langViewportModes,
+      },
+    },
   },
   decorators: [
     (Story) => (
-      <HStack maxW="container.2xl" m="auto" height="100vh">
+      <HStack
+        style={{ "--hero-decorator-max-w": screens["2xl"] } as CSSProperties}
+        className="mx-auto h-[100vh] max-w-[var(--hero-decorator-max-w)]"
+      >
         <Story />
       </HStack>
     ),
   ],
-} satisfies Meta<MdxHeroType>
+} satisfies Meta<typeof MdxHeroComponent>
 
 export default meta
 
-export const MdxHero: StoryObj<MdxHeroType> = {
+export const MdxHero: StoryObj<typeof meta> = {
   args: {
     breadcrumbs: { slug: "/en/staking/solo/" },
     title: "Solo stake your Eth",
   },
-  render: (args) => <MdxHeroComponent {...args} />,
 }

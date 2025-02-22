@@ -1,22 +1,19 @@
-import { Stack } from "@chakra-ui/react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, type StoryObj } from "@storybook/react"
+
+import { Stack } from "../ui/flex"
 
 import BreadcrumbsComponent from "."
 
-type BreadcrumbsType = typeof BreadcrumbsComponent
-
-const meta: Meta<BreadcrumbsType> = {
+const meta = {
   title: "Molecules / Navigation / Breadcrumbs",
   component: BreadcrumbsComponent,
-}
+} satisfies Meta<typeof BreadcrumbsComponent>
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
-export const Breadcrumbs: Story = {
+export const Breadcrumbs: StoryObj = {
   render: () => (
-    <Stack spacing="8">
+    <Stack className="gap-8">
       <BreadcrumbsComponent slug="/en/staking/" />
       <BreadcrumbsComponent slug="/en/staking/solo/" />
       <BreadcrumbsComponent slug="/en/roadmap/merge/issuance/" />

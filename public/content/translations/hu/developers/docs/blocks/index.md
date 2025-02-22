@@ -55,7 +55,7 @@ A blokk `body` számos mezőt tartalmaz:
 | `eth1_data`          | információ a letéti szerződésről                                    |
 | `graffiti`           | tetszőleges adat a blokkok taggelésére                              |
 | `proposer_slashings` | a validátorok listája, akiket slashelni kell                        |
-| `attester_slashings` | a validátorok listája, akiket slashelni kell                        |
+| `attester_slashings` | a tanusítók listája, akiket slashelni kell                          |
 | `tanúsítások`        | a tanúsítók listája, akik ezt a blokkot támogatják                  |
 | `behelyezés`         | az új letétek listája a letéti szerződésbe                          |
 | `voluntary_exits`    | a validátorok listája, akik kilépnek a hálózatból                   |
@@ -95,7 +95,7 @@ Az `execution_payload_header` a következő mezőket tartalmazza:
 | `block_number`      | a jelenlegi blokk száma                                                  |
 | `gas_limit`         | a jelenlegi blokkban megengedett maximális gáz                           |
 | `gas_used`          | a jelenlegi blokkban elhasznált gáz aktuális összege                     |
-| `timestamp`         | a blokk ideje                                                            |
+| `időbélyeg`         | a blokk ideje                                                            |
 | `extra_data`        | tetszőleges hozzáadott adat, mint nyers bájt                             |
 | `base_fee_per_gas`  | az alapdíj értéke                                                        |
 | `block_hash`        | a végrehajtó blokk hash-e                                                |
@@ -115,7 +115,7 @@ Az `execution_payload` maga a következőket tartalmazza (ami azonos a fejlécce
 | `block_number`     | a jelenlegi blokk száma                                                  |
 | `gas_limit`        | a jelenlegi blokkban megengedett maximális gáz                           |
 | `gas_used`         | a jelenlegi blokkban elhasznált gáz aktuális összege                     |
-| `timestamp`        | a blokk ideje                                                            |
+| `időbélyeg`        | a blokk ideje                                                            |
 | `extra_data`       | tetszőleges hozzáadott adat, mint nyers bájt                             |
 | `base_fee_per_gas` | az alapdíj értéke                                                        |
 | `block_hash`       | a végrehajtó blokk hash-e                                                |
@@ -139,7 +139,7 @@ Ez különbözik a proof-of-work alapú rendszerektől, ahol a blokk ideje való
 
 ## Blokkméret {#block-size}
 
-Utolsó fontos megjegyzés, hogy a blokkok maguk is korlátozott méretűek. Minden blokk 15 millió gáz célmérettel rendelkezik, de a blokk mérete a hálózati kereslet függvényében, egészen a 30 millió gáz határig (ami a célméret kétszerese) változik. A blokkban lévő tranzakciók által elköltött teljes gáz mennyisége kevesebb kell legyen, mint a blokk gázkorlátozása. Ez fontos, mert ez azt jelenti, hogy a blokkok nem lehetnek tetszőlegesen nagyok. Ha a blokkok tetszőlegesen nagyok lehetnének, akkor a kevésbé teljesítőképes teljes csomópontok egyre kevésbé tudnának lépést tartani a hálózattal a tárhely- és sebességigények miatt. Minél nagyobb a blokk, annál nagyobb számítási erő kell ahhoz, hogy időben fel legyen dolgozva a következő slotra. Ez egy centralizáló erő, amelynek úgy áll ellen, hogy határt szab a méretnek.
+Utolsó fontos megjegyzés, hogy a blokkok maguk is korlátozott méretűek. Minden blokk 15 millió gáz célmérettel rendelkezik, de a blokk mérete a hálózati kereslet függvényében, egészen a 30 millió gáz határig (ami a célméret kétszerese) változik. A blokk gázkorlátja felfelé vagy lefelé is igazodhat az előző blokk gázkorlátjának 1/1024 faktorával. Így a validátorok megváltoztathatják a blokk gázkorlátját a konszenzus révén. A blokkban lévő tranzakciók által elköltött teljes gáz mennyisége kevesebb kell legyen, mint a blokk gázkorlátozása. Ez fontos, mert ez azt jelenti, hogy a blokkok nem lehetnek tetszőlegesen nagyok. Ha a blokkok tetszőlegesen nagyok lehetnének, akkor a kevésbé teljesítőképes teljes csomópontok egyre kevésbé tudnának lépést tartani a hálózattal a tárhely- és sebességigények miatt. Minél nagyobb a blokk, annál nagyobb számítási erő kell ahhoz, hogy időben fel legyen dolgozva a következő slotra. Ez egy centralizáló erő, amelynek úgy áll ellen, hogy határt szab a méretnek.
 
 ## További olvasnivaló {#further-reading}
 

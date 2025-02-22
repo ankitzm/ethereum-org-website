@@ -1,48 +1,47 @@
-import * as React from "react"
-import { useTranslation } from "next-i18next"
-import { Box } from "@chakra-ui/react"
+import { useTranslations } from "next-intl"
+import type { CSSProperties } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 
-import HubHeroComponent from "./"
+import { screens } from "@/lib/utils/screen"
 
-type HubHeroType = typeof HubHeroComponent
+import { langViewportModes } from "../../../../.storybook/modes"
+
+import HubHeroComponent, { type HubHeroProps } from "./"
+
+import learnHubHeroImg from "@/public/images/heroes/learn-hub-hero.png"
 
 const meta = {
   title: "Organisms / Layouts / Hero",
   component: HubHeroComponent,
   parameters: {
     layout: "none",
+    chromatic: {
+      modes: {
+        ...langViewportModes,
+      },
+    },
   },
   decorators: [
     (Story) => (
-      <Box maxW="container.2xl" mx="auto">
+      <div
+        style={{ "--hero-decorator-max-w": screens["2xl"] } as CSSProperties}
+        className="mx-auto max-w-[var(--hero-decorator-max-w)]"
+      >
         <Story />
-      </Box>
+      </div>
     ),
   ],
-} satisfies Meta<HubHeroType>
+} satisfies Meta<typeof HubHeroComponent>
 
 export default meta
 
-import { CommonHeroProps } from "@/lib/types"
+export const HubHero: StoryObj = {
+  render: () => {
+    const t = useTranslations()
 
-import learnHubHeroImg from "../../../../public/heroes/learn-hub-hero.png"
-
-export const HubHero: StoryObj<typeof meta> = {
-  args: {
-    title: "common:learn-hub",
-    header: "page-learn:hero-header",
-    description: "page-learn:hero-subtitle",
-    heroImg: learnHubHeroImg,
-  },
-
-  render: ({ title, header, description, ...props }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { t } = useTranslation()
-
-    const buttons: CommonHeroProps["buttons"] = [
+    const buttons: HubHeroProps["buttons"] = [
       {
-        content: t("page-learn:hero-button-lets-get-started"),
+        content: t("page-learn.hero-button-lets-get-started"),
         toId: "what-is-crypto-ethereum",
         matomo: {
           eventCategory: "learn hub hero buttons",
@@ -62,11 +61,11 @@ export const HubHero: StoryObj<typeof meta> = {
 
     return (
       <HubHeroComponent
-        title={t(title)}
-        header={t(header)}
-        description={t(description)}
+        title={t("common.learn-hub")}
+        header={t("page-learn.hero-header")}
+        description={t("page-learn.hero-subtitle")}
+        heroImg={learnHubHeroImg}
         buttons={buttons}
-        {...props}
       />
     )
   },

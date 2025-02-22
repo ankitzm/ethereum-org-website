@@ -1,49 +1,51 @@
 import { useState } from "react"
-import { shuffle } from "lodash"
-import { useRouter } from "next/router"
-import { useTranslation } from "next-i18next"
+import shuffle from "lodash/shuffle"
+import { useLocale } from "next-intl"
 
 // TODO: Remove unused?
-// import argent from "@/public/wallets/argent.png"
-// import binanceus from "@/public/exchanges/binance.png"
-// import imtoken from "@/public/wallets/imtoken.png"
-// import mycrypto from "@/public/wallets/mycrypto.png"
-// import myetherwallet from "@/public/wallets/myetherwallet.png"
-// import squarelink from "@/public/wallets/squarelink.png"
-// import trust from "@/public/wallets/trust.png"
+// import argent from "@/public/images/wallets/argent.png"
+// import binanceus from "@/public/images/exchanges/binance.png"
+// import imtoken from "@/public/images/wallets/imtoken.png"
+// import mycrypto from "@/public/images/wallets/mycrypto.png"
+// import myetherwallet from "@/public/images/wallets/myetherwallet.png"
+// import squarelink from "@/public/images/wallets/squarelink.png"
+// import trust from "@/public/images/wallets/trust.png"
 import type { ImageProps } from "@/components/Image"
+import { SelectOnChange } from "@/components/Select"
 
 import { trackCustomEvent } from "@/lib/utils/matomo"
 
 import exchangeData from "@/data/exchangesByCountry"
 
-import binance from "@/public/exchanges/binance.png"
-import bitbuy from "@/public/exchanges/bitbuy.png"
-import bitfinex from "@/public/exchanges/bitfinex.png"
-import bitflyer from "@/public/exchanges/bitflyer.png"
-import bitkub from "@/public/exchanges/bitkub.png"
-import bitso from "@/public/exchanges/bitso.png"
-import bittrex from "@/public/exchanges/bittrex.png"
-import bitvavo from "@/public/exchanges/bitvavo.png"
-import bybit from "@/public/exchanges/bybit.png"
-import coinbase from "@/public/exchanges/coinbase.png"
-import coinmama from "@/public/exchanges/coinmama.png"
-import coinspot from "@/public/exchanges/coinspot.png"
-import cryptocom from "@/public/exchanges/crypto.com.png"
-import easycrypto from "@/public/exchanges/easycrypto.png"
-import gateio from "@/public/exchanges/gateio.png"
-import gemini from "@/public/exchanges/gemini.png"
-import huobiglobal from "@/public/exchanges/huobiglobal.png"
-import itezcom from "@/public/exchanges/itezcom.png"
-import korbit from "@/public/exchanges/korbit.png"
-import kraken from "@/public/exchanges/kraken.png"
-import kucoin from "@/public/exchanges/kucoin.png"
-import moonpay from "@/public/exchanges/moonpay.png"
-import mtpelerin from "@/public/exchanges/mtpelerin.png"
-import okx from "@/public/exchanges/okx.png"
-import rain from "@/public/exchanges/rain.png"
-import shakepay from "@/public/exchanges/shakepay.png"
-import wazirx from "@/public/exchanges/wazirx.png"
+import { useTranslation } from "@/hooks/useTranslation"
+import binance from "@/public/images/exchanges/binance.png"
+import bitbuy from "@/public/images/exchanges/bitbuy.png"
+import bitfinex from "@/public/images/exchanges/bitfinex.png"
+import bitflyer from "@/public/images/exchanges/bitflyer.png"
+import bitkub from "@/public/images/exchanges/bitkub.png"
+import bitso from "@/public/images/exchanges/bitso.png"
+import bittrex from "@/public/images/exchanges/bittrex.png"
+import bitvavo from "@/public/images/exchanges/bitvavo.png"
+import bybit from "@/public/images/exchanges/bybit.png"
+import coinbase from "@/public/images/exchanges/coinbase.png"
+import coinmama from "@/public/images/exchanges/coinmama.png"
+import coinspot from "@/public/images/exchanges/coinspot.png"
+import cryptocom from "@/public/images/exchanges/crypto.com.png"
+import easycrypto from "@/public/images/exchanges/easycrypto.png"
+import gateio from "@/public/images/exchanges/gateio.png"
+import gemini from "@/public/images/exchanges/gemini.png"
+import huobiglobal from "@/public/images/exchanges/huobiglobal.png"
+import itezcom from "@/public/images/exchanges/itezcom.png"
+import korbit from "@/public/images/exchanges/korbit.png"
+import kraken from "@/public/images/exchanges/kraken.png"
+import kucoin from "@/public/images/exchanges/kucoin.png"
+import matrixport from "@/public/images/exchanges/matrixport.png"
+import moonpay from "@/public/images/exchanges/moonpay.png"
+import mtpelerin from "@/public/images/exchanges/mtpelerin.png"
+import okx from "@/public/images/exchanges/okx.png"
+import rain from "@/public/images/exchanges/rain.png"
+import shakepay from "@/public/images/exchanges/shakepay.png"
+import wazirx from "@/public/images/exchanges/wazirx.png"
 
 type ExchangeKey =
   | "binance"
@@ -65,15 +67,16 @@ type ExchangeKey =
   | "gemini"
   | "huobiglobal"
   | "itezcom"
+  | "korbit"
   | "kraken"
   | "kucoin"
-  | "mtpelerin"
+  | "matrixport"
   | "moonpay"
+  | "mtpelerin"
   | "okx"
   | "rain"
   | "shakepay"
   | "wazirx"
-  | "korbit"
 
 type ExchangeDetail = {
   name: string
@@ -115,7 +118,25 @@ const exchanges: ExchangeDetails = {
     name: "Binance US",
     url: "https://www.binance.us/",
     image: binance,
-    usaExceptions: ["HI", "ID", "NY", "TX", "VT"],
+    // Updated Dec 4th 2024 https://support.binance.us/hc/en-us/articles/360046786914-List-of-supported-states-and-regions
+    usaExceptions: [
+      "AK", // Alaska
+      "AS", // American Samoa
+      "CT", // Connecticut
+      "GA", // Georgia
+      "GU", // Guam
+      "ME", // Maine
+      "MP", // Northern Mariana Islands
+      "NY", // New York
+      "NC", // North Carolina
+      "ND", // North Dakota
+      "OH", // Ohio
+      "OR", // Oregon
+      "TX", // Texas
+      "VI", // U.S. Virgin Islands
+      "VT", // Vermont
+      "WA", // Washington
+    ],
   },
   bitbuy: {
     name: "Bitbuy",
@@ -207,6 +228,12 @@ const exchanges: ExchangeDetails = {
     image: huobiglobal,
     usaExceptions: [],
   },
+  matrixport: {
+    name: "Matrixport",
+    url: "https://www.matrixport.com/",
+    image: matrixport,
+    usaExceptions: [],
+  },
   itezcom: {
     name: "Itez",
     url: "https://itez.com/",
@@ -276,7 +303,7 @@ const exchanges: ExchangeDetails = {
 }
 
 export const useCentralizedExchanges = () => {
-  const { locale } = useRouter()
+  const locale = useLocale()
   const { t } = useTranslation("page-get-eth")
   const [selectedCountry, setSelectedCountry] =
     useState<ExchangeByCountryOption | null>()
@@ -294,9 +321,10 @@ export const useCentralizedExchanges = () => {
     }))
     .sort((a, b) => a.value.localeCompare(b.value))
 
-  const handleSelectChange = (
-    selectedOption: ExchangeByCountryOption
-  ): void => {
+  const handleSelectChange: SelectOnChange<ExchangeByCountryOption> = (
+    selectedOption
+  ) => {
+    if (!selectedOption) return
     trackCustomEvent({
       eventCategory: `Country input`,
       eventAction: `Selected`,

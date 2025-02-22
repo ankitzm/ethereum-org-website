@@ -53,6 +53,12 @@ Before diving into frameworks, we recommend you first read through our introduct
 - [Documentation](https://docs.web3j.io)
 - [GitHub](https://github.com/web3j/web3j)
 
+**ethers-kt -** **_Async, high-performance Kotlin/Java/Android library for EVM-based blockchains._**
+
+- [GitHub](https://github.com/Kr1ptal/ethers-kt)
+- [Examples](https://github.com/Kr1ptal/ethers-kt/tree/master/examples)
+- [Discord](https://discord.gg/rx35NzQGSb)
+
 **Create Eth App -** **_Create Ethereum-powered apps with one command. Comes with a wide offering of UI frameworks and DeFi templates to choose from._**
 
 - [GitHub](https://github.com/paulrberg/create-eth-app)
@@ -60,7 +66,7 @@ Before diving into frameworks, we recommend you first read through our introduct
 
 **Scaffold-Eth -** **_Ethers.js + Hardhat + React components and hooks for web3: everything you need to get started building decentralized applications powered by smart contracts._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 
 **Tenderly -** **_Web3 development platform that enables blockchain developers to build, test, debug, monitor, and operate smart contracts and improve dapp UX._**
 
@@ -95,17 +101,17 @@ Before diving into frameworks, we recommend you first read through our introduct
 - [GitHub](https://github.com/chainstack)
 - [Discord](https://discord.gg/BSb5zfp9AT)
 
+**Crossmint -** **_Enterprise-grade web3 development platform, that allows you to build NFT applications on all major chains EVM Chains(and others)._**
+
+- [Website](https://www.crossmint.com)
+- [Documentation](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
+
 **Brownie -** **_Python-based development environment and testing framework._**
 
 - [Documentation](https://eth-brownie.readthedocs.io/en/latest/)
 - [GitHub](https://github.com/eth-brownie/brownie)
 - **Brownie is currently unmaintained**
-
-**Truffle -** **_A development environment, testing framework, build pipeline, and other tools._**
-
-- [trufflesuite.com](https://www.trufflesuite.com/)
-- [GitHub](https://github.com/trufflesuite/truffle)
-- **Truffle development has ended** - [read more](https://twitter.com/trufflesuite/status/1704946902393860589?t=NlIWeLTbBSAaJmS5uUAhSA&s=19)
 
 **OpenZeppelin SDK -** **_The Ultimate Smart Contract Toolkit: A suite of tools to help you develop, compile, upgrade, deploy and interact with smart contracts._**
 
@@ -113,6 +119,34 @@ Before diving into frameworks, we recommend you first read through our introduct
 - [GitHub](https://github.com/OpenZeppelin/openzeppelin-sdk)
 - [Community Forum](https://forum.openzeppelin.com/c/support/17)
 - **OpenZeppelin SDK development has ended**
+
+**Catapulta -** **_Multi-chain smart contracts deployment tool, automate verifications in block explorers, keep track deployed smart contracts and share deployment reports, plug-n-play for Foundry and Hardhat projects._**
+
+- [Website](https://catapulta.sh/)
+- [Documentation](https://catapulta.sh/docs)
+- [Github](https://github.com/catapulta-sh)
+
+**Covalent -** **_Enriched blockchain APIs for 200+ Chains._**
+
+- [covalenthq.com](https://www.covalenthq.com/)
+- [Documentation](https://www.covalenthq.com/docs/api/)
+- [GitHub](https://github.com/covalenthq)
+- [Discord](https://www.covalenthq.com/discord/)
+
+**Wake -** **_All-in-one Python framework for contracts testing, fuzzing, deployment, vulnerability scanning and code navigation._**
+
+- [Homepage](https://getwake.io/)
+- [Documentation](https://ackeeblockchain.com/wake/docs/latest/)
+- [GitHub](https://github.com/Ackee-Blockchain/wake)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=AckeeBlockchain.tools-for-solidity)
+
+**Veramo -** **_Open source, modular and agnostic framework that makes it easy for decentralized application developers to build decentralized identities and verifiable credentials into their applications._**
+
+- [Homepage](https://veramo.io/)
+- [Documentation](https://veramo.io/docs/basics/introduction)
+- [GitHub](https://github.com/uport-project/veramo)
+- [Discord](https://discord.com/invite/FRRBdjemHV)
+- [NPM Package](https://www.npmjs.com/package/@veramo/core)
 
 ## Further reading {#further-reading}
 

@@ -1,16 +1,13 @@
-import {
-  Center,
-  Modal as ChakraModal,
-  ModalCloseButton,
-  ModalContent,
-  ModalContentProps,
-  ModalOverlay,
-  ModalProps,
-} from "@chakra-ui/react"
-
 import { QuizStatus } from "@/lib/types"
 
-type QuizzesModalProps = Omit<ModalProps, "isCentered" | "scrollBehavior"> & {
+import Modal, { type ModalProps } from "../ui/dialog-modal"
+import { Center } from "../ui/flex"
+
+import { useBreakpointValue } from "@/hooks/useBreakpointValue"
+
+type QuizzesModalProps = {
+  isQuizModalOpen: boolean
+  onQuizModalOpenChange: (open: boolean) => void
   children: React.ReactNode
   quizStatus: QuizStatus
 }
@@ -18,32 +15,30 @@ type QuizzesModalProps = Omit<ModalProps, "isCentered" | "scrollBehavior"> & {
 const QuizzesModal = ({
   children,
   quizStatus,
+  isQuizModalOpen,
+  onQuizModalOpenChange,
   ...props
 }: QuizzesModalProps) => {
-  const getStatusColor = (): ModalContentProps["bg"] => {
-    if (quizStatus === "neutral") {
-      return "neutral"
-    }
-    if (quizStatus === "success") {
-      return "success.neutral"
-    }
-    return "error.neutral"
+  // TODO: remove bang in utility class names when Modal is migrated
+  const getStatusColorClass = () => {
+    if (quizStatus === "neutral") return "!bg-background"
+    if (quizStatus === "success")
+      return "!bg-success-light dark:!bg-success-dark"
+    return "!bg-error-light dark:!bg-error-dark"
   }
 
+  const size = useBreakpointValue<ModalProps["size"]>({ base: "xl", md: "md" })!
+
   return (
-    <ChakraModal
-      isCentered
-      size={{ base: "full", md: "xl" }}
-      scrollBehavior="inside"
+    <Modal
+      open={isQuizModalOpen}
+      onOpenChange={onQuizModalOpenChange}
+      size={size}
+      contentProps={{ className: getStatusColorClass() }}
       {...props}
     >
-      <ModalOverlay bg="blackAlpha.700" />
-
-      <Center as={ModalContent} m={0} bg={getStatusColor()} py="16">
-        <ModalCloseButton size="lg" p="6" />
-        {children}
-      </Center>
-    </ChakraModal>
+      <Center>{children}</Center>
+    </Modal>
   )
 }
 

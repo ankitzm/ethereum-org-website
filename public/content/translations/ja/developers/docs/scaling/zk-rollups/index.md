@@ -117,7 +117,7 @@ ZK-STARKはさらに量子コンピュータに対してもセキュリティを
 
 ZKロールアップのノードは、トランザクションが一定数に達すると、これらをバッチ化した上で、証明サーキット向けのインプットをコンパイルして簡潔なゼロ知識証明としてコンパイルします。 このゼロ知識証明には、以下が含まれます：
 
-- A Merkle tree root comprising all the transactions in the batch.
+- バッチに含まれるすべてのトランザクションで構成されるマークルツリールート。
 - 各トランザクションが当該バッチに含まれることを証明するマークル証明。
 - トランザクションにおける送信者／受信者ペアのアカウントが、ロールアップのステートツリーに含まれることを証明するマークル証明。
 - 各トランザクションに対する状態更新を適用した後の状態ルートの更新により得られる、プロセスの中間における状態ルートのセット（つまり、送信者アカウントの残高減と受信者アカウントの残高増）。
@@ -182,7 +182,7 @@ ZKロールアップにおけるトランザクション手数料は、イーサ
 
 2. **データの公開**: ZKロールアップでは、各トランザクションの状態データを`calldata`としてイーサリアムに送信します。 現在、`calldata`のコストは [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) によって管理されています。 `calldata` の非ゼロバイトに対しては16ガス、ゼロバイトに対しては4ガスのコストが、それぞれ規定されています。 各トランザクションに対して支払われるコストは、オンチェーンで公開される`calldata`の規模に応じて決定されます。
 
-3. **L2オペレーターに対する手数料**: これは、イーサリアムにおけるマイナー手数料の場合と同様に、トランザクションの処理で発生した計算コストの代価としてロールアップのオペレーターに支払う手数料です。
+3. **L2オペレーター手数料**：これは、トランザクション処理にかかる計算コストに対する補償としてロールアップオペレーターに支払われる金額で、イーサリアムメインネットにおける[トランザクションの「優先手数料 (チップ) 」](/developers/docs/gas/#how-are-gas-fees-calculated)に似ています。
 
 4. **有効性証明の生成と検証**: ZKロールアップのオペレーターは、多くのリソースを用いてトランザクションバッチに対する有効性証明を生成しなければなりません。 メインネットにおけるゼロ知識証明の検証にもガス代が発生します（最大50万ガス）。
 
@@ -222,27 +222,23 @@ FinematicsによるZKロールアップの説明動画をご覧ください：
 
 <YouTube id="7pWxCklcNsU" start="406" />
 
-### ゼロ知識ロールアップの活用方法 {#use-zk-rollups}
-
-現在、Dappに統合可能ないくつかのZKロールアップの実装が提供されています：
-
-<RollupProductDevDoc rollupType="zk" />
-
 ## zkEVMの開発プロジェクト {#zkevm-projects}
 
 現在、zkEVMの開発に取り組んでいるプロジェクトとしては、以下が挙げられます：
 
-- **[Applied ZKP](https://github.com/privacy-scaling-explorations/zkevm-specs)** - _Applied ZKPは、イーサリアム・ファウンデーションによる資金提供に基づき、EVM互換のZKロールアップならびにイーサリアムブロックに対する有効性証明を生成するメカニズムを開発するプロジェクトです。
+- **[zkEVM](https://github.com/privacy-scaling-explorations/zkevm-specs)** - _zkEVMは、イーサリアム・ファウンデーションによる資金提供に基づき、EVM互換のZKロールアップならびにイーサリアムブロックに対する有効性証明を生成するメカニズムを開発するプロジェクトです。_
 
-- **[Polygon zkEVM](https://polygon.technology/solutions/polygon-zkevm)** - _イーサリアムメインネット上の分散型ゼロ知識ロールアップであり、ゼロ知識証明による検証が可能なスマートコントラクトなど、イーサリアムのトランザクションを透明性が高い方法で実行するゼロ知識イーサリアム仮想マシン(zkEVM)の開発に取り組んでいます。
+- **[Polygon zkEVM](https://polygon.technology/solutions/polygon-zkevm)** - _イーサリアムメインネット上の分散型ゼロ知識ロールアップであり、ゼロ知識証明による検証が可能なスマートコントラクトなど、イーサリアムのトランザクションを透明性が高い方法で実行するゼロ知識イーサリアム仮想マシン(zkEVM)の開発に取り組んでいます。_
 
 - **[Scroll](https://scroll.io/blog/zkEVM)** - _Scrollは、ネイティブのzkEVMを搭載したイーサリアムのレイヤー2ソリューションを開発中のテクノロジー企業です。_
 
-- **[Taiko](https://taiko.xyz)** - _Taikoは、分散型でイーサリアム等価のゼロ知識ロールアップ([タイプ1のゼロ知識イーサリアム仮想マシン](https://vitalik.ca/general/2022/08/04/zkevm.html))_です。
+- **[Taiko](https://taiko.xyz)** - _Taiko は分散型のイーサリアム等価のゼロ知識ロールアップです ([タイプ1のZK-EVM](https://vitalik.eth.limo/general/2022/08/04/zkevm.html))_。
 
-- **[ZKSync](https://docs.zksync.io/zkevm/)** - _ZkSync Era is an EVM-compatible ZK Rollup built by Matter Labs, powered by its own zkEVM._
+- **[ZKsync](https://docs.zksync.io/)** - _ZKsync Eraは、Matter Labsによって構築されたEVM互換のZKロールアップであり、自社開発のzkEVMを基盤としています。_
 
-- **[Starknet](https://starkware.co/starknet/)** - _StarkNet is an EVM-compatible layer 2 scaling solution built by StarkWare._
+- **[Starknet](https://starkware.co/starknet/)** - _StarkNetは、StarkWareによって開発されたEVM互換のレイヤー2スケーリングソリューションです。_
+
+- **[Morph](https://www.morphl2.io/)** - _Morphは、ハイブリッドのロールアップ・スケーリング・ソリューションで、レイヤー2の状態における異議申し立て問題の対処にゼロ知識証明を利用します。_
 
 ## ZKロールアップの参考文献 {#further-reading-on-zk-rollups}
 
@@ -250,7 +246,8 @@ FinematicsによるZKロールアップの説明動画をご覧ください：
 - [ゼロ知識ロールアップとは？](https://alchemy.com/blog/zero-knowledge-rollups)
 - [STARKとSNARKの相違点](https://consensys.net/blog/blockchain-explained/zero-knowledge-proofs-starks-vs-snarks/)
 - [zkEVMとは何か？](https://www.alchemy.com/overviews/zkevm)
+- [ZK-EVMの種類: イーサリアム等価、EVM等価、タイプ1、タイプ4、他のクリプトバズワード](https://taiko.mirror.xyz/j6KgY8zbGTlTnHRFGW6ZLVPuT0IV0_KmgowgStpA0K4)
 - [zkEVMのイントロダクション](https://hackmd.io/@yezhang/S1_KMMbGt)
 - [有益なzkEVM関連リソース](https://github.com/LuozhuZhang/awesome-zkevm)
-- [ZK-SNARKの仕組み](https://vitalik.ca/general/2017/02/01/zk_snarks.html)
-- [SNARKはどのように実現されているのか？](https://vitalik.ca/general/2021/01/26/snarks.html)
+- [ZK-SNARKの仕組み](https://vitalik.eth.limo/general/2017/02/01/zk_snarks.html)
+- [SNARKはどのように実現されているのか？](https://vitalik.eth.limo/general/2021/01/26/snarks.html)

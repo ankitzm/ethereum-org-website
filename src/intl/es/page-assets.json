@@ -25,7 +25,7 @@
   "page-assets-eth-logo-portrait-gray": "Logo ETH vertical (gris)",
   "page-assets-eth-logo-portrait-purple": "Logo ETH vertical (morado)",
   "page-assets-eth-logo-portrait-white": "Logo ETH vertical (blanco)",
-  "page-assets-eth-wordmark-gray": "Marca denominativa EHT (gris)",
+  "page-assets-eth-wordmark-gray": "Marca denominativa ETH (gris)",
   "page-assets-eth-wordmark-purple": "Marca denominativa ETH (morada)",
   "page-assets-eth-wordmark-white": "Marca denominativa ETH (blanca)",
   "page-assets-ethereum-brand-assets": "Activos de marca de Ethereum",
@@ -49,5 +49,13 @@
   "page-assets-page-assets-transparent-background": "Fondo transparente",
   "page-assets-robot": "Cartera robot",
   "page-assets-sharding": "Fragmentación",
-  "page-assets-hackathon": "Hackathon"
+  "page-assets-hackathon": "Hackathon",
+  "page-assets-learn-hero-name": "Universidad futurista",
+  "page-assets-community-hero-name": "Encuentro comunitario",
+  "page-assets-quizzes-hero-name": "Patio de recreo infinito",
+  "page-assets-developers-hero-name": "Construir el futuro",
+  "page-assets-garden-name": "Jardín de Ethereum",
+  "page-assets-roadmap-hero-name": "Camino(s) hacia el futuro",
+  "page-assets-layer-2-hero-name": "Construir Ethereum",
+  "page-assets-guides-hero-name": "Laboratorio de Ethereum"
 }

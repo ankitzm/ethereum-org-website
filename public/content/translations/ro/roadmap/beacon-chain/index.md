@@ -3,7 +3,7 @@ title: Lanțul Beacon
 description: Aflați despre Lanțul Beacon - actualizarea care a introdus în Ethereum dovada-mizei.
 lang: ro
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: Lanțul Beacon a introdus dovada mizei în ecosistemul Ethereum.
 summaryPoint2: Acesta a fost fuzionat cu lanțul dovadă a muncii Ethereum original în septembrie 2022.
@@ -58,7 +58,7 @@ Toate actualizările Ethereum se află într-o anumită corelație. Deci, să re
 
 La început, Lanțul Beacon a existat separat de Rețeaua principală Ethereum, dar au fuzionat în 2022.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   Fuziunea
 </ButtonLink>
 
@@ -66,7 +66,7 @@ La început, Lanțul Beacon a existat separat de Rețeaua principală Ethereum, 
 
 Fragmentarea poate intra în ecosistemul Ethereum în siguranță doar cu un mecanism de consens în vigoare, dovada mizei. Lanțul Beacon a introdus mizarea, care a „fuzionat” cu Rețeaua principală, deschizând calea pentru fragmentare, pentru o scalare și mai mare a Ethereum.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Lanțurile de fragmente
 </ButtonLink>
 

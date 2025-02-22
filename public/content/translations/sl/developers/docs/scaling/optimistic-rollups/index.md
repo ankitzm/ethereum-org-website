@@ -43,15 +43,8 @@ Oglejte si, kako Finematics razložijo optimistične zvitke:
 
 <YouTube id="7pWxCklcNsU" start="263" />
 
-### Uporaba optimističnih zvitkov {#use-optimistic-rollups}
-
-Obstaja več implementacij optimističnih zvitkov, ki jih lahko integrirate v svoje dappe:
-
-<RollupProductDevDoc rollupType="optimistic" />
-
 **Gradivo za branje o optimističnih zvitkih**
 
-- [Vse kar morate vedeti o Optimističnih zvitkih](https://research.paradigm.xyz/rollups)
 - [Ključni vodnik za Arbitrum](https://newsletter.banklesshq.com/p/the-essential-guide-to-arbitrum)
 - [Kako zares deluje zvitek Optimizma?](https://www.paradigm.xyz/2021/01/how-does-optimisms-rollup-really-work)
 - [Globoki vpogled v OVM](https://medium.com/ethereum-optimism/ovm-deep-dive-a300d1085f52)

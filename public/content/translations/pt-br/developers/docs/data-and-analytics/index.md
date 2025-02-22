@@ -30,11 +30,11 @@ Usando o [GraphQL](https://graphql.org/), os desenvolvedores podem consultar qua
 
 ## Diversidade dos clientes
 
-A [diversidade do cliente](/developers/docs/nodes-and-clients/client-diversity/) é importante para a saúde geral da rede Ethereum porque fornece resiliência a bugs e explorações. Agora existem vários painéis de diversidade do cliente, incluindo [clientdiversity.org](https://clientdiversity.org/), [rated.network](https://rated.network/), [execution-diversity.info](https://execution-diversity.info/) e [Ethernodes](https://ethernodes.org/).
+A [diversidade do cliente](/developers/docs/nodes-and-clients/client-diversity/) é importante para a saúde geral da rede Ethereum porque fornece resiliência a bugs e explorações. Agora existem vários painéis de diversidade do cliente, incluindo [clientdiversity.org](https://clientdiversity.org/), [rated.network](https://rated.network/), [supermajority.info](https://supermajority.info//) e [Ethernodes](https://ethernodes.org/).
 
 ## Dune Analytics {#dune-analytics}
 
-O [Dune Analytics](https://dune.com/) pré-processa dados da blockchain em tabelas de banco de dados relacional (PostgreSQL e DatabricksSQL), que permite aos usuários consultar dados da blockchain usando SQL e criem painéis com base nos resultados da consulta. Os dados on-chain são organizados em 4 tabelas brutas: `blocos`, `transações`, (evento) `registros` e (chamada) `traços`. Contratos e protocolos populares foram decodificados e cada um tem seu próprio conjunto de tabelas de eventos e chamadas. Essas tabelas de eventos e chamadas são processadas e organizadas em abstração de tabelas por tipo de protocolo, por exemplo, dex, lending, stablecoins etc.
+O [Dune Analytics](https://dune.com/) pré-processa dados da blockchain em tabelas de banco de dados relacional (DuneSQL), que permite aos usuários consultar dados da blockchain usando SQL e criem painéis com base nos resultados da consulta. Os dados on-chain são organizados em 4 tabelas brutas: `blocos`, `transações`, (evento) `registros` e (chamada) `traços`. Contratos e protocolos populares foram decodificados e cada um tem seu próprio conjunto de tabelas de eventos e chamadas. Essas tabelas de eventos e chamadas são processadas e organizadas em abstração de tabelas por tipo de protocolo, por exemplo, dex, lending, stablecoins etc.
 
 ## Leitura Adicional {#further-reading}
 

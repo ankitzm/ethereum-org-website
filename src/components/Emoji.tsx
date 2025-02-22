@@ -1,13 +1,18 @@
-import { type BaseProps, Twemoji } from "react-emoji-render"
-import { Box, type BoxProps } from "@chakra-ui/react"
+import { ComponentProps } from "react"
+import dynamic from "next/dynamic"
 
+import { cn } from "@/lib/utils/cn"
 import { IS_DEV } from "@/lib/utils/env"
 
-export type EmojiProps = Omit<BoxProps, "children"> & BaseProps
+const Twemoji = dynamic(
+  () => import("react-emoji-render").then((mod) => mod.Twemoji),
+  { ssr: false }
+)
 
-const Emoji = (props: EmojiProps) => (
-  <Box
-    as={Twemoji}
+export type EmojiProps = ComponentProps<typeof Twemoji>
+
+const Emoji = ({ className, ...props }: EmojiProps) => (
+  <Twemoji
     // The emoji lib is switching the protocol based on the existence of the
     // `location` object. That condition in DEV causes hydration mismatches.
     // https://github.com/tommoor/react-emoji-render/blob/master/src/index.js#L8
@@ -15,14 +20,7 @@ const Emoji = (props: EmojiProps) => (
     // avoid differences in SSR
     options={{ protocol: IS_DEV ? "http" : "https" }}
     svg
-    display="inline-block"
-    lineHeight="none"
-    sx={{
-      "& > img": {
-        margin: "0 !important",
-        display: "initial",
-      },
-    }}
+    className={cn("inline-block leading-none [&>img]:!m-0", className)}
     {...props}
   />
 )

@@ -11,6 +11,8 @@ lang: ja
 - Solidity
 - Vyper
 
+Remix IDEは、SolidityとVyperの両方でコントラクトを作成およびテストするための包括的な開発環境を提供します。 [ブラウザ内で動作するRemix IDEを試して](https://remix.ethereum.org)、コーディングを始めましょう。
+
 また、経験豊富なデベロッパーであれば、[イーサリアム仮想マシン](/developers/docs/evm/)用の中間言語であるYulや、Yulを拡張したYul+を使うのもよいでしょう。
 
 開発中の新しい言語に興味があり、テストに協力したいとお考えの場合は、Feというまだ登場したばかりのスマートコントラクト言語を試してみることができます。
@@ -35,7 +37,7 @@ lang: ja
 - [Solidity言語ポータル](https://soliditylang.org/)
 - [Solidity by Example](https://docs.soliditylang.org/en/latest/solidity-by-example.html)
 - [GitHub](https://github.com/ethereum/solidity/)
-- [Solidity Matrixチャットルーム](https://matrix.to/#/#ethereum_solidity:gitter.im)にブリッジされた[Solidity Gitterチャットルーム](https://gitter.im/ethereum/solidity/)
+- [Solidity Gitterチャットルーム](https://gitter.im/ethereum/solidity)は、[Solidity Matrixチャットルーム](https://matrix.to/#/#ethereum_solidity:gitter.im)へブリッジされました。
 - [チートシート](https://reference.auditless.com/cheatsheet)
 - [Solidityブログ](https://blog.soliditylang.org/)
 - [Solidity Twitter](https://twitter.com/solidity_lang)

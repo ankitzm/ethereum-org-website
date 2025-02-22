@@ -1,105 +1,79 @@
+import { BaseHTMLAttributes } from "react"
 import { motion } from "framer-motion"
-import { Box, type BoxProps, Text, UnorderedList } from "@chakra-ui/react"
-import * as NavigationMenu from "@radix-ui/react-navigation-menu"
+import {
+  Item,
+  List,
+  Root,
+  Trigger,
+  Viewport,
+} from "@radix-ui/react-navigation-menu"
 
-import { Button } from "@/components/Buttons"
+import { cn } from "@/lib/utils/cn"
 
-import { SECTION_LABELS } from "@/lib/constants"
+import { MAIN_NAV_ID, SECTION_LABELS } from "@/lib/constants"
 
+import { Button } from "../../ui/buttons/Button"
 import type { NavSections } from "../types"
 
-import SubMenu from "./SubMenu"
+import MenuContent from "./MenuContent"
 import { useNavMenu } from "./useNavMenu"
 
-type NavMenuProps = BoxProps & {
+type NavMenuProps = BaseHTMLAttributes<HTMLDivElement> & {
   sections: NavSections
 }
 
 const Menu = ({ sections, ...props }: NavMenuProps) => {
-  const {
-    activeSection,
-    containerVariants,
-    direction,
-    handleSectionChange,
-    isOpen,
-    menuColors,
-    onClose,
-  } = useNavMenu(sections)
+  const { activeSection, direction, handleSectionChange, isOpen } =
+    useNavMenu(sections)
 
   return (
-    <Box {...props}>
-      <NavigationMenu.Root
+    <div {...props}>
+      <Root
         dir={direction}
         orientation="horizontal"
         onValueChange={handleSectionChange}
+        delayDuration={0}
       >
-        <NavigationMenu.List asChild>
-          <UnorderedList display="flex" listStyleType="none" m="0">
-            {SECTION_LABELS.map((sectionKey) => {
-              const { label, items } = sections[sectionKey]
-              const isActive = activeSection === sectionKey
-              return (
-                <NavigationMenu.Item key={sectionKey} value={label}>
-                  <NavigationMenu.Trigger asChild>
-                    <Button
-                      py="2"
-                      px={{ base: "3", lg: "4" }}
-                      variant="ghost"
-                      whiteSpace="nowrap"
-                      color={isActive ? "primary.base" : "body.base"}
-                    >
-                      {/* Animated highlight for active section */}
-                      {isActive && (
-                        <Box
-                          as={motion.div}
-                          layoutId="active-section-highlight"
-                          position="absolute"
-                          inset="0"
-                          bg="primary.lowContrast"
-                          rounded="base"
-                          zIndex={0}
-                        />
-                      )}
-                      <Text as="span" position="relative" zIndex={1}>
-                        {label}
-                      </Text>
-                    </Button>
-                  </NavigationMenu.Trigger>
-                  <NavigationMenu.Content asChild>
-                    {/**
-                     * This is the CONTAINER for all three menu levels
-                     * This renders inside the NavigationMenu.Viewport component
-                     */}
-                    <Box
-                      as={motion.div}
-                      variants={containerVariants}
-                      initial={false}
-                      animate={isOpen ? "open" : "closed"}
-                      position="absolute"
-                      top="19"
-                      insetInline="0"
-                      shadow="md"
-                      border="1px"
-                      borderColor={menuColors.stroke}
-                      bg={menuColors.lvl[1].background}
-                    >
-                      <SubMenu
-                        lvl={1}
-                        items={items}
-                        activeSection={activeSection}
-                        onClose={onClose}
-                      />
-                    </Box>
-                  </NavigationMenu.Content>
-                </NavigationMenu.Item>
-              )
-            })}
-          </UnorderedList>
-        </NavigationMenu.List>
+        <List id={MAIN_NAV_ID} className="m-0 flex list-none">
+          {SECTION_LABELS.map((sectionKey) => {
+            const { label, items } = sections[sectionKey]
+            const isActive = activeSection === sectionKey
 
-        <NavigationMenu.Viewport />
-      </NavigationMenu.Root>
-    </Box>
+            return (
+              <Item key={sectionKey} value={label}>
+                <Trigger asChild>
+                  <Button
+                    className={cn(
+                      "relative whitespace-nowrap px-3 py-2 lg:px-4",
+                      isActive ? "text-primary" : "text-body",
+                      "after:absolute after:inset-x-0 after:top-full after:h-4 after:content-['']"
+                    )}
+                    variant="ghost"
+                  >
+                    {/* Animated highlight for active section */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="active-section-highlight"
+                        className="absolute inset-0 z-0 rounded bg-primary-low-contrast"
+                      />
+                    )}
+                    <span className="relative z-10">{label}</span>
+                  </Button>
+                </Trigger>
+                {/* Desktop Menu content */}
+                <MenuContent
+                  items={items}
+                  isOpen={isOpen}
+                  sections={sections}
+                />
+              </Item>
+            )
+          })}
+        </List>
+
+        <Viewport />
+      </Root>
+    </div>
   )
 }
 

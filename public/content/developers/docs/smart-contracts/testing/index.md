@@ -110,7 +110,7 @@ function auctionEnd() external {
 
 This is a simple auction contract designed to receive bids during the bidding period. If the `highestBid` increases, the previous highest bidder receives their money; once the bidding period is over, the `beneficiary` calls the contract to get their money.
 
-Unit tests for a contract like this would cover different functions a user might call when interacting with the contract. An example would be unit a test that checks if a user can place a bid while the auction is ongoing (i.e., calls to `bid()` succeed) or one that checks if a user can place a higher bid than the current `highestBid`.
+Unit tests for a contract like this would cover different functions a user might call when interacting with the contract. An example would be a unit test that checks if a user can place a bid while the auction is ongoing (i.e., calls to `bid()` succeed) or one that checks if a user can place a higher bid than the current `highestBid`.
 
 Understanding a contracts operational workflow also helps with writing unit tests that check if execution meet requirements. For example, the auction contract specifies that users cannot place bids when the auction has ended (i.e., when `auctionEndTime` is lower than `block.timestamp`). Thus, a developer might run a unit test that checks if calls to the `bid()` function succeed or fail when the auction is over (i.e., when `auctionEndTime` > `block.timestamp`).
 
@@ -130,7 +130,7 @@ Many unit testing frameworks allow you to create assertions—simple statements 
 
 ##### 3. Measure code coverage
 
-[Code coverage](https://en.m.wikipedia.org/wiki/Code_coverage) is a testing metric that tracks the number of branches, lines, and statements in your code executed during tests. Tests should have good code coverage, otherwise you may get "false negatives" which happen a contract passes all tests, but vulnerabilities still exist in the code. Recording high code coverage, however, gives the assurance all statements/functions in a smart contract were sufficiently tested for correctness.
+[Code coverage](https://en.m.wikipedia.org/wiki/Code_coverage) is a testing metric that tracks the number of branches, lines, and statements in your code executed during tests. Tests should have good code coverage to minimize the risk of untested vulnerabilities. Without sufficient coverage, you might falsely assume your contract is secure because all tests pass, while vulnerabilities still exist in untested code paths. Recording high code coverage, however, gives the assurance all statements/functions in a smart contract were sufficiently tested for correctness.
 
 ##### 4. Use well-developed testing frameworks
 
@@ -144,12 +144,13 @@ Unit testing frameworks for Solidity smart contracts come in different languages
 - **[Running unit tests with Remix](https://remix-ide.readthedocs.io/en/latest/unittesting.html#write-tests)**
 - **[Running unit tests with Ape](https://docs.apeworx.io/ape/stable/userguides/testing.html)**
 - **[Running unit tests with Hardhat](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)**
+- **[Running unit tests with Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)**
 
 ### Integration testing {#integration-testing-for-smart-contracts}
 
 While unit testing debugs contract functions in isolation, integration tests evaluate the components of a smart contract as a whole. Integration testing can detect issues arising from cross-contract calls or interactions between different functions in the same smart contract. For example, integration tests can help check if things like [inheritance](https://docs.soliditylang.org/en/v0.8.12/contracts.html#inheritance) and dependency injection work properly.
 
-Integration testing is useful if your contract adopts a modular architecture or interfaces with other on-chain contracts during execution. One way of running integration tests is to [fork the blockchain](/glossary/#fork) at a specific height (using a tool like [Forge](https://book.getfoundry.sh/forge/fork-testing) or [Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks) and simulate interactions between your contract and deployed contracts.
+Integration testing is useful if your contract adopts a modular architecture or interfaces with other onchain contracts during execution. One way of running integration tests is to [fork the blockchain](/glossary/#fork) at a specific height (using a tool like [Forge](https://book.getfoundry.sh/forge/fork-testing) or [Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks) and simulate interactions between your contract and deployed contracts.
 
 The forked blockchain will behave similarly to Mainnet and have accounts with associated states and balances. But it only acts as a sandboxed local development environment, meaning you won't need real ETH for transactions, for example, nor will your changes affect the real Ethereum protocol.
 
@@ -188,9 +189,11 @@ Running property-based testing typically starts with defining a property (e.g., 
 Once configured properly, the property testing tool will execute your smart contracts functions with randomly generated inputs. If there are any assertion violations, you should get a report with concrete input data that violates the property under evaluation. See some of the guides below to get started with running property-based testing with different tools:
 
 - **[Static analysis of smart contracts with Slither](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/slither#slither)**
+- **[Static analysis of smart contracts with Wake](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)**
 - **[Property-based testing with Brownie](https://eth-brownie.readthedocs.io/en/stable/tests-hypothesis-property.html)**
 - **[Fuzzing contracts with Foundry](https://book.getfoundry.sh/forge/fuzz-testing)**
 - **[Fuzzing contracts with Echidna](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna#echidna-tutorial)**
+- **[Fuzzing contracts with Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/fuzzing/)**
 - **[Symbolic execution of smart contracts with Manticore](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/manticore#manticore-tutorial)**
 - **[Symbolic execution of smart contracts with Mythril](https://mythril-classic.readthedocs.io/en/master/tutorial.html)**
 
@@ -204,13 +207,13 @@ While automated testing performed in a local development environment can provide
 
 Testing your contract on a local blockchain (also known as a [development network](/developers/docs/development-networks/)) is a recommended alternative to testing on Mainnet. A local blockchain is a copy of the Ethereum blockchain running locally on your computer which simulates the behavior of Ethereum's execution layer. As such, you can program transactions to interact with a contract without incurring significant overhead.
 
-Running contracts on a local blockchain could be useful as a form of manual integration testing. [Smart contracts are highly composable](/developers/docs/smart-contracts/composability/), allowing you to integrate with existing protocols—but you'll still need to ensure that such complex on-chain interactions produce the correct results.
+Running contracts on a local blockchain could be useful as a form of manual integration testing. [Smart contracts are highly composable](/developers/docs/smart-contracts/composability/), allowing you to integrate with existing protocols—but you'll still need to ensure that such complex onchain interactions produce the correct results.
 
 [More on development networks.](/developers/docs/development-networks/)
 
 ### Testing contracts on testnets {#testing-contracts-on-testnets}
 
-A test network or testnet works exactly like Ethereum Mainnet, except that it uses Ether (ETH) with no real-world value. Deploying your contract on a [testnet](/developers/docs/networks/#ethereum-testnets) means anyone can interact with it (e.g., via the dapp's frontend) without putting funds at risk.
+A test network or testnet works exactly like Ethereum Mainnet, except that it uses ether (ETH) with no real-world value. Deploying your contract on a [testnet](/developers/docs/networks/#ethereum-testnets) means anyone can interact with it (e.g., via the dapp's frontend) without putting funds at risk.
 
 This form of manual testing is useful for evaluating the end-to-end flow of your application from a user’s point of view. Here, beta testers can also perform trial runs and report any issues with the contract’s business logic and overall functionality.
 
@@ -238,7 +241,7 @@ Still, you can further increase the possibility of catching contract vulnerabili
 
 Audits are performed by auditors experienced at finding cases of security flaws and poor development practices in smart contracts. An audit will usually include testing (and possibly formal verification) as well as a manual review of the entire codebase.
 
-Conversely, a bug bounty program usually involves involves offering a financial reward to an individual (commonly described as [whitehat hackers](<https://en.wikipedia.org/wiki/White_hat_(computer_security)>)) that discovers a vulnerability in a smart contract and discloses it to developers. Bug bounties are similar to audits since it involves asking others to help find defects in smart contracts.
+Conversely, a bug bounty program usually involves offering a financial reward to an individual (commonly described as [whitehat hackers](<https://en.wikipedia.org/wiki/White_hat_(computer_security)>)) that discovers a vulnerability in a smart contract and discloses it to developers. Bug bounties are similar to audits since it involves asking others to help find defects in smart contracts.
 
 The major difference is that bug bounty programs are open to the wider developer/hacker community and attract a broad class of ethical hackers and independent security professionals with unique skills and experience. This may be an advantage over smart contract audits that mainly rely on teams who may possess limited or narrow expertise.
 
@@ -262,6 +265,8 @@ The major difference is that bug bounty programs are open to the wider developer
 
 - **[ApeWorx](https://docs.apeworx.io/ape/stable/userguides/testing.html)** - _Python-based development and testing framework for smart contracts targeting the Ethereum Virtual Machine._
 
+- **[Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)** - _Python-based framework for unit testing and fuzzing with strong debugging capabilities and cross-chain testing support, utilizing pytest and Anvil for best user experience and performance._
+
 ### Property-based testing tools {#property-based-testing-tools}
 
 #### Static analysis tools {#static-analysis-tools}
@@ -269,6 +274,10 @@ The major difference is that bug bounty programs are open to the wider developer
 - **[Slither](https://github.com/crytic/slither)** - _Python-based Solidity static analysis framework for finding vulnerabilities, enhancing code comprehension, and writing custom analyses for smart contracts._
 
 - **[Ethlint](https://ethlint.readthedocs.io/en/latest/)** - _Linter for enforcing style and security best practices for the Solidity smart contract programming language._
+
+- **[Cyfrin Aderyn](https://cyfrin.io/tools/aderyn)** - _Rust-based static analyzer specifically designed for Web3 smart contract security and development._
+
+- **[Wake](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)** - _Python-based static analysis framework with vulnerability and code quality detectors, printers for extracting useful information from code and support for writing custom submodules._
 
 #### Dynamic analysis tools {#dynamic-analysis-tools}
 

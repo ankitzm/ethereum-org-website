@@ -40,7 +40,7 @@ La preuve d'enjeu implique les éléments suivants :
 Un bloc contient de nombreuses informations. Au plus haut niveau, un bloc contient les champs suivants :
 
 | Champ            | Description                                                    |
-| :--------------- | :------------------------------------------------------------- |
+|:---------------- |:-------------------------------------------------------------- |
 | `Créneau`        | le créneau auquel appartient le bloc                           |
 | `proposer_index` | l'ID du validateur proposant le bloc                           |
 | `parent_root`    | le hachage du bloc précédent                                   |
@@ -50,12 +50,12 @@ Un bloc contient de nombreuses informations. Au plus haut niveau, un bloc contie
 Le corps `body` du bloc contient plusieurs champs propres :
 
 | Champ                | Description                                                          |
-| :------------------- | :------------------------------------------------------------------- |
+|:-------------------- |:-------------------------------------------------------------------- |
 | `randao_reveal`      | une valeur utilisée pour sélectionner le prochain proposant de bloc  |
 | `eth1_data`          | informations sur le contrat de dépôt                                 |
 | `graffiti`           | données arbitraires utilisées pour étiqueter les blocs               |
 | `proposer_slashings` | liste des validateurs à délester                                     |
-| `attester_slashings` | liste des validateurs à délester                                     |
+| `attester_slashings` | liste des validateurs à sanctionner                                  |
 | `attestations`       | liste des attestations en faveur du bloc actuel                      |
 | `dépôts`             | liste des nouveaux dépôts au contrat de dépôt                        |
 | `voluntary_exits`    | liste des validateurs quittant le réseau                             |
@@ -65,7 +65,7 @@ Le corps `body` du bloc contient plusieurs champs propres :
 Le champ `attestations` contient une liste de toutes les attestations dans le bloc. Les attestations ont leur propre type de données, qui contient plusieurs morceaux de données. Chaque attestation contient :
 
 | Champ              | Description                                                   |
-| :----------------- | :------------------------------------------------------------ |
+|:------------------ |:------------------------------------------------------------- |
 | `aggregation_bits` | une liste des validateurs ayant participé à cette attestation |
 | `données`          | un conteneur avec plusieurs sous-champs                       |
 | `signature`        | agrégat de signature de tous les validateurs attestant        |
@@ -73,7 +73,7 @@ Le champ `attestations` contient une liste de toutes les attestations dans le bl
 Le champ `data` dans `attestation` contient les éléments suivants :
 
 | Champ               | Description                                         |
-| :------------------ | :-------------------------------------------------- |
+|:------------------- |:--------------------------------------------------- |
 | `Créneau`           | le créneau auquel se rapporte l'attestation         |
 | `Index`             | indices pour les validateurs attestant              |
 | `beacon_block_root` | le hachage racine du bloc Phare contenant cet objet |
@@ -85,7 +85,7 @@ Exécuter les transactions dans `execution_payload` met à jour l'état global. 
 `execution_payload_header` contient les champs suivants :
 
 | Champ               | Description                                                                         |
-| :------------------ | :---------------------------------------------------------------------------------- |
+|:------------------- |:----------------------------------------------------------------------------------- |
 | `parent_hash`       | hachage du bloc parent                                                              |
 | `fee_recipient`     | adresse du compte pour le paiement des frais de transaction                         |
 | `state_root`        | hachage racine pour l'état global après avoir appliqué les changements dans ce bloc |
@@ -105,7 +105,7 @@ Exécuter les transactions dans `execution_payload` met à jour l'état global. 
 `execution_payload` contient lui-même ce qui suit (notez que cela est identique à l'en-tête sauf qu'au lieu du hachage racine des transactions, il inclut la liste réelle des transactions et des informations de retrait) :
 
 | Champ              | Description                                                                       |
-| :----------------- | :-------------------------------------------------------------------------------- |
+|:------------------ |:--------------------------------------------------------------------------------- |
 | `parent_hash`      | hachage du bloc parent                                                            |
 | `fee_recipient`    | adresse du compte pour le paiement des frais de transaction                       |
 | `state_root`       | hachage racine pour l'état global une fois appliqués les changements dans ce bloc |
@@ -125,9 +125,9 @@ Exécuter les transactions dans `execution_payload` met à jour l'état global. 
 La liste `withdrawals` contient les objets `withdrawal` structurée de la façon suivante :
 
 | Champ            | Description                        |
-| :--------------- | :--------------------------------- |
+|:---------------- |:---------------------------------- |
 | `address`        | adresse du compte qui s'est retiré |
-| `amount`         | montant du retrait                 |
+| `montant`        | montant du retrait                 |
 | `Index`          | valeur d'index du retrait          |
 | `validatorIndex` | valeur d'index du validateur       |
 
@@ -139,7 +139,7 @@ Cette implémentation diffère des systèmes fondés sur la preuve de travail (P
 
 ## Taille des blocs {#block-size}
 
-Une dernière remarque importante : les blocs eux-mêmes sont limités par la taille. Chaque bloc vise une taille cible de 15 millions de gaz, mais leur taille s'adapte aux exigences du réseau, jusqu'à la limite de 30 millions de gaz (deux fois la taille cible de bloc). La quantité totale de gaz dépensée par toutes les transactions dans le bloc doit être inférieure à la limite de gaz du bloc. Ce point est important car il garantit que les blocs ne peuvent pas être arbitrairement grands. Si les blocs pouvaient être arbitrairement grands, les nœuds complets moins performants cesseraient progressivement de suivre le réseau à cause des exigences d'espace et de vitesse. Plus le bloc est grand, plus il faut de puissance de calcul pour traiter la transaction à temps pour le prochain créneau. Il s'agit d'un facteur de centralisation, auquel nous nous opposons en plafonnant la taille des blocs.
+Une dernière remarque importante : les blocs eux-mêmes sont limités par la taille. Chaque bloc vise une taille cible de 15 millions de gaz, mais leur taille s'adapte aux exigences du réseau, jusqu'à la limite de 30 millions de gaz (deux fois la taille cible de bloc). La limite de gaz d'un bloc peut être ajustée à la hausse ou à la baisse par un facteur de 1/1024 par rapport à la limite de gaz du bloc précédent. Ainsi, les validateurs peuvent modifier la limite de gaz des blocs par consensus. La quantité totale de gaz dépensée par toutes les transactions dans le bloc doit être inférieure à la limite de gaz du bloc. Ce point est important car il garantit que les blocs ne peuvent pas être arbitrairement grands. Si les blocs pouvaient être arbitrairement grands, les nœuds complets moins performants cesseraient progressivement de suivre le réseau à cause des exigences d'espace et de vitesse. Plus le bloc est grand, plus il faut de puissance de calcul pour traiter la transaction à temps pour le prochain créneau. Il s'agit d'un facteur de centralisation, auquel nous nous opposons en plafonnant la taille des blocs.
 
 ## Complément d'information {#further-reading}
 

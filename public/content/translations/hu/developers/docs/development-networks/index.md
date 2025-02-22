@@ -28,16 +28,6 @@ _Akár _ [saját csomópontot is futtathat](/developers/docs/nodes-and-clients/#
 
 **Megjegyzés**: A legtöbb [fejlesztői keretrendszer](/developers/docs/frameworks/) egy beépített fejlesztői hálózatot tartalmaz. Ajánljuk, hogy egy keretrendszer segítségével [állítsa be a helyi fejlesztési környezetét](/developers/local-environment/).
 
-### Ganache {#ganache}
-
-Indítson be gyorsan egy személyes Ethereum blokkláncot, melyet tesztek futtatására, parancsok végrehajtására és az állapot megtekintésére használhat, mialatt a lánc működését irányítja.
-
-A Ganache-nak van asztali alkalmazása (Ganache UI) és parancssori alkalmazása is (`ganache-cli`). A Truffle eszközsorozat része.
-
-- [Honlap](https://www.trufflesuite.com/ganache)
-- [GitHub](https://github.com/trufflesuite/ganache)
-- [Dokumentáció](https://www.trufflesuite.com/docs/ganache/overview)
-
 ### Hardhat Network {#hardhat-network}
 
 Egy helyi Ethereum hálózat fejlesztésre tervezve. Szerződéseket telepíthet, teszteket futtathat, hibakeresést és javítást végezhet a kódján.
@@ -66,9 +56,9 @@ Az Ethereum két karbantartott, nyilvános tesztimplementációval is rendelkezi
 
 A Kurtosis egy felépített rendszer a több konténeres tesztkörnyezetekhez, amellyel a fejlesztők lokálisan felállíthatják a reprodukálható példányait a blokklánchálózatoknak.
 
-Az Ethereum Kurtosis csomag lokálisan példányosítja a konténerezett és paraméterezett Ethereum-teszthálózatot, amely több különböző végrehajtásiréteg- (EL) és konszenzusréteg- (CL) klienst és n-számú csomópontot támogat. A Kurtosis kezeli az összes lokális portbeállítást és szolgáltatási kapcsolatokat, hogy könnyebb legyen prototípusokat készíteni az alkalmazásokhoz és okosszerződésekhez, valamint tesztelni azokat.
+Az Ethereum Kurtosis csomag segítségével gyorsan létrehozható egy paraméterezhető, nagymértékben skálázható és privát Ethereum teszthálózat a Docker vagy a Kubernetes segítségével. A csomag támogatja az összes főbb végrehajtási (EL) és konszenzusréteg (CL) klienst. A Kurtosis elegánsan kezeli az összes helyi port hozzárendelést és szolgáltatáskapcsolatot egy reprezentatív hálózathoz, amelyet az Ethereum fő infrastruktúrával kapcsolatos validálási és tesztelési munkafolyamatokban lehet használni.
 
-- [Ethereum hálózati csomag](https://github.com/kurtosis-tech/eth-network-package)
+- [Ethereum hálózati csomag](https://github.com/kurtosis-tech/ethereum-package)
 - [Honlap](https://www.kurtosis.com/)
 - [GitHub](https://github.com/kurtosis-tech/kurtosis)
 - [Dokumentáció](https://docs.kurtosis.com/)

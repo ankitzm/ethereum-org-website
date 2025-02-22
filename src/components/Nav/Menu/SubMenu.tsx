@@ -1,25 +1,28 @@
 import { AnimatePresence, motion } from "framer-motion"
 import NextLink from "next/link"
 import {
-  Box,
-  Button,
-  Grid,
-  Icon,
-  ListItem,
-  UnorderedList,
-} from "@chakra-ui/react"
-import * as NavigationMenu from "@radix-ui/react-navigation-menu"
+  Content,
+  Item,
+  Link as NavigationMenuLink,
+  List,
+  Sub,
+  Trigger,
+  Viewport,
+} from "@radix-ui/react-navigation-menu"
 
-import { ButtonProps } from "@/components/Buttons"
-import Link from "@/components/Link"
+import { ChevronNext } from "@/components/Chevron"
+import { Button } from "@/components/ui/buttons/Button"
+import { BaseLink } from "@/components/ui/Link"
+import { ListItem, UnorderedList } from "@/components/ui/list"
 
+import { cn } from "@/lib/utils/cn"
 import { trackCustomEvent } from "@/lib/utils/matomo"
 import { cleanPath } from "@/lib/utils/url"
 
 import type { Level, NavItem, NavSectionKey } from "../types"
 
 import ItemContent from "./ItemContent"
-import NextChevron from "./NextChevron"
+import { navMenuVariants } from "./MenuContent"
 import { useSubMenu } from "./useSubMenu"
 
 type LvlContentProps = {
@@ -39,77 +42,41 @@ type LvlContentProps = {
  * @returns The JSX element representing the menu content.
  */
 const SubMenu = ({ lvl, items, activeSection, onClose }: LvlContentProps) => {
-  const { asPath, locale, menuColors, menuVariants, PADDING } = useSubMenu()
+  const { asPath, locale, menuVariants } = useSubMenu()
+  const { submenu, item: itemClasses, link } = navMenuVariants({ level: lvl })
 
   if (lvl > 3) return null
 
-  const templateColumns = `repeat(${4 - lvl}, 1fr)`
-
   return (
-    <NavigationMenu.Sub orientation="vertical" asChild>
+    <Sub orientation="vertical" asChild>
       <AnimatePresence>
-        <Grid
-          as={motion.div}
+        <motion.div
+          className={submenu()}
           variants={menuVariants}
           initial="closed"
           animate="open"
           exit="closed"
-          w="full"
-          h="full"
-          gridTemplateColumns={templateColumns}
         >
-          <NavigationMenu.List asChild>
-            <UnorderedList listStyleType="none" p={PADDING / 2} m="0">
+          <List asChild>
+            <UnorderedList className="m-0 list-none p-2">
               {items.map((item) => {
-                const { label, description, icon, ...action } = item
+                const { label, icon: Icon, ...action } = item
                 const subItems = action.items || []
                 const isLink = "href" in action
                 const isActivePage = isLink && cleanPath(asPath) === action.href
-                const activeStyles = {
-                  outline: "none",
-                  rounded: "md",
-                  "p, svg": { color: menuColors.highlight },
-                  bg: menuColors.lvl[lvl].activeBackground,
-                  boxShadow: "none",
-                }
-                const buttonProps: ButtonProps = {
-                  color: menuColors.body,
-                  leftIcon: lvl === 1 && icon ? <Icon as={icon} /> : undefined,
-                  rightIcon: isLink ? undefined : <NextChevron />,
-                  position: "relative",
-                  w: "full",
-                  me: -PADDING,
-                  sx: {
-                    "span:first-of-type": { m: 0, me: 4 }, // Spacing for icon
-                  },
-                  py: PADDING,
-                  bg: isActivePage
-                    ? menuColors.lvl[lvl].activeBackground
-                    : "none",
-                  _hover: activeStyles,
-                  _focus: activeStyles,
-                  variant: "ghost",
-                }
+
+                const buttonClasses = cn("no-underline text-body", link())
+
                 return (
-                  <NavigationMenu.Item key={label} asChild>
-                    <ListItem
-                      mb={PADDING / 2}
-                      _last={{ mb: 0 }}
-                      sx={{
-                        '&:has(button[data-state="open"])': {
-                          roundedStart: "md",
-                          roundedEnd: "none",
-                          bg: menuColors.lvl[lvl].activeBackground,
-                          me: -PADDING,
-                          pe: PADDING,
-                        },
-                      }}
-                    >
+                  <Item key={label} asChild>
+                    <ListItem className={cn("mb-2 last:mb-0", itemClasses())}>
                       {isLink ? (
                         <NextLink href={action.href!} passHref legacyBehavior>
-                          <NavigationMenu.Link asChild>
+                          <NavigationMenuLink asChild>
                             <Button
-                              as={Link}
+                              variant="ghost"
+                              className={buttonClasses}
+                              data-active={isActivePage}
                               onClick={() => {
                                 onClose()
                                 trackCustomEvent({
@@ -118,44 +85,52 @@ const SubMenu = ({ lvl, items, activeSection, onClose }: LvlContentProps) => {
                                   eventName: action.href!,
                                 })
                               }}
-                              {...buttonProps}
+                              asChild
                             >
-                              <ItemContent item={item} lvl={lvl} />
+                              <BaseLink>
+                                {lvl === 1 && Icon ? (
+                                  <Icon className="me-4 h-6 w-6" />
+                                ) : null}
+
+                                <ItemContent item={item} lvl={lvl} />
+                              </BaseLink>
                             </Button>
-                          </NavigationMenu.Link>
+                          </NavigationMenuLink>
                         </NextLink>
                       ) : (
                         <>
-                          <NavigationMenu.Trigger asChild>
-                            <Button {...buttonProps}>
+                          <Trigger asChild>
+                            <Button variant="ghost" className={buttonClasses}>
+                              {lvl === 1 && Icon ? (
+                                <Icon className="me-4 h-6 w-6" />
+                              ) : null}
+
                               <ItemContent item={item} lvl={lvl} />
+                              <ChevronNext />
                             </Button>
-                          </NavigationMenu.Trigger>
-                          <NavigationMenu.Content asChild>
-                            <Box
-                              bg={menuColors.lvl[lvl + 1].background}
-                              h="full"
-                            >
+                          </Trigger>
+                          <Content asChild>
+                            <div className="h-full">
                               <SubMenu
                                 lvl={(lvl + 1) as Level}
                                 items={subItems}
                                 activeSection={activeSection}
                                 onClose={onClose}
                               />
-                            </Box>
-                          </NavigationMenu.Content>
+                            </div>
+                          </Content>
                         </>
                       )}
                     </ListItem>
-                  </NavigationMenu.Item>
+                  </Item>
                 )
               })}
             </UnorderedList>
-          </NavigationMenu.List>
-          <NavigationMenu.Viewport style={{ gridColumn: "2/4" }} />
-        </Grid>
+          </List>
+          <Viewport style={{ gridColumn: "2/4" }} />
+        </motion.div>
       </AnimatePresence>
-    </NavigationMenu.Sub>
+    </Sub>
   )
 }
 

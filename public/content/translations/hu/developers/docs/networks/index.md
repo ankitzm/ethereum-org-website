@@ -30,7 +30,7 @@ A főhálózat mellett vannak nyilvános tesztnetek. Ezeket a hálózatokat a pr
 
 A legtöbb teszthálózat úgy indul, hogy egy engedélyezett proof-of-authority konszenzusmechanizmust használ. Ez azt jelenti, hogy a csomópontok egy kis csoportja van kiválasztva a tranzakciók validálására és új blokkok létrehozására - az identitásukat helyezik letétbe a folyamat alatt. Alternatívaként néhány teszthálózat egy nyitott proof-of-stake konszenzusmechanizmust vezet be, ahol mindenki futtathat validátort, ahogy az Ethereum főhálózaton is működik.
 
-A teszthálózathoz tartozó ETH-nak elvileg nincs valós értéke. Ugyanakkor a ritka vagy nehezen megszerezhető teszthálózati ETH-nek mégis kialakulhat valamilyen piaca. Mivel ETH-re van szükség, hogy ténylegesen interakcióba lépjen az Ethereummal (még a teszthálózaton is), a legtöbb ember csapokból szerzi a teszthálózati ETH-t. A legtöbb csap egy web app, ahol beírhatja a címét, amire ETH-et szeretne kapni.
+A teszthálózathoz tartozó ETH-nak elvileg nincs valós értéke. Ugyanakkor a ritka vagy nehezen megszerezhető teszthálózati ETH-nek mégis kialakulhat valamilyen piaca. Mivel ETH-re van szükség, hogy ténylegesen interakcióba lépjen az Ethereummal (még a teszthálózaton is), a legtöbb ember csapokból szerzi a teszthálózati ETH-t. A legtöbb csap egy web alkalmazás, ahol beírhatja a címét, amire ETH-t szeretne kapni.
 
 #### Melyik teszthálózatot használja?
 
@@ -50,6 +50,7 @@ A két nyilvános teszthálózat, amelyet a kliens fejlesztők jelenleg fenntart
 - [GitHub](https://github.com/eth-clients/sepolia)
 - [Otterscan](https://sepolia.otterscan.io/)
 - [Etherscan](https://sepolia.etherscan.io)
+- [Blockscout](https://eth-sepolia.blockscout.com/)
 
 ##### Csapok
 
@@ -60,7 +61,7 @@ A két nyilvános teszthálózat, amelyet a kliens fejlesztők jelenleg fenntart
 - [Alchemy Sepolia csap](https://sepoliafaucet.com/)
 - [Infura Sepolia csap](https://www.infura.io/faucet)
 - [Chainstack Sepolia csap](https://faucet.chainstack.com/sepolia-faucet)
-- [Testnet csap | Sepolia](https://testnet-faucet.com/sepolia/)
+- [Ethereum-ökoszisztéma csap](https://www.ethereum-ecosystem.com/faucets/ethereum-sepolia)
 
 #### Goerli _(hosszútávú támogatás)_ {#goerli}
 
@@ -77,6 +78,7 @@ A Goerli egy olyan teszthálózat, ahol a validálást és a letétbe helyezést
 - [Honlap](https://goerli.net/)
 - [GitHub](https://github.com/eth-clients/goerli)
 - [Etherscan](https://goerli.etherscan.io)
+- [Blockscout](https://eth-goerli.blockscout.com/)
 
 ##### Csapok
 
@@ -89,7 +91,7 @@ A Goerli egy olyan teszthálózat, ahol a validálást és a letétbe helyezést
 - [Coinbase Wallet csap | Goerli](https://coinbase.com/faucets/ethereum-goerli-faucet)
 - [Chainstack Goerli csap](https://faucet.chainstack.com/goerli-faucet)
 
-Ha szeretne egy validátort indítani a Goerli teszthálózaton, akkor használja az ethstaker [olcsó goerli validátor launchpad-et](https://goerli.launchpad.ethstaker.cc/en/).
+Ha szeretne egy validátort indítani a Holesky teszthálózaton, akkor használja az ethstaker [„olcsó Holesky validátor” indítópultot](https://holesky.launchpad.ethstaker.cc/en/).
 
 ### Második blokkláncréteg (L2) teszthálózatok {#layer-2-testnets}
 

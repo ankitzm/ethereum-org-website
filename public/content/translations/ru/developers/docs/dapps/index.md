@@ -51,7 +51,7 @@ lang: ru
 
 **Scaffold-ETH — _быстрый опыт использования Solidity с помощью интерфейса, который адаптируется к вашему умному контракту._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 - [Пример dapp](https://punkwallet.io/)
 
 **Создание приложения Eth — _создавайте приложения на базе Ethereum с помощью одной команды._**
@@ -73,6 +73,12 @@ lang: ru
 - [Официальный веб-сайт](https://thirdweb.com/)
 - [Документация](https://portal.thirdweb.com/)
 - [GitHub](https://github.com/thirdweb-dev/)
+
+**Crossmint _— платформа разработки Web3 корпоративного уровня для развертывания смарт-контрактов, платежей по кредитным картам и кроссчейн-платежей, а также создания, распространения, продажи, хранения и редактирования NFT посредством API._**
+
+- [crossmint.com](https://www.crossmint.com)
+- [Документация](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
 
 ## Дополнительные ресурсы {#further-reading}
 

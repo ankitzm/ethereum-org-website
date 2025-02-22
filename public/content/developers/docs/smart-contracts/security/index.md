@@ -78,7 +78,7 @@ The usual method is to write small unit tests using mock data that the contract 
 
 Unfortunately, unit testing is minimally effective for improving smart contract security when used in isolation. A unit test might prove a function executes properly for mock data, but unit tests are only as effective as the tests that are written. This makes it difficult to detect missed edge cases and vulnerabilities that could break the safety of your smart contract.
 
-A better approach is to combine unit testing with property-based testing performed using [static and dynamic analysis](/developers/docs/smart-contracts/testing/#static-dynamic-analysis). Static analysis relies on low-level representations, such as [control flow graphs](https://en.wikipedia.org/wiki/Control-flow_graph) and [abstract syntax trees](https://deepsource.io/glossary/ast/) to analyze reachable program states and execution paths. Meanwhile, dynamic analysis techniques, such as fuzzing, execute contract code with random input values to detect operations that violate security properties.
+A better approach is to combine unit testing with property-based testing performed using [static and dynamic analysis](/developers/docs/smart-contracts/testing/#static-dynamic-analysis). Static analysis relies on low-level representations, such as [control flow graphs](https://en.wikipedia.org/wiki/Control-flow_graph) and [abstract syntax trees](https://deepsource.io/glossary/ast/) to analyze reachable program states and execution paths. Meanwhile, dynamic analysis techniques, such as [smart contract fuzzing](https://www.cyfrin.io/blog/smart-contract-fuzzing-and-invariants-testing-foundry), execute contract code with random input values to detect operations that violate security properties.
 
 [Formal verification](/developers/docs/smart-contracts/formal-verification) is another technique for verifying security properties in smart contracts. Unlike regular testing, formal verification can conclusively prove the absence of errors in a smart contract. This is achieved by creating a formal specification that captures desired security properties and proving that a formal model of the contracts adheres to this specification.
 
@@ -90,13 +90,16 @@ After testing your contract, it is good to ask others to check the source code f
 
 Commissioning a smart contract audit is one way of conducting an independent code review. Auditors play an important role in ensuring that smart contracts are secure and free from quality defects and design errors.
 
-That said, you should avoid treating audits as a silver bullet. Smart contract audits won't catch every bug and are mostly designed to provide an additional round of reviews, which can help detect issues missed by developers during initial development and testing. You should also follow [best practices for working with auditors](https://twitter.com/tinchoabbate/status/1400170232904400897), such as documenting code properly and adding inline comments, to maximize the benefit of a smart contract audit.
+That said, you should avoid treating audits as a silver bullet. Smart contract audits won't catch every bug and are mostly designed to provide an additional round of reviews, which can help detect issues missed by developers during initial development and testing. You should also follow best practices for working with auditors, such as documenting code properly and adding inline comments, to maximize the benefit of a smart contract audit.
+
+- [Smart contract auditing tips & tricks](https://twitter.com/tinchoabbate/status/1400170232904400897) - _@tinchoabbate_
+- [Make the most out of your audit](https://inference.ag/blog/2023-08-14-tips/) - _Inference_
 
 #### Bug bounties {#bug-bounties}
 
 Setting up a bug bounty program is another approach for implementing external code reviews. A bug bounty is a financial reward given to individuals (usually whitehat hackers) that discover vulnerabilities in an application.
 
-When used properly, bug bounties give members of the hacker community incentive to inspect your code for critical flaws. A real-life example is the “infinite money bug” that would have let an attacker create an unlimited amount of Ether on [Optimism](https://www.optimism.io/), a [Layer 2](/layer-2/) protocol running on Ethereum. Fortunately, a whitehat hacker [discovered the flaw](https://www.saurik.com/optimism.html) and notified the team, [earning a large payout in the process](https://cryptoslate.com/critical-bug-in-ethereum-l2-optimism-2m-bounty-paid/).
+When used properly, bug bounties give members of the hacker community incentive to inspect your code for critical flaws. A real-life example is the “infinite money bug” that would have let an attacker create an unlimited amount of ether on [Optimism](https://www.optimism.io/), a [Layer 2](/layer-2/) protocol running on Ethereum. Fortunately, a whitehat hacker [discovered the flaw](https://www.saurik.com/optimism.html) and notified the team, [earning a large payout in the process](https://cryptoslate.com/critical-bug-in-ethereum-l2-optimism-2m-bounty-paid/).
 
 A useful strategy is to set the payout of a bug bounty program in proportion to the amount of funds at stake. Described as the “[scaling bug bounty](https://medium.com/immunefi/a-defi-security-standard-the-scaling-bug-bounty-9b83dfdc1ba7)”, this approach provides financial incentives for individuals to responsibly disclose vulnerabilities instead of exploiting them.
 
@@ -112,7 +115,7 @@ The existence of audits and bug bounties doesn’t excuse your responsibility to
 
 - Use a [development environment](/developers/docs/frameworks/) for testing, compiling, deploying smart contracts
 
-- Run your code through basic code analysis tools, such as Mythril and Slither. Ideally, you should do this before each pull request is merged and compare differences in output
+- Run your code through basic code analysis tools, such as, [Cyfrin Aaderyn](https://github.com/Cyfrin/aderyn), Mythril and Slither. Ideally, you should do this before each pull request is merged and compare differences in output
 
 - Ensure your code compiles without errors, and the Solidity compiler emits no warnings
 
@@ -126,7 +129,7 @@ Designing secure access controls, implementing function modifiers, and other sug
 
 While Ethereum smart contracts are immutable by default, it is possible to achieve some degree of mutability by using upgrade patterns. Upgrading contracts is necessary in cases where a critical flaw renders your old contract unusable and deploying new logic is the most feasible option.
 
-Contract upgrade mechanisms work differently, but the “proxy pattern” is one of the more popular approaches for upgrading smart contracts. Proxy patterns split an application’s state and logic between _two_ contracts. The first contract (called a ‘proxy contract’) stores state variables (e.g., user balances), while the second contract (called a ‘logic contract’) holds the code for executing contract functions.
+Contract upgrade mechanisms work differently, but the “proxy pattern” is one of the more popular approaches for upgrading smart contracts. [Proxy patterns](https://www.cyfrin.io/blog/upgradeable-proxy-smart-contract-pattern) split an application’s state and logic between _two_ contracts. The first contract (called a ‘proxy contract’) stores state variables (e.g., user balances), while the second contract (called a ‘logic contract’) holds the code for executing contract functions.
 
 Accounts interact with the proxy contract, which dispatches all function calls to the logic contract using the [`delegatecall()`](https://docs.soliditylang.org/en/v0.8.16/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries) low-level call. Unlike a regular message call, `delegatecall()` ensures the code running at the logic contract’s address is executed in the context of the calling contract. This means the logic contract will always write to the proxy’s storage (instead of its own storage) and the original values of `msg.sender` and `msg.value` are preserved.
 
@@ -196,25 +199,25 @@ This example shows the basic features of emergency stops:
 
 `onlyWhenStopped` is used for functions that should be callable during an emergency (e.g., `emergencyWithdraw()`). Such functions can help resolve the situation, hence their exclusion from the “restricted functions” list.
 
-Using an emergency stop functionality provides an effective stopgap for dealing with serious vulnerabilities in your smart contract. However, it increases the need for users to trust developers not to activate it for self-serving reasons. To this end, decentralizing control of the emergency stop either by subjecting it to an on-chain voting mechanism, timelock, or approval from a multisig wallet are possible solutions.
+Using an emergency stop functionality provides an effective stopgap for dealing with serious vulnerabilities in your smart contract. However, it increases the need for users to trust developers not to activate it for self-serving reasons. To this end, decentralizing control of the emergency stop either by subjecting it to an onchain voting mechanism, timelock, or approval from a multisig wallet are possible solutions.
 
 #### Event monitoring {#event-monitoring}
 
 [Events](https://docs.soliditylang.org/en/v0.8.15/contracts.html#events) allow you to track calls to smart contract functions and monitor changes to state variables. It is ideal to program your smart contract to emit an event whenever some party takes a safety-critical action (e.g., withdrawing funds).
 
-Logging events and monitoring them off-chain provides insights on contract operations and aids faster discovery of malicious actions. This means your team can respond faster to hacks and take action to mitigate impact on users, such as pausing functions or performing an upgrade.
+Logging events and monitoring them offchain provides insights on contract operations and aids faster discovery of malicious actions. This means your team can respond faster to hacks and take action to mitigate impact on users, such as pausing functions or performing an upgrade.
 
 You can also opt for an off-the-shelf monitoring tool that automatically forwards alerts whenever someone interacts with your contracts. These tools will allow you to create custom alerts based on different triggers, such as transaction volume, frequency of function calls, or the specific functions involved. For example, you could program an alert that comes in when the amount withdrawn in a single transaction crosses a particular threshold.
 
 ### 7. Design secure governance systems {#design-secure-governance-systems}
 
-You may want to decentralize your application by turning over control of core smart contracts to community members. In this case, the smart contract system will include a governance module—a mechanism that allows community members to approve administrative actions via an on-chain governance system. For example, a proposal to upgrade a proxy contract to a new implementation may be voted upon by token-holders.
+You may want to decentralize your application by turning over control of core smart contracts to community members. In this case, the smart contract system will include a governance module—a mechanism that allows community members to approve administrative actions via an onchain governance system. For example, a proposal to upgrade a proxy contract to a new implementation may be voted upon by token-holders.
 
 Decentralized governance can be beneficial, especially because it aligns the interests of developers and end-users. Nevertheless, smart contract governance mechanisms may introduce new risks if implemented incorrectly. A plausible scenario is if an attacker acquires enormous voting power (measured in number of tokens held) by taking out a [flash loan](/defi/#flash-loans) and pushes through a malicious proposal.
 
-One way of preventing problems related to on-chain governance is to [use a timelock](https://blog.openzeppelin.com/protect-your-users-with-smart-contract-timelocks/). A timelock prevents a smart contract from executing certain actions until a specific amount of time passes. Other strategies include assigning a “voting weight” to each token based on how long it has been locked up for, or measuring the voting power of an address at a historical period (for example, 2-3 blocks in the past) instead of the current block. Both methods reduce the possibility of quickly amassing voting power to swing on-chain votes.
+One way of preventing problems related to onchain governance is to [use a timelock](https://blog.openzeppelin.com/protect-your-users-with-smart-contract-timelocks/). A timelock prevents a smart contract from executing certain actions until a specific amount of time passes. Other strategies include assigning a “voting weight” to each token based on how long it has been locked up for, or measuring the voting power of an address at a historical period (for example, 2-3 blocks in the past) instead of the current block. Both methods reduce the possibility of quickly amassing voting power to swing onchain votes.
 
-More on [designing secure governance systems](https://blog.openzeppelin.com/smart-contract-security-guidelines-4-strategies-for-safer-governance-systems/) and [different voting mechanisms in DAOs](https://hackernoon.com/governance-is-the-holy-grail-for-daos).
+More on [designing secure governance systems](https://blog.openzeppelin.com/smart-contract-security-guidelines-4-strategies-for-safer-governance-systems/), [different voting mechanisms in DAOs](https://hackernoon.com/governance-is-the-holy-grail-for-daos), and [the common DAO attack vectors leveraging DeFi](https://dacian.me/dao-governance-defi-attacks) in the shared links.
 
 ### 8. Reduce complexity in code to a minimum {#reduce-code-complexity}
 
@@ -232,7 +235,7 @@ The EVM doesn’t permit concurrency, meaning two contracts involved in a messag
 
 Although mostly harmless, transferring control flow to untrusted contracts can cause problems, such as reentrancy. A reentrancy attack occurs when a malicious contract calls back into a vulnerable contract before the original function invocation is complete. This type of attack is best explained with an example.
 
-Consider a simple smart contract (‘Victim’) that allows anyone to deposit and withdraw Ether:
+Consider a simple smart contract (‘Victim’) that allows anyone to deposit and withdraw ether:
 
 ```solidity
 // This contract is vulnerable. Do not use in production
@@ -343,7 +346,7 @@ contract MutexPattern {
         require(balances[msg.sender] >= _amount, "No balance to withdraw.");
 
         balances[msg.sender] -= _amount;
-        bool (success, ) = msg.sender.call{value: _amount}("");
+        (bool success, ) = msg.sender.call{value: _amount}("");
         require(success);
 
         return true;
@@ -436,21 +439,21 @@ As of version 0.8.0, the Solidity compiler rejects code that results in integer 
 
 #### Oracle manipulation {#oracle-manipulation}
 
-[Oracles](/developers/docs/oracles/) source off-chain information and send it on-chain for smart contracts to use. With oracles, you can design smart contracts that interoperate with off-chain systems, such as capital markets, greatly expanding their application.
+[Oracles](/developers/docs/oracles/) source offchain information and send it onchain for smart contracts to use. With oracles, you can design smart contracts that interoperate with offchain systems, such as capital markets, greatly expanding their application.
 
-But if the oracle is corrupted and sends incorrect information on-chain, smart contracts will execute based on erroneous inputs, which can cause problems. This is the basis of the “oracle problem”, which concerns the task of making sure information from a blockchain oracle is accurate, up-to-date, and timely.
+But if the oracle is corrupted and sends incorrect information onchain, smart contracts will execute based on erroneous inputs, which can cause problems. This is the basis of the “oracle problem”, which concerns the task of making sure information from a blockchain oracle is accurate, up-to-date, and timely.
 
-A related security concern is using an on-chain oracle, such as a decentralized exchange, to get the spot price for an asset. Lending platforms in the [decentralized finance (DeFi)](/defi/) industry often do this to determine the value of a user’s collateral to determine how much they can borrow.
+A related security concern is using an onchain oracle, such as a decentralized exchange, to get the spot price for an asset. Lending platforms in the [decentralized finance (DeFi)](/defi/) industry often do this to determine the value of a user’s collateral to determine how much they can borrow.
 
-DEX prices are often accurate, largely due to arbitrageurs restoring parity in markets. However, they are open to manipulation, particularly if the on-chain oracle calculates asset prices based on historical trading patterns (as is usually the case).
+DEX prices are often accurate, largely due to arbitrageurs restoring parity in markets. However, they are open to manipulation, particularly if the onchain oracle calculates asset prices based on historical trading patterns (as is usually the case).
 
 For instance, an attacker could artificially pump the spot price of an asset by taking out a flash loan right before interacting with your lending contract. Querying the DEX for the asset’s price would return a higher-than-normal value (due to the attacker’s large “buy order” skewing demand for the asset), allowing them to borrow more than they should. Such "flash loan attacks" have been used to exploit reliance on price oracles among DeFi applications, costing protocols millions in lost funds.
 
 ##### How to prevent oracle manipulation
 
-The minimum requirement to avoid oracle manipulation is to use a decentralized oracle network that queries information from multiple sources to avoid single points of failure. In most cases, decentralized oracles have built-in cryptoeconomic incentives to encourage oracle nodes to report correct information, making them more secure than centralized oracles.
+The minimum requirement to [avoid oracle manipulation](https://www.cyfrin.io/blog/price-oracle-manipultion-attacks-with-examples) is to use a decentralized oracle network that queries information from multiple sources to avoid single points of failure. In most cases, decentralized oracles have built-in cryptoeconomic incentives to encourage oracle nodes to report correct information, making them more secure than centralized oracles.
 
-If you plan on querying an on-chain oracle for asset prices, consider using one that implements a time-weighted average price (TWAP) mechanism. A [TWAP oracle](https://docs.uniswap.org/contracts/v2/concepts/core-concepts/oracles) queries the price of an asset at two different points in time (which you can modify) and calculates the spot price based on the average obtained. Choosing longer time periods protects your protocol against price manipulation since large orders executed recently cannot impact asset prices.
+If you plan on querying an onchain oracle for asset prices, consider using one that implements a time-weighted average price (TWAP) mechanism. A [TWAP oracle](https://docs.uniswap.org/contracts/v2/concepts/core-concepts/oracles) queries the price of an asset at two different points in time (which you can modify) and calculates the spot price based on the average obtained. Choosing longer time periods protects your protocol against price manipulation since large orders executed recently cannot impact asset prices.
 
 ## Smart contract security resources for developers {#smart-contract-security-resources-for-developers}
 
@@ -467,6 +470,8 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 - **[Fork Checker](https://forkchecker.hashex.org/)** - _A free online tool for checking all available information regarding a forked contract._
 
 - **[ABI Encoder](https://abi.hashex.org/)** - _A free online service for encoding your Solidity contract functions and constructor arguments._
+
+- **[Aderyn](https://github.com/Cyfrin/aderyn)** - _Solidity Static Analyzer, traversing the Abstract Syntax Trees (AST) to pinpoint suspected vulnerabilities and printing out issues in an easy-to-consume markdown format._
 
 ### Tools for monitoring smart contracts {#smart-contract-monitoring-tools}
 
@@ -506,6 +511,16 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 
 - **[Code4rena](https://code4rena.com/)** - _Competitive audit platform that incentivizes smart contract security experts to find vulnerabilities and help make web3 more secure._
 
+- **[CodeHawks](https://codehawks.com/)** - _Competitive audits platform hosting smart contracts auditing competitions for security researchers._
+
+- **[Cyfrin](https://cyfrin.io)** - _Web3 security powerhouse, incubating crypto security through products and smart contract auditing services._
+
+- **[ImmuneBytes](https://www.immunebytes.com//smart-contract-audit/)** - _Web3 security firm offering security audits for blockchain systems through a team of experienced auditors and best-in-class tools._
+
+- **[Oxorio](https://oxor.io/)** - _Smart contract audits and blockchain security services with expertise in EVM, Solidity, ZK, Cross-chain tech for crypto firms and DeFi projects._
+
+- **[Inference](https://inference.ag/)** - _Security auditing company, specialized in smart contract auditing for EVM-based blockchains. Thanks to its expert auditors they identify potential issues and suggest actionable solutions to fix them before deployment._
+
 ### Bug bounty platforms {#bug-bounty-platforms}
 
 - **[Immunefi](https://immunefi.com/)** - _Bug bounty platform for smart contracts and DeFi projects, where security researchers review code, disclose vulnerabilities, get paid, and make crypto safer._
@@ -513,6 +528,10 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 - **[HackerOne](https://www.hackerone.com/)** - _Vulnerability coordination and bug bounty platform that connects businesses with penetration testers and cybersecurity researchers._
 
 - **[HackenProof](https://hackenproof.com/)** - _Expert bug bounty platform for crypto projects (DeFi, Smart Contracts, Wallets, CEX and more), where security professionals provide triage services and researchers get paid for relevant, verified bug reports._
+  
+-  **[Sherlock](https://www.sherlock.xyz/)** - _Underwriter in Web3 for smart contract security, with payouts for auditors managed via smart contracts to secure that relevant bugs are paid fairly._
+  
+-  **[CodeHawks](https://www.codehawks.com/)** - _Competitive bug bounty platform where auditors take part in security contests and challenges, and (soon) in their own private audits._
 
 ### Publications of known smart contract vulnerabilities and exploits {#common-smart-contract-vulnerabilities-and-exploits}
 
@@ -530,6 +549,8 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 
 - **[Ethernaut](https://ethernaut.openzeppelin.com/)** - _Web3/Solidity-based wargame where each level is a smart contract that needs to be 'hacked'._
 
+- **[HackenProof x HackTheBox](https://app.hackthebox.com/tracks/HackenProof-Track)** - _Smart contract hacking challenge, set in a fantasy adventure. Successful completion of the challenge also gives access to a private bug bounty program._
+
 ### Best practices for securing smart contracts {#smart-contract-security-best-practices}
 
 - **[ConsenSys: Ethereum Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)** - _Comprehensive list of guidelines for securing Ethereum smart contracts._
@@ -542,6 +563,8 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 
 - **[Smart Contract Security Verification Standard](https://github.com/securing/SCSVS)** - _Fourteen-part checklist created to standardize the security of smart contracts for developers, architects, security reviewers and vendors._
 
+- **[Learn Smart Contract Security and Auditing](https://updraft.cyfrin.io/courses/security)** - _Ultimate smart contract security and auditing course, created for smart contract developers looking to level up their security best practices and become security researchers._
+
 ### Tutorials on smart contract security {#tutorials-on-smart-contract-security}
 
 - [How to write secure smart contracts](/developers/tutorials/secure-development-workflow/)
@@ -553,3 +576,5 @@ If you plan on querying an on-chain oracle for asset prices, consider using one 
 - [Smart contract security guidelines](/developers/tutorials/smart-contract-security-guidelines/)
 
 - [How to safely integrate your token contract with arbitrary tokens](/developers/tutorials/token-integration-checklist/)
+
+- [Cyfrin Updraft - Smart contracts security and auditing full course](https://updraft.cyfrin.io/courses/security)

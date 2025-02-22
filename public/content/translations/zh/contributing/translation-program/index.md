@@ -22,7 +22,7 @@ Ethereum.org 翻译计划是开放的，所有人都可以参与！
 
 _加入 [ethereum.org Discord](/discord/) 合作翻译、提问、分享反馈和想法，或加入翻译组。_
 
-<ButtonLink to="https://crowdin.com/project/ethereum-org/">
+<ButtonLink href="https://crowdin.com/project/ethereum-org/">
   开始翻译
 </ButtonLink>
 
@@ -36,9 +36,9 @@ Ethereum.org 翻译计划旨在通过将 Ethereum.org 和其他以太坊内容�
 
 ### 我们迄今取得的进展 {#our-progress}
 
-- [超过 **4,700** 名翻译人员参与](/contributing/translation-program/contributors/)
-- [网站支持 **52** 种语言](/languages/)
-- [2022 年翻译了** 300 万**字](/contributing/translation-program/acknowledgements/)
+- [**超过 6,000 **位翻译人员](/contributing/translation-program/contributors/)
+- 网站支持 **62** 种语言
+- [2023 年翻译了** 300 万**字](/contributing/translation-program/acknowledgements/)
 
 <TranslationChartImage />
 
@@ -50,9 +50,9 @@ Ethereum.org 翻译计划旨在通过将 Ethereum.org 和其他以太坊内容�
 
 如果你参与了翻译计划，并且至少有 5000 个翻译的字词获得批准，就有资格获得 Ethereum.org 翻译人员证书。 [更多关于证书的信息](/contributing/translation-program/acknowledgements/#certificate)
 
-#### POAP 徽章 {#poaps}
+#### OAT {#oats}
 
-我们所有的翻译人员都有资格获得 POAP（出席证明协议）徽章 — 一种证明他们对 Ethereum.org 翻译计划做出贡献的非同质化代币。 [关于 POAP 徽章的更多信息](/contributing/translation-program/acknowledgements/#poap)
+翻译计划的贡献者有资格根据 2024 年翻译的字数获得不同的 OAT（链上成就代币）。 链上成就代币是非同质化代币，可证明你对 ethereum.org 翻译计划的贡献。 [有关链上成就代币的更多信息](/contributing/translation-program/acknowledgements/#oats)
 
 #### 致谢翻译人员 {#translator-acknowledgements}
 
@@ -68,16 +68,16 @@ Ethereum.org 翻译计划旨在通过将 Ethereum.org 和其他以太坊内容�
 
 如果你正在为翻译计划做贡献或考虑参与其中，应该查看以下翻译指南：
 
-- [翻译风格指南](/contributing/translation-program/translators-guide/) _– 适用于 ethereum.org 翻译者的说明和技巧_
-- [翻译常见问题](/contributing/translation-program/faq/) _– 有关 ethereum.org 翻译计划的一些常见问题_
-- [Crowdin 在线编辑指南](https://support.crowdin.com/online-editor/) _- 使用 Crowdin 在线编辑器和 Crowdin 一些高级功能的深入指南_
+- [翻译风格指南](/contributing/translation-program/translators-guide/) _– 面向 ethereum.org 翻译人员的说明和技巧_
+- [翻译常见问题](/contributing/translation-program/faq/) _– 有关 ethereum.org 翻译计划的一些常见问题与解答_
+- [Crowdin 在线编辑器指南](https://support.crowdin.com/online-editor/) _- 使用 Crowdin 在线编辑器和 Crowdin 一些高级功能的深度指南_
 - [内容存储桶](/contributing/translation-program/content-buckets/) _– ethereum.org 的每个内容存储桶中包含哪些页面_
 
 有关其他有用的翻译工具、翻译人员社区和翻译计划博客文章，请访问[资源页面](/contributing/translation-program/resources/)。
 
 ## 联系我们 {#get-in-touch}
 
-还有其他问题吗？ 或者想与我们的团队和其他翻译人员合作？ 请在我们的 [ethereum.org Discord 服务器](https://discord.gg/ethereum-org)的 #translations 频道中发帖
+还有其他问题吗？ 或者想与我们的团队和其他翻译人员合作？ 请在我们 [ethereum.org Discord 服务器](https://discord.gg/ethereum-org)的 #translations 频道中发帖
 
 也可以通过向 translations@ethereum.org 发送邮件联系我们
 

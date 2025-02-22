@@ -4,7 +4,7 @@ description: Przegląd tego, jak rozpocząć korzystanie ze stakowania ETH w pul
 lang: pl
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-saas.png
+image: /images/staking/leslie-saas.png
 alt: Nosorożec Leslie unoszący się w chmurach.
 sidebarDepth: 2
 summaryPoints:
@@ -22,7 +22,7 @@ Usługi stakingowe („SaaS”) reprezentują kategorię usług stakingowych, w 
 Protokół Ethereum nie wspiera natywnie delegowania stawek, więc stworzone zostały te usługi, aby zaspokoić zapotrzebowanie. Jeśli masz dostępne na poczet stakingu 32 ETH, ale nie czujesz się komfortowo z obsługą sprzętu, usługi SaaS pozwalają Ci na zdelegowanie tych czynności, podczas gdy Ty nadal możesz uzyskiwać natywne nagrody za blok.
 
 <CardGrid>
-  <Card title="Twój własny walidator" emoji=":desktop_computer:" description="Deposit your own 32 ETH to activate your own set of signing keys that will participate in Ethereum consensus. Monitor your progress with dashboards to watch those ETH rewards accumulate." />    
+  <Card title="Twój własny walidator" emoji=":desktop_computer:" description="Deposit your own 32 ETH to activate your own set of signing keys that will participate in Ethereum consensus. Monitor your progress with dashboards to watch those ETH rewards accumulate." />
   <Card title="Łatwy start" emoji="🏁" description="Forget about hardware specs, setup, node maintenance and upgrades. SaaS providers let you outsource the hard part by uploading your own signing credentials, allowing them to run a validator on your behalf, for a small cost." />
   <Card title="Ogranicz swoje ryzyko" emoji=":shield:" description="In many cases users do not have to give up access to the keys that enable withdrawing or transferring staked funds. These are different from the signing keys, and can be stored separately to limit (but not eliminate) your risk as a staker." />
 </CardGrid>
@@ -39,7 +39,7 @@ Wskaźniki atrybutów są użyte poniżej, aby zasygnalizować godne uwagi mocne
 
 ## Poznaj dostawców usług stakingowych {#saas-providers}
 
-Poniżej znajduje się paru dostępnych dostawców SaaS. Skorzystaj z powyższych wskaźników, które oprowadzą cię z tymi usługami
+Poniżej znajduje się kilku dostępnych dostawców SaaS. Skorzystaj z powyższych wskaźników, które oprowadzą cię z tymi usługami
 
 <ProductDisclaimer />
 
@@ -78,7 +78,7 @@ W kwietniu 2023 r. w ramach aktualizacji Shanghai/Capella wprowadzono wypłaty z
 
 Walidatorzy mogą również w pełni wyjść jako walidator, co odblokuje ich pozostałe saldo ETH do wypłaty. Konta, które podały adres wypłaty i zakończyły proces wyjścia, otrzymają całe saldo na adres wypłaty podany podczas następnego przeglądu walidatora.
 
-<ButtonLink to="/staking/withdrawals/">Więcej o wypłatach ze stakingu</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Więcej o wypłatach ze stakingu</ButtonLink>
 </ExpandableCard>
 
 <ExpandableCard title="Co się stanie, jeśli zostanę odcięty?" eventCategory="SaasStaking" eventName="clicked what happens if I get slashed">

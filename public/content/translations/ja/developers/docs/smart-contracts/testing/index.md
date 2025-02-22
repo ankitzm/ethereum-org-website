@@ -20,13 +20,13 @@ lang: ja
 
 ### スマートコントラクトのテストの重要性 {#importance-of-testing-smart-contracts}
 
-スマートコントラクトでは、高価値の金融資産を管理することが多いため、小さなプログラミングの間違いが[ユーザーに大損失](https://rekt.news/leaderboard/)を与える可能性があります。実際に、そのような事例は度々発生しています。 Rigorous testing can, however, help you discover defects and issues in a smart contract's code early and fix them before launching on Mainnet.
+スマートコントラクトでは、高価値の金融資産を管理することが多いため、小さなプログラミングの間違いが[ユーザーに大損失](https://rekt.news/leaderboard/)を与える可能性があります。実際に、そのような事例は度々発生しています。 ただし、厳密なテストを行うことで、スマートコントラクトのコードの欠陥と問題点を早期に発見し、メインネットにリリースする前に修正することができます。
 
 バグが発見された場合、コントラクトをアップグレードすることは可能ですが、アップグレードは複雑で、誤った処理をすると[エラー](https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/)が発生する可能性があります。 また、アップグレードによって、コントラクトの不変性の原則が損なわれ、ユーザーにさらなる信頼が求められることになります。 一方で、統合的なテスト計画を立てることで、スマートコントラクトのセキュリティリスクを軽減し、デプロイ後に複雑なロジックのアップグレードを実行する必要性を減らすことができます。
 
 ## スマートコントラクトのテスト方法 {#methods-for-testing-smart-contracts}
 
-Methods for testing Ethereum smart contracts fall under two broad categories: **automated testing** and **manual testing**. 自動テストと手動テストには、それぞれに長所と短所があります。両方を組み合わせることで、コントラクトを解析するための堅牢な計画を立てることができます。
+イーサリアムのスマートコントラクトのテスト方法は、大きく分けて**自動テスト**と**手動テスト**の2つがあります。 自動テストと手動テストには、それぞれに長所と短所があります。両方を組み合わせることで、コントラクトを解析するための堅牢な計画を立てることができます。
 
 ### 自動テスト {#automated-testing}
 
@@ -110,7 +110,7 @@ function auctionEnd() external {
 
 このオークションコントラクトは、入札期間中に入札を受け付けるシンプルなものです。 `highestBid`が増えた場合は、以前の最高入札者に入札金が支払われます。また、入札期間が終了すると、`beneficiary`はコントラクトを呼び出して入札金を受け取ります。
 
-このようなコントラクトの単体テストでは、コントラクトとやり取りする際にユーザーが呼び出す可能性のあるさまざまな関数をテストします。 例えば、オークションの進行中にユーザーが入札できるか(すなわち、`bid()`の呼び出しが成功する)かどうかを確認する単体テストや、ユーザーが現在の`highestBid`よりも高い入札ができるかどうかを確認する単体テストなどがあります。
+このようなコントラクトの単体テストでは、コントラクトとやり取りする際にユーザーが呼び出す可能性のあるさまざまな関数をテストします。 例として、オークションが進行中にユーザーが入札できるかどうかを確認するユニットテスト (つまり、`bid()`の呼び出しが成功するかどうか) や、ユーザーが現在の`highestBid`よりも高い入札を行えるかどうかを確認するテストが挙げられます。
 
 コントラクトの操作上のワークフローを理解しておくと、実行内容が要件を満たしているかどうかを確認する単体テストの作成にも役立ちます。 例えば、オークションコントラクトでは、オークションが終了したとき(つまり、`auctionEndTime`が`block.timestamp`よりも小さいとき)は、ユーザーが入札できないようになっています。 この場合、デベロッパーは、オークション終了時(つまり、`auctionEndTime` > `block.timestamp`の場合)に`bid()`関数の呼び出しが成功するか失敗するかをチェックする単体テストを実行するとよいでしょう。
 
@@ -144,12 +144,13 @@ Solidityスマートコントラクト用の単体テストフレームワーク
 - **[Remixを使った単体テストの実行](https://remix-ide.readthedocs.io/en/latest/unittesting.html#write-tests)**
 - **[Apeを使った単体テストの実行](https://docs.apeworx.io/ape/stable/userguides/testing.html)**
 - **[Hardhatを使った単体テストの実行](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)**
+- **[Wakeを使った単体テストの実行](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)**
 
 ### 統合テスト {#integration-testing-for-smart-contracts}
 
 単体テストでは、コントラクトの関数を個別にデバッグしましたが、統合テストでは、スマートコントラクトのコンポーネント全体を評価します。 統合テストでは、スマートコントラクト間の呼び出しで発生する問題や、同じスマートコントラクト内の異なる関数間のやり取りで発生する問題を検出できます。 例えば、[継承](https://docs.soliditylang.org/en/v0.8.12/contracts.html#inheritance)や依存性注入などの機能が正しく動作するかどうかを確認するのに役立ちます。
 
-統合テストは、コントラクトがモジュラー型アーキテクチャを採用していたり、実行中に他のオンチェーンコントラクトと接続する場合に有用です。 One way of running integration tests is to [fork the blockchain](/glossary/#fork) at a specific height (using a tool like [Forge](https://book.getfoundry.sh/forge/fork-testing) or [Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks) and simulate interactions between your contract and deployed contracts.
+統合テストは、コントラクトがモジュラー型アーキテクチャを採用していたり、実行中に他のオンチェーンコントラクトと接続する場合に有用です。 統合テストを実行する方法の1つは、([Forge](https://book.getfoundry.sh/forge/fork-testing)や[Hardhat](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks)などのツールを使用して)ブロックチェーンの特定のブロックの高さで[フォーク](/glossary/#fork)することです。そして、デプロイされたコントラクトと作成したコントラクトのやり取りをシミュレートします。
 
 フォークされたブロックチェーンは、メインネットと同様の仕組みで動作し、アカウントに状態と残高が関連付けられています。 しかし、サンドボックス化されたローカル開発環境としてのみ機能します。例えば、トランザクションに実際のETHは必要なく、変更しても実際のイーサリアムプロトコルに影響することはありません。
 
@@ -188,9 +189,11 @@ Solidityスマートコントラクト用の単体テストフレームワーク
 プロパティテストツールは、適切に構成することで、ランダムに生成された入力値を使ってスマートコントラクトの関数を実行することができます。 アサーション違反が発生した場合、評価対象のプロパティに違反する具体的な入力データがレポートに含まれます。 プロパティベースのテストを実行するには、以下のさまざまなツールのガイドを参照してください。
 
 - **[Slitherを使ったスマートコントラクト静的解析](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/slither#slither)**
+- **[Wakeを使ったスマートコントラクト静的解析](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)**
 - **[Brownieを使ったプロパティベースのテスト](https://eth-brownie.readthedocs.io/en/stable/tests-hypothesis-property.html)**
 - **[Foundryを使ったコントラクトのファジング](https://book.getfoundry.sh/forge/fuzz-testing)**
 - **[Echidnaを使ったコントラクトのファジング](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna#echidna-tutorial)**
+- **[Wakeを使ったコントラクトのファジング](https://ackeeblockchain.com/wake/docs/latest/testing-framework/fuzzing/)**
 - **[Manticoreを使ったスマートコントラクトのシンボリック実行](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/manticore#manticore-tutorial)**
 - **[Mythrilを使ったスマートコントラクトのシンボリック実行](https://mythril-classic.readthedocs.io/en/master/tutorial.html)**
 
@@ -262,6 +265,8 @@ Solidityスマートコントラクト用の単体テストフレームワーク
 
 - **[ApeWorx](https://docs.apeworx.io/ape/stable/userguides/testing.html)** - _イーサリアム仮想マシン用のスマートコントラクトでPythonベースの開発およびテストのためのフレームワーク_。
 
+- **[Wake](https://ackeeblockchain.com/wake/docs/latest/testing-framework/overview/)** - _Pythonベースの単体テストとファジングのフレームワークで、強力なデバック機能とクロスチェーンテストをサポートしており、pytestおよびAnvilを生かした最高のユーザーエクスペリエンスとパフォーマンスを実現。_
+
 ### プロパティベースのテストツール {#property-based-testing-tools}
 
 #### 静的解析ツール {#static-analysis-tools}
@@ -269,6 +274,10 @@ Solidityスマートコントラクト用の単体テストフレームワーク
 - **[Slither](https://github.com/crytic/slither)** - _PythonベースのSolidity静的解析フレームワークで、脆弱性の発見、コード理解の強化、スマートコントラクトのカスタム解析の記述で使用_。
 
 - **[Ethlint](https://ethlint.readthedocs.io/en/latest/)** - _スマートコントラクトのプログラミング言語であるSolidityのスタイルとセキュリティのベストプラクティスを適用するためのリンター_。
+
+- **[Cyfrin Aderyn](https://cyfrin.io/tools/aderyn)** - _Rustベースの静的解析ツールで、特にWeb3スマートコントラクトのセキュリティと開発のために設計されています。_
+
+- **[Wake](https://ackeeblockchain.com/wake/docs/latest/static-analysis/using-detectors/)** - _Pythonベースの静的解析フレームワークで、脆弱性とコード品質の検出器、コードから有用な情報を抽出するプリンター、カスタムサブモジュールの作成をサポート。_
 
 #### 動的解析ツール {#dynamic-analysis-tools}
 
@@ -289,7 +298,7 @@ Solidityスマートコントラクト用の単体テストフレームワーク
 - [Manticoreを使用してスマートコントラクトのバグを見つける方法](/developers/tutorials/how-to-use-manticore-to-find-smart-contract-bugs/)
 - [Slitherを使用してスマートコントラクトのバグを見つける方法](/developers/tutorials/how-to-use-slither-to-find-smart-contract-bugs/)
 - [Solidityコントラクトのテスト用モックの作成方法](/developers/tutorials/how-to-mock-solidity-contracts-for-testing/)
-- [How to run unit tests in Solidity using Foundry](https://www.rareskills.io/post/foundry-testing-solidity)
+- [Foundryを使ったSolidityの単体テストの実行方法](https://www.rareskills.io/post/foundry-testing-solidity)
 
 ## 参考文献 {#further-reading}
 

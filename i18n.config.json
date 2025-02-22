@@ -152,6 +152,14 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
+    "code": "ha",
+    "crowdinCode": "ha",
+    "name": "Hausa",
+    "localName": "Hausa",
+    "langDir": "ltr",
+    "dateFormat": "MM/DD/YYYY"
+  },
+  {
     "code": "he",
     "crowdinCode": "he",
     "name": "Hebrew",
@@ -344,17 +352,17 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
-    "code": "pt",
-    "crowdinCode": "pt-PT",
-    "name": "Portuguese",
+    "code": "pt-br",
+    "crowdinCode": "pt-BR",
+    "name": "Portuguese (Brazilian)",
     "localName": "Português",
     "langDir": "ltr",
     "dateFormat": "MM/DD/YYYY"
   },
   {
-    "code": "pt-br",
-    "crowdinCode": "pt-BR",
-    "name": "Portuguese (Brazilian)",
+    "code": "pt",
+    "crowdinCode": "pt-PT",
+    "name": "Portuguese",
     "localName": "Português",
     "langDir": "ltr",
     "dateFormat": "MM/DD/YYYY"
@@ -400,6 +408,14 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
+    "code": "sn",
+    "crowdinCode": "sn",
+    "name": "Shona",
+    "localName": "Shona",
+    "langDir": "ltr",
+    "dateFormat": "MM/DD/YYYY"
+  },
+  {
     "code": "sr",
     "crowdinCode": "sr-CS",
     "name": "Serbian",
@@ -424,6 +440,14 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
+    "code": "te",
+    "crowdinCode": "te",
+    "name": "Telugu",
+    "localName": "తెలుగు",
+    "langDir": "ltr",
+    "dateFormat": "MM/DD/YYYY"
+  },
+  {
     "code": "tk",
     "crowdinCode": "tk",
     "name": "Turkmen",
@@ -440,10 +464,26 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
+    "code": "tl",
+    "crowdinCode": "tl",
+    "name": "Tagalog",
+    "localName": "Tagalog",
+    "langDir": "ltr",
+    "dateFormat": "MM/DD/YYYY"
+  },
+  {
     "code": "tr",
     "crowdinCode": "tr",
     "name": "Turkish",
     "localName": "Türkçe",
+    "langDir": "ltr",
+    "dateFormat": "MM/DD/YYYY"
+  },
+  {
+    "code": "tw",
+    "crowdinCode": "tw",
+    "name": "Akan, Twi",
+    "localName": "Twi",
     "langDir": "ltr",
     "dateFormat": "MM/DD/YYYY"
   },
@@ -480,18 +520,26 @@
     "dateFormat": "MM/DD/YYYY"
   },
   {
-    "code": "zh",
-    "crowdinCode": "zh-CN",
-    "name": "Chinese Simplified",
-    "localName": "简体中文",
+    "code": "yo",
+    "crowdinCode": "yo",
+    "name": "Yoruba",
+    "localName": "Yorùbá",
     "langDir": "ltr",
-    "dateFormat": "YYYY-MM-DD"
+    "dateFormat": "MM/DD/YYYY"
   },
   {
     "code": "zh-tw",
     "crowdinCode": "zh-TW",
     "name": "Chinese Traditional",
     "localName": "繁體中文",
+    "langDir": "ltr",
+    "dateFormat": "YYYY-MM-DD"
+  },
+  {
+    "code": "zh",
+    "crowdinCode": "zh-CN",
+    "name": "Chinese Simplified",
+    "localName": "简体中文",
     "langDir": "ltr",
     "dateFormat": "YYYY-MM-DD"
   }

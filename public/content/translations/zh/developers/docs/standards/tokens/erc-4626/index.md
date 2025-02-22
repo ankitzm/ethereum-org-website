@@ -18,7 +18,7 @@ ERC-4626 是优化和统一收益资金库技术参数的标准。 它为表示�
 
 ## 前提条件 {#prerequisites}
 
-为了更好地理解这个页面，我们建议您首先阅读[代币标准](/developers/docs/standards/tokens/)和 [ERC-20](/developers/docs/standards/tokens/erc-20/)。
+为了更好地理解这个页面，我们建议你首先阅读[代币标准](/developers/docs/standards/tokens/)和 [ERC-20](/developers/docs/standards/tokens/erc-20/)。
 
 ## ERC-4626 的函数和功能： {#body}
 
@@ -27,7 +27,7 @@ ERC-4626 是优化和统一收益资金库技术参数的标准。 它为表示�
 #### asset {#asset}
 
 ```solidity
-function asset() public view returns (address)
+function asset() public view returns (address assetTokenAddress)
 ```
 
 此函数返回用于资金库记帐、存款和取款的标的代币的地址。
@@ -59,7 +59,7 @@ function convertToAssets(uint256 shares) public view returns (uint256 assets)
 #### maxDeposit {#maxdeposit}
 
 ```solidity
-function maxDeposit(address receiver) public view returns (uint256)
+function maxDeposit(address receiver) public view returns (uint256 maxAssets)
 ```
 
 此函数返回 `receiver` 的一次 [`deposit`](#deposit) 调用中可以存入的最大标的资产数量。
@@ -67,7 +67,7 @@ function maxDeposit(address receiver) public view returns (uint256)
 #### previewDeposit {#previewdeposit}
 
 ```solidity
-function previewDeposit(uint256 assets) public view returns (uint256)
+function previewDeposit(uint256 assets) public view returns (uint256 shares)
 ```
 
 此函数允许用户模拟他们在当前区块的存款效果。
@@ -83,7 +83,7 @@ function deposit(uint256 assets, address receiver) public returns (uint256 share
 #### maxMint {#maxmint}
 
 ```solidity
-function maxMint(address receiver) public view returns (uint256)
+function maxMint(address receiver) public view returns (uint256 maxShares)
 ```
 
 此函数返回 `receiver` 在单次 [`mint`](#mint) 调用中可以铸造的最大份额。
@@ -91,7 +91,7 @@ function maxMint(address receiver) public view returns (uint256)
 #### previewMint {#previewmint}
 
 ```solidity
-function previewMint(uint256 shares) public view returns (uint256)
+function maxMint(address receiver) public view returns (uint256 maxShares)
 ```
 
 此函数允许用户在当前区块模拟他们的铸币效果。
@@ -107,7 +107,7 @@ function mint(uint256 shares, address receiver) public returns (uint256 assets)
 #### maxWithdraw {#maxwithdraw}
 
 ```solidity
-function maxWithdraw(address owner) public view returns (uint256)
+function maxWithdraw(address owner) public view returns (uint256 maxAssets)
 ```
 
 此函数返回可以通过单次 [`withdraw`](#withdraw) 调用从 `owner` 余额中提取的最大标的资产数量。
@@ -115,7 +115,7 @@ function maxWithdraw(address owner) public view returns (uint256)
 #### previewWithdraw {#previewwithdraw}
 
 ```solidity
-function previewWithdraw(uint256 assets) public view returns (uint256)
+function previewWithdraw(uint256 assets) public view returns (uint256 shares)
 ```
 
 此函数允许用户模拟他们在当前区块取款的效果。
@@ -131,15 +131,15 @@ function withdraw(uint256 assets, address receiver, address owner) public return
 #### maxRedeem {#maxredeem}
 
 ```solidity
-function maxRedeem(address owner) public view returns (uint256)
+function maxRedeem(address owner) public view returns (uint256 maxShares)
 ```
 
-此函数返回可以通过 [`redeem`](#redeem) 调用从 `owner` 余额中赎回的最大份额数量。
+此函数返回可以通过 [`redeem`](#redeem) 调用从 `owner` 余额中赎回的最大份额。
 
 #### previewRedeem {#previewredeem}
 
 ```solidity
-function previewRedeem(uint256 shares) public view returns (uint256)
+function previewRedeem(uint256 shares) public view returns (uint256 assets)
 ```
 
 此函数允许用户在当前区块模拟他们的赎回效果。
@@ -150,7 +150,7 @@ function previewRedeem(uint256 shares) public view returns (uint256)
 function redeem(uint256 shares, address receiver, address owner) public returns (uint256 assets)
 ```
 
-此函数从 `owner` 赎回特定数量的 `shares` 并将标的代币的 `assets` 从资金库发送到 `receiver`。
+此函数从 `owner` 赎回特定数量的 `shares` 并将底层代币的 `assets` 从资金库发送到 `receiver`。
 
 #### totalSupply {#totalsupply}
 
@@ -167,6 +167,10 @@ function balanceOf(address owner) public view returns (uint256)
 ```
 
 返回 `owner` 当前拥有的资金库份额总量。
+
+### 接口图 {#mapOfTheInterface}
+
+![ERC-4626 接口图](./map-of-erc-4626.png)
 
 ### 事件 {#events}
 
@@ -195,7 +199,7 @@ event Withdraw(
     address indexed receiver,
     address indexed owner,
     uint256 assets,
-    uint256 share
+    uint256 shares
 )
 ```
 

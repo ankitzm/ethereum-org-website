@@ -1,178 +1,91 @@
 import { useRef } from "react"
-import { useRouter } from "next/router"
-import { useTranslation } from "next-i18next"
-import { BsTranslate } from "react-icons/bs"
-import { MdBrightness2, MdWbSunny } from "react-icons/md"
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Icon,
-  MenuButton,
-  Text,
-  useColorModeValue,
-  useDisclosure,
-  useEventListener,
-} from "@chakra-ui/react"
+import dynamic from "next/dynamic"
 
-import { IconButton } from "@/components/Buttons"
 import { EthHomeIcon } from "@/components/icons"
-import LanguagePicker from "@/components/LanguagePicker"
-import { BaseLink } from "@/components/Link"
 import Search from "@/components/Search"
 
-import Menu from "./Menu"
-import MobileNavMenu from "./Mobile"
+import SearchButton from "../Search/SearchButton"
+import SearchInputButton from "../Search/SearchInputButton"
+import { BaseLink } from "../ui/Link"
+
+import DesktopNavMenu from "./Desktop"
 import { useNav } from "./useNav"
+
+import { useBreakpointValue } from "@/hooks/useBreakpointValue"
+import { useIsClient } from "@/hooks/useIsClient"
+import { useTranslation } from "@/hooks/useTranslation"
+
+const Menu = dynamic(() => import("./Menu"), {
+  ssr: false,
+  loading: () => <div />,
+})
+const MobileNavMenu = dynamic(() => import("./Mobile"), { ssr: false })
 
 // TODO display page title on mobile
 const Nav = () => {
-  const { toggleColorMode, linkSections, mobileNavProps } = useNav()
-  const { locale } = useRouter()
+  const { toggleColorMode, linkSections } = useNav()
   const { t } = useTranslation("common")
-  const searchModalDisclosure = useDisclosure()
   const navWrapperRef = useRef(null)
-  const languagePickerState = useDisclosure()
-  const languagePickerRef = useRef<HTMLButtonElement>(null)
-
-  /**
-   * Adds a keydown event listener to toggle color mode (ctrl|cmd + \)
-   * or open the language picker (\).
-   * @param {string} event - The keydown event.
-   */
-  useEventListener("keydown", (e) => {
-    if (e.key !== "\\") return
-    e.preventDefault()
-    if (e.metaKey || e.ctrlKey) {
-      toggleColorMode()
-    } else {
-      if (languagePickerState.isOpen) return
-      languagePickerRef.current?.click()
-    }
-  })
-
-  const ThemeIcon = useColorModeValue(<MdBrightness2 />, <MdWbSunny />)
-  const themeIconAriaLabel = useColorModeValue(
-    "Switch to Dark Theme",
-    "Switch to Light Theme"
-  )
+  const isClient = useIsClient()
+  const desktopScreen = useBreakpointValue({ base: false, md: true })
 
   return (
-    <Box position="sticky" top={0} zIndex="sticky" width="full">
-      <Flex
+    <div className="sticky top-0 z-sticky w-full">
+      <nav
         ref={navWrapperRef}
-        as="nav"
+        className="flex h-19 justify-center border-b border-b-disabled bg-background p-4 xl:px-8"
         aria-label={t("nav-primary")}
-        bg="background.base"
-        borderBottom="1px"
-        borderColor="rgba(0, 0, 0, 0.1)"
-        height="4.75rem"
-        justifyContent="center"
-        py={4}
-        px={{ base: 4, xl: 8 }}
       >
-        <Flex
-          alignItems={{ base: "center", md: "normal" }}
-          justifyContent={{ base: "space-between", md: "normal" }}
-          width="full"
-          maxW="container.2xl"
-        >
+        <div className="flex w-full max-w-screen-2xl items-center justify-between md:items-stretch md:justify-normal">
           <BaseLink
             href="/"
             aria-label={t("home")}
-            display="inline-flex"
-            alignItems="center"
-            textDecor="none"
+            className="inline-flex items-center no-underline"
           >
-            <EthHomeIcon opacity={0.85} _hover={{ opacity: 1 }} />
+            <EthHomeIcon className="h-[35px] w-[22px] opacity-85 hover:opacity-100" />
           </BaseLink>
           {/* Desktop */}
-          <Flex
-            w="full"
-            justifyContent={{ base: "flex-end", md: "space-between" }}
-            ms={{ base: 3, xl: 8 }}
-          >
-            <Menu hideBelow="md" sections={linkSections} />
-            <Flex alignItems="center"/*  justifyContent="space-between" */>
-              <Search {...searchModalDisclosure} />
-              {/* Desktop */}
-              <HStack hideBelow="md" gap="0">
-                <IconButton
-                  transition="transform 0.5s, color 0.2s"
-                  icon={ThemeIcon}
-                  aria-label={themeIconAriaLabel}
-                  variant="ghost"
-                  isSecondary
-                  px={{ base: "2", xl: "3" }}
-                  _hover={{
-                    transform: "rotate(10deg)",
-                    color: "primary.hover",
-                  }}
-                  onClick={toggleColorMode}
-                />
+          <div className="ms-3 flex w-full justify-end md:justify-between xl:ms-8">
+            {/* avoid rendering desktop Menu version on mobile */}
+            {isClient && desktopScreen ? (
+              <Menu className="hidden md:block" sections={linkSections} />
+            ) : (
+              <div />
+            )}
 
-                {/* Locale-picker menu */}
-                <LanguagePicker
-                  placement="bottom-end"
-                  minH="unset"
-                  maxH="75vh"
-                  w="xs"
-                  inset="unset"
-                  top="unset"
-                  menuState={languagePickerState}
-                >
-                  <MenuButton
-                    as={Button}
-                    ref={languagePickerRef}
-                    variant="ghost"
-                    color="body.base"
-                    transition="color 0.2s"
-                    px={{ base: "2", xl: "3" }}
-                    _hover={{
-                      color: "primary.hover",
-                      "& svg": {
-                        transform: "rotate(10deg)",
-                        transition: "transform 0.5s",
-                      },
-                    }}
-                    _active={{
-                      color: "primary.hover",
-                      bg: "primary.lowContrast",
-                    }}
-                    sx={{
-                      "& svg": {
-                        transform: "rotate(0deg)",
-                        transition: "transform 0.5s",
-                      },
-                    }}
-                  >
-                    <Icon
-                      as={BsTranslate}
-                      fontSize="2xl"
-                      verticalAlign="middle"
-                      me={2}
-                    />
-                    <Text hideBelow="lg" as="span">
-                      {t("common:languages")}&nbsp;
-                    </Text>
-                    {locale!.toUpperCase()}
-                  </MenuButton>
-                </LanguagePicker>
-              </HStack>
-              {/* Mobile */}
-              <MobileNavMenu
-                {...mobileNavProps}
-                linkSections={linkSections}
-                hideFrom="md"
-                toggleSearch={searchModalDisclosure.onOpen}
-                drawerContainerRef={navWrapperRef}
-              />
-            </Flex>
-          </Flex>
-        </Flex>
-      </Flex>
-    </Box>
+            <Search>
+              {({ onOpen }) => {
+                if (!isClient) return null
+
+                return (
+                  <div className="flex items-center">
+                    {/* Desktop */}
+                    <div className="hidden md:flex">
+                      <SearchButton className="xl:hidden" onClick={onOpen} />
+                      <SearchInputButton
+                        className="hidden xl:flex"
+                        onClick={onOpen}
+                      />
+                      <DesktopNavMenu toggleColorMode={toggleColorMode} />
+                    </div>
+
+                    <div className="flex md:hidden">
+                      {/* Mobile */}
+                      <SearchButton onClick={onOpen} />
+                      <MobileNavMenu
+                        toggleColorMode={toggleColorMode}
+                        linkSections={linkSections}
+                        toggleSearch={onOpen}
+                      />
+                    </div>
+                  </div>
+                )
+              }}
+            </Search>
+          </div>
+        </div>
+      </nav>
+    </div>
   )
 }
 

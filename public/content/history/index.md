@@ -19,6 +19,49 @@ These rule changes may create a temporary split in the network. New blocks could
 
 </ExpandableCard>
 
+<ExpandableCard title="Why do some upgrades have multiple names?" contentPreview="Upgrades names follow a pattern">
+
+The software that underlies Ethereum is composed of two halves, known as the [execution layer](/glossary/#execution-layer) and the [consensus layer](/glossary/#consensus-layer).
+
+**Execution upgrade naming**
+
+Since 2021, upgrades to the **execution layer** are named according to the city names of [previous Devcon locations](https://devcon.org/en/past-events/) in chronological order:
+
+| Upgrade Name | Devcon Year | Devcon Number | Upgrade Date |
+| ------------ | ----------- | ------------- | ------------ |
+| Berlin       | 2014        | 0             | Apr 15, 2021 |
+| London       | 2015        | I             | Aug 5, 2021  |
+| Shanghai     | 2016        | II            | Apr 12, 2023 |
+| **Cancun**   | 2017        | III           | Mar 13, 2024 |
+| _Prague_     | 2018        | IV            | TBD          |
+| _Osaka_      | 2019        | V             | TBD          |
+| _Bogota_     | 2022        | VI            | TBD          |
+| _Bangkok_    | 2024        | VII           | TBD          |
+
+**Consensus upgrade naming**
+
+Since the launch of the [Beacon Chain](/glossary/#beacon-chain), upgrades to the **consensus layer** are named after celestial stars beginning with letters that proceed in alphabetical order:
+
+| Upgrade Name                                                | Upgrade Date |
+| ----------------------------------------------------------- | ------------ |
+| Beacon Chain genesis                                        | Dec 1, 2020  |
+| [Altair](https://en.wikipedia.org/wiki/Altair)              | Oct 27, 2021 |
+| [Bellatrix](https://en.wikipedia.org/wiki/Bellatrix)        | Sep 6, 2022  |
+| [Capella](https://en.wikipedia.org/wiki/Capella)            | Apr 12, 2023 |
+| [**Deneb**](https://en.wikipedia.org/wiki/Deneb)            | Mar 13, 2024 |
+| [_Electra_](<https://en.wikipedia.org/wiki/Electra_(star)>) | TBD          |
+
+**Combined naming**
+
+The execution and consensus upgrades were initially rolled out at different times, but after [The Merge](/roadmap/merge/) in 2022 these have been deployed simultaneously. As-such, colloquial terms have emerged to simplify references to these upgrades using a single conjoined term. This began with the _Shanghai-Capella_ upgrade, commonly referred to as "**Shapella**", and is continued with the _Cancun-Deneb_ upgrade, which may be referred to as "**Dencun**."
+
+| Execution Upgrade | Consensus Upgrade | Short Name |
+| ----------------- | ----------------- | ---------- |
+| Shanghai          | Capella           | "Shapella" |
+| Cancun            | Deneb             | "Dencun"   |
+
+</ExpandableCard>
+
 Skip straight to information about some of the particularly important past upgrades: [The Beacon Chain](/roadmap/beacon-chain/); [The Merge](/roadmap/merge/); and [EIP-1559](#london)
 
 Looking for future protocol upgrades? [Learn about upcoming upgrades on the Ethereum roadmap](/roadmap/).
@@ -27,11 +70,11 @@ Looking for future protocol upgrades? [Learn about upcoming upgrades on the Ethe
 
 ## 2024 {#2024}
 
-### _(In Progress)_&nbsp; Cancun {#cancun}
+### Cancun-Deneb ("Dencun") {#dencun}
 
-<NetworkUpgradeSummary name="cancun" />
+<NetworkUpgradeSummary name="dencun" />
 
-#### Summary {#cancun-summary}
+#### Cancun summary {#cancun-summary}
 
 The Cancun upgrade contains a set of improvements to Ethereum's _execution_ aimed towards improving scalability, in tandem with the Deneb consensus upgrades.
 
@@ -55,17 +98,11 @@ Notably this includes EIP-4844, known as **Proto-Danksharding**, which significa
 - [Danksharding](/roadmap/danksharding/)
 - [Read the Cancun upgrade specification](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/cancun.md)
 
----
+#### Deneb summary {#deneb-summary}
 
-### _(In Progress)_&nbsp; Deneb {#deneb}
+The Deneb upgrade contains a set of improvements to Ethereum's _consensus_ aimed towards improving scalability. This upgrade comes in tandem with the Cancun execution upgrades to enable Proto-Danksharding (EIP-4844), along with other improvements to the Beacon Chain.
 
-<NetworkUpgradeSummary name="deneb" />
-
-#### Summary {#deneb-summary}
-
-The Deneb upgrade contains a set of improvements to Ethereum's _consensus_ aimed towards improving scalability. This upgrade comes in tandem with the Deneb execution upgrades to enable Proto-Danksharding (EIP-4844), along with other improvements to the Beacon Chain.
-
-Pre-generated signed "voluntary exit messages" no longer expire, thus giving more control to users staking their funds with a third-party node operator. With this signed exit message, stakers can delegate node operation while maintaining the ability to safely exit and withdrawal their funds at any time, without needing to ask permission from anyone.
+Pre-generated signed "voluntary exit messages" no longer expire, thus giving more control to users staking their funds with a third-party node operator. With this signed exit message, stakers can delegate node operation while maintaining the ability to safely exit and withdraw their funds at any time, without needing to ask permission from anyone.
 
 EIP-7514 brings a tightening to the issuance of ETH by capping the "churn" rate that validators can join the network to eight (8) per epoch. Since ETH issuance is proportional to total ETH staked, limiting the number of validators joining caps the _growth rate_ of newly issued ETH, while also reducing hardware requirements for node operators, helping decentralization.
 
@@ -82,16 +119,17 @@ EIP-7514 brings a tightening to the issuance of ETH by capping the "churn" rate 
 </ExpandableCard>
 
 - [Read the Deneb upgrade specifications](https://github.com/ethereum/consensus-specs/blob/dev/specs/deneb/)
+- [Cancun-Deneb ("Dencun") FAQ](/roadmap/dencun/)
 
 <Divider />
 
 ## 2023 {#2023}
 
-### Shanghai {#shanghai}
+### Shanghai-Capella ("Shapella") {#shapella}
 
-<NetworkUpgradeSummary name="shanghai" />
+<NetworkUpgradeSummary name="shapella" />
 
-#### Summary {#shanghai-summary}
+#### Shanghai summary {#shanghai-summary}
 
 The Shanghai upgrade brought staking withdrawals to the execution layer. In tandem with the Capella upgrade, this enabled blocks to accept withdrawal operations, which allows stakers to withdraw their ETH from the Beacon Chain to the execution layer.
 
@@ -109,13 +147,7 @@ The Shanghai upgrade brought staking withdrawals to the execution layer. In tand
 
 - [Read the Shanghai upgrade specification](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
 
----
-
-### Capella {#capella}
-
-<NetworkUpgradeSummary name="capella" />
-
-#### Summary {#capella-summary}
+#### Capella summary {#capella-summary}
 
 The Capella upgrade was the third major upgrade to the consensus layer (Beacon Chain) and enabled staking withdrawals. Capella occurred synchronously with the execution layer upgrade, Shanghai, and enabled staking withdrawal functionality.
 
@@ -216,7 +248,7 @@ The Altair upgrade was the first scheduled upgrade for the [Beacon Chain](/roadm
 
 - [Read the Altair upgrade specification](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair)
 
-#### <Emoji text=":tada:" size={1} me="0.5rem" />Fun fact! {#altair-fun-fact}
+#### <Emoji text=":tada:" size={1} className="me-2" />Fun fact! {#altair-fun-fact}
 
 Altair was the first major network upgrade that had an exact rollout time. Every upgrade prior had been based on a declared block number on the proof-of-work chain, where block times vary. The Beacon Chain does not require solving for proof-of-work, and instead works on a time-based epoch system consisting of 32 twelve-second "slots" of time where validators can propose blocks. This is why we knew exactly when we would hit epoch 74,240 and Altair became live!
 
@@ -300,7 +332,7 @@ The [Beacon Chain](/roadmap/beacon-chain/) needed 16384 deposits of 32 staked ET
 
 [Read the Ethereum Foundation announcement](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21/)
 
-<DocLink to="/roadmap/beacon-chain/">
+<DocLink href="/roadmap/beacon-chain/">
   The Beacon Chain
 </DocLink>
 
@@ -316,7 +348,7 @@ The staking deposit contract introduced [staking](/glossary/#staking) to the Eth
 
 [Read the Ethereum Foundation announcement](https://blog.ethereum.org/2020/11/04/eth2-quick-update-no-19/)
 
-<DocLink to="/staking/">
+<DocLink href="/staking/">
   Staking
 </DocLink>
 
@@ -394,9 +426,9 @@ The Constantinople fork:
 <ExpandableCard title="Constantinople EIPs" contentPreview="Official improvements included in this fork.">
 
 <ul>
-  <li><a href="https://eips.ethereum.org/EIPS/eip-145">EIP-145</a> – <em>optimises cost of certain on-chain actions.</em></li>
+  <li><a href="https://eips.ethereum.org/EIPS/eip-145">EIP-145</a> – <em>optimises cost of certain onchain actions.</em></li>
   <li><a href="https://eips.ethereum.org/EIPS/eip-1014">EIP-1014</a> – <em>allows you to interact with addresses that have yet to be created.</em></li>
-  <li><a href="https://eips.ethereum.org/EIPS/eip-1052">EIP-1052</a> – <em>optimises cost of certain on-chain actions.</em></li>
+  <li><a href="https://eips.ethereum.org/EIPS/eip-1052">EIP-1052</a> – <em>introduces the <code>EXTCODEHASH</code> instruction to retrieve the hash of another contract's code.</em></li>
   <li><a href="https://eips.ethereum.org/EIPS/eip-1234">EIP-1234</a> – <em>makes sure the blockchain doesn&#39;t freeze before proof-of-stake and reduces block reward from 3 to 2 ETH.</em></li>
 </ul>
 
@@ -586,6 +618,6 @@ The Yellow Paper, authored by Dr. Gavin Wood, is a technical definition of the E
 
 The introductory paper, published in 2013 by Vitalik Buterin, the founder of Ethereum, before the project's launch in 2015.
 
-<DocLink to="/whitepaper/">
+<DocLink href="/whitepaper/">
   Whitepaper
 </DocLink>

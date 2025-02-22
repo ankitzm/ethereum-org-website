@@ -4,11 +4,11 @@ description: O algoritmo Dagger-Hashimoto em detalhes
 lang: pt-br
 ---
 
-Dagger-Hashimoto foi a implementação original de pesquisa e especificação para o algoritmo de mineração do Ethereum. Dagger-Hashimoto foi substituído por [Ethash](#ethash). A mineração foi completamente desligada na [Fusão](/roadmap/merge/) no dia 15 de setembro de 2022. Desde então, o Ethereum foi protegido usando um mecanismo [prova de participação](/developers/docs/consensus-mechanisms/pos). Esta página é para fins históricos. As informações aqui não são mais relevantes para o Ethereum posterior à Fusão.
+Dagger-Hashimoto foi a implementação original de pesquisa e especificação para o algoritmo de mineração do Ethereum. Dagger-Hashimoto foi substituído por [Ethash](#ethash). A mineração foi completamente interrompida na [Fusão](/roadmap/merge/) no dia 15 de setembro de 2022. Desde então, o Ethereum foi protegido usando um mecanismo [prova de participação](/developers/docs/consensus-mechanisms/pos). Esta página é para fins históricos. As informações aqui não são mais relevantes para o Ethereum posterior à Fusão.
 
 ## Pré-Requisitos {#prerequisites}
 
-Para melhor entender esta página, recomendamos que você leia primeiro o[ consenso de prova de trabalho, ](/developers/docs/consensus-mechanisms/pow)[mineração](/developers/docs/consensus-mechanisms/pow/mining) e [algoritmos de mineração](/developers/docs/consensus-mechanisms/pow/mining/mining-algorithms).
+Para melhor entender esta página, recomendamos que você leia primeiro o [consenso de prova de trabalho](/developers/docs/consensus-mechanisms/pow), [mineração](/developers/docs/consensus-mechanisms/pow/mining) e [algoritmos de mineração](/developers/docs/consensus-mechanisms/pow/mining/mining-algorithms).
 
 ## Dagger-Hashimoto {#dagger-hashimoto}
 
@@ -143,7 +143,7 @@ O algoritmo usado para gerar o conjunto de DAGs usados para computar o trabalho 
 def get_prevhash(n):
     from pyethereum.blocks import GENESIS_PREVHASH
     from pyethereum import chain_manager
-    if num <= 0:
+    if n <= 0:
         return hash_to_int(GENESIS_PREVHASH)
     else:
         prevhash = chain_manager.index.get_block_by_number(n - 1)
@@ -186,7 +186,7 @@ def orig_hashimoto(prev_hash, merkle_root, list_of_transactions, nonce):
         shifted_A = hash_output_A >> i
         transaction = shifted_A % len(list_of_transactions)
         txid_mix ^= list_of_transactions[transaction] << i
-    return txid_max ^ (nonce << 192)
+    return txid_mix ^ (nonce << 192)
 ```
 
 Infelizmente, enquanto Hashimoto é considerado de uso intenso de RAM, ele depende da aritmética de 256 bits, o que tem uma sobrecarga computacional considerável. No entanto, Dagger-Hashimoto usa apenas os 64 bits menos significativos ao indexar seu conjunto de dados para resolver esta questão.
@@ -281,7 +281,7 @@ Daí `x` deve ser uma identidade multiplicadora de `Z/nZ`, que é única. Como p
 
 A ordem de `x` não pode ser `2` a menos que `x = P-1`, já que isso violaria o princípio de que `P` é primo.
 
-A partir da proposta acima, podemos reconhecer que a iteração `(picker * init) % P` terá um ciclo de comprimento de pelo menos `(P-1)/2`. Isso acontece porque selecionamos `P` para ser um primo seguro aproximadamente igual a uma potência de dois mais alta, e `init` está no intervalo `[2,2**256+1]`. Dada a magnitude de `P`, nunca devemos esperar um ciclo da exponenciação modular.
+A partir da proposta acima, podemos reconhecer que a iteração `(picker * init) % P` terá um ciclo de comprimento de pelo menos `(P-1)/2`. Isso acontece porque selecionamos `P` para ser um primo seguro aproximadamente igual a uma potência de dois mais alta, e `init` está no intervalo `[2,2**256+1]`. Dada a magnitude de `P`, nunca deveríamos esperar um ciclo da exponenciação modular.
 
 Quando estamos atribuindo a primeira célula no DAG (a variável rotulada como `init`), nós computamos `pow (sha3(seed) + 2, 3, P)`. À primeira vista, isso não garante que o resultado não é `1` nem `P-1`. No entanto, como `P-1` é um primo seguro, temos a seguinte garantia adicional, que é uma afirmação deduzida da Observação 1:
 

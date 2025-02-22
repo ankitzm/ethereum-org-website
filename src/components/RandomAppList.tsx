@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
-import { shuffle } from "lodash"
+import { useEffect, useState } from "react"
+import shuffle from "lodash/shuffle"
 
 import type { TranslationKey } from "@/lib/types"
 
-import InlineLink from "./Link"
+import InlineLink from "./ui/Link"
 import Translation from "./Translation"
 
 interface App {
@@ -62,7 +62,7 @@ const RandomAppList = () => {
     <ul>
       {randomAppList.map((item, idx) => (
         <li key={idx}>
-          <InlineLink to={item.url}>{item.name}</InlineLink>
+          <InlineLink href={item.url}>{item.name}</InlineLink>
           , <Translation id={item.description} />
         </li>
       ))}

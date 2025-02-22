@@ -38,7 +38,7 @@ Las dos redes públicas de prueba que los desarrolladores de clientes están man
 
 #### Sepolia {#sepolia}
 
-\*\*\*\*Sepolia es la red de prueba predeterminada recomendada para el desarrollo de aplicaciones. La red Sepolia utiliza un conjunto de validadores autorizados. Es bastante nueva, lo que significa que su estado e historia son bastante limitados. Esto significa que la red se sincroniza rápidamente y que ejecutar un nodo requiere menos almacenamiento. Esto es útil para los usuarios que quieren activar rápidamente un nodo e interactuar directamente con la red.
+****Sepolia es la red de prueba predeterminada recomendada para el desarrollo de aplicaciones. La red Sepolia utiliza un conjunto de validadores autorizados. Es bastante nueva, lo que significa que su estado e historia son bastante limitados. Esto significa que la red se sincroniza rápidamente y que ejecutar un nodo requiere menos almacenamiento. Esto es útil para los usuarios que quieren activar rápidamente un nodo e interactuar directamente con la red.
 
 - Conjunto de validadores cerrado, controlado por el cliente y equipos de prueba
 - Nueva red de prueba, menos aplicaciones implementadas que otras redes de prueba
@@ -50,17 +50,18 @@ Las dos redes públicas de prueba que los desarrolladores de clientes están man
 - [GitHub](https://github.com/eth-clients/sepolia)
 - [Otterscan](https://sepolia.otterscan.io/)
 - [Etherscan](https://sepolia.etherscan.io)
+- [Blockscout](https://eth-sepolia.blockscout.com/)
 
 ##### Faucets
 
 - [QuickNode Sepolia Faucet](https://faucet.quicknode.com/drip)
 - [Grabteeth](https://grabteeth.xyz/)
 - [PoW faucet](https://sepolia-faucet.pk910.de/)
-- [Coinbase Wallet Faucet | Sepolia](https://coinbase.com/faucets/ethereum-sepolia-faucet)
+- [Faucet de cartera Coinbase | Sepolia](https://coinbase.com/faucets/ethereum-sepolia-faucet)
 - [Alchemy Sepolia faucet](https://sepoliafaucet.com/)
 - [Faucet Infura Sepolia](https://www.infura.io/faucet)
 - [Faucet Chainstack Sepolia](https://faucet.chainstack.com/sepolia-faucet)
-- [Faucet de red de prueba | Sepolia](https://testnet-faucet.com/sepolia/)
+- [Faucet del ecosistema Ethereum](https://www.ethereum-ecosystem.com/faucets/ethereum-sepolia)
 
 #### Goerli _(soporte a largo plazo)_ {#goerli}
 
@@ -77,6 +78,7 @@ Goerli es una red de prueba para probar la validación y la participación. La r
 - [Sitio web](https://goerli.net/)
 - [GitHub](https://github.com/eth-clients/goerli)
 - [Etherscan](https://goerli.etherscan.io)
+- [Blockscout](https://eth-goerli.blockscout.com/)
 
 ##### Faucets
 
@@ -89,7 +91,7 @@ Goerli es una red de prueba para probar la validación y la participación. La r
 - [Coinbase Wallet Faucet | Goerli](https://coinbase.com/faucets/ethereum-goerli-faucet)
 - [Faucet Chainstack Goerli](https://faucet.chainstack.com/goerli-faucet)
 
-Para iniciar un validador en la red de prueba de Goerli, utilice la plataforma de lanzamiento de [«cheap goerli validator»](https://goerli.launchpad.ethstaker.cc/en/) de ethstaker.
+Para iniciar un validador en la red de prueba de Goerli, utilice la plataforma de lanzamiento de [«cheap goerli validator»](https://holesky.launchpad.ethstaker.cc/en/) de ethstaker.
 
 ### Redes de pruebas de Capa 2 {#layer-2-testnets}
 

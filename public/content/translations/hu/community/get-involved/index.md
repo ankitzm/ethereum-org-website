@@ -1,10 +1,10 @@
 ---
-title: Hogyan lehet ebben részt venni?
+title: Hogyan lehet részt venni?
 description: Hogyan lehet bekapcsolódni az Ethereum közösségébe.
 lang: hu
 ---
 
-# Hogyan lehet ebben részt venni? {#get-involved}
+# Hogyan lehet részt venni? {#get-involved}
 
 Az Ethereum-közösségek tagjai különféle háttérrel és képességekkel rendelkeznek. Lehet Ön fejlesztő, művész vagy könyvelő, mindenkinek lehetősége van közreműködni. Az alábbi javaslatok segíthetnek megtalálni a megfelelő kiindulási pontot.
 
@@ -13,18 +13,19 @@ Kezdje azzal, hogy elolvassa az ethereum.org misszióját és értékeit a [maga
 ## Fejlesztők <Emoji text=":computer:" size={1} /> {#developers}
 
 - Tanuljon az Ethereumról és próbálja ki az [ethereum.org/developers/](/developers/) oldalon
-- [Nyerjen jutalmat a Gitcoin-on](https://gitcoin.co/) azáltal, hogy kisebb-nagyobb technikai problémákon dolgozik, és kapjon érte kriptót!
 - Vegyen részt egy Önhöz közel eső [ETHGlobal](http://ethglobal.co/) hackathonon!
 - Nézze meg azokat a [projekteket, melyek a szakterületéhez vagy a választott programnyelvéhez kapcsolódnak](/developers/docs/programming-languages/)
-- Vegyen részt a [protokollfejlesztők megbeszélésein (Core Dev calls)](https://www.youtube.com/playlist?list=PLaM7G4Llrb7zfMXCZVEXEABT8OSnd4-7w)
+- Nézze meg a [Konszenzus- és végrehajtási réteg megbeszéléseket](https://www.youtube.com/@EthereumProtocol/streams) vagy vegyen részt rajtuk
 - [Ökoszisztémát támogató programok listája](https://esp.ethereum.foundation/wishlist/) – eszközök, dokumentáció és infrastruktúra, ahol az Ethereum-ökoszisztémát támogató programok aktívan várják a támogatásért jelentkezőket
 - [Web3Bridge](https://www.web3bridge.com/) – csatlakozzon az inspiráló web3-közösséghez, mely egész Afrikában fejlesztők és közösségi tagok százait választja ki, tanítja be és támogatja
-- Csatlakozzon a [Ethereum Cat Herders Discord](https://discord.io/EthCatHerders) csatornához
+- Csatlakozzon az [Eth R&D Discord](https://discord.com/invite/VmG7Uxc) csatornához
+- Csatlakozzon az [Ethereum Cat Herders Discord csatornához](https://discord.com/invite/Nz6rtfJ8Cu)
 
 ## Kutatók és akadémikusok <Emoji text=":mag:" size={1} /> {#researchers-and-academics}
 
 Ön matematikus, kriptográfus vagy közgazdász háttérrel rendelkezik? Érdeklik az élvonalbeli tevékenységek az Ethereum-ökoszisztéma kapcsán:
 
+- Csatlakozzon az [Eth R&D Discord](https://discord.com/invite/VmG7Uxc) csatornához
 - Írjon vagy véleményezzen egy Ethereum fejlesztési javaslatot (EIP)
   - Írjon EIP-t
     1. Adja be ötletét az [Ethereum Magicians csoportnak](https://ethereum-magicians.org)
@@ -33,12 +34,13 @@ Kezdje azzal, hogy elolvassa az ethereum.org misszióját és értékeit a [maga
   - Tudja meg, hogyan lehet [EIP-szerkesztő](https://eips.ethereum.org/EIPS/eip-5069)
     - Ön is véleményezheti az EIP-ket már most! Nézze meg a [nyitott PR-okat az `e-review` címkét](https://github.com/ethereum/EIPs/pulls?q=is%3Apr+is%3Aopen+label%3Ae-review) használva. Adjon technikai visszajelzést a `discussion-to` hivatkozáson.
   - Vegyen részt az [EIP-menedzsementben](https://github.com/ethereum-cat-herders/EIPIP)
-    - Csatlakozzon a [Ethereum Cat Herders Discord](https://discord.io/EthCatHerders) csatornához
+    - Csatlakozzon az [Ethereum Cat Herders Discord csatornához](https://discord.com/invite/Nz6rtfJ8Cu)
   - [Bővebben az EIP-kről](/eips/)
 - [Challenges.ethereum.org](https://challenges.ethereum.org/) – magas értékű kutatói jutalmak, ahol akár >$100 000 dollárnál is többet kaphat
 - [Ethresear.ch](https://ethresear.ch) – az Ethereum elsődleges kutatói fóruma, illetve a világ legbefolyásosabb fóruma a kriptogazdaság terén
 - [EF Research AMA](https://old.reddit.com/r/ethereum/comments/vrx9xe/ama_we_are_ef_research_pt_8_07_july_2022) – egy folyamatos kérdés-válasz sorozat a kutatókkal. A következő részek megnyitásakor bárki feltehet kérdéseket.
 - [Ökoszisztémát támogató programok listája](https://esp.ethereum.foundation/wishlist/) – kutatási területek, ahol az Ethereum-ökoszisztémát támogató programok aktívan várják a támogatásért jelentkezőket
+- [AllWalletDevs](https://allwallet.dev) – fórum az Ethereum-fejlesztők, -tervezők és -érdeklődők számára, hogy rendszeresen összegyűljenek és megtárgyalják a tárcákat
 
 [Fedezzen fel még több kutatási területet](/community/research/).
 
@@ -90,7 +92,7 @@ Az Ethereum-ökoszisztéma missziója, hogy közjóval kapcsolatos és nagy hat�
 
 ## Termékmenedzserek <Emoji text=":fountain_pen:" size={1} /> {#product-managers}
 
-- Az Ethereum-ökoszisztémának az Ön tehetségére is szüksége van! Számos cég keres ilyen pozícióra munkaerőt. Ha szeretne egy nyílt forráskódú projektben közreműködni, keresse meg az [Ethereum Cat Herders](https://discord.com/invite/Nz6rtfJ8Cu) vagy [MetaCartel](https://www.metacartel.org/) csapatokat
+- Az Ethereum-ökoszisztémának az Ön tehetségére is szüksége van! Számos cég keres ilyen pozícióra munkaerőt. Ha szeretne egy nyílt forráskódú projektben közreműködni, keresse meg az [Ethereum Cat Herders](https://discord.com/invite/Nz6rtfJ8Cu) vagy [RaidGuild](https://www.raidguild.org/) csapatokat
 
 ## Marketing <Emoji text=":megaphone:" size={1} /> {#marketing}
 
@@ -103,12 +105,11 @@ Az Ethereum-ökoszisztéma missziója, hogy közjóval kapcsolatos és nagy hat�
 - [ethereum.org jobs](/about/#open-jobs)
 - [Ethereum Foundation job board (Lever)](https://jobs.lever.co/ethereumfoundation)
 - [Ethereum Foundation job board (BambooHR)](https://ethereum.bamboohr.com/jobs/)
+- [JobStash](https://jobstash.xyz)
 - [Cryptocurrency Jobs](https://cryptocurrencyjobs.co/ethereum/)
-- [Crypto.jobs](https://crypto.jobs/)
 - [Careers at ConsenSys](https://consensys.net/careers/)
 - [Crypto Jobs List](https://cryptojobslist.com/ethereum-jobs)
 - [Bankless jobs board](https://pallet.xyz/list/bankless/jobs)
-- [useWeb3 Jobs](https://www.useweb3.xyz/jobs)
 - [Web3 Jobs](https://web3.career)
 - [Web3 Army](https://web3army.xyz/)
 - [Crypto Valley Jobs](https://cryptovalley.jobs/)
@@ -119,19 +120,15 @@ Az Ethereum-ökoszisztéma missziója, hogy közjóval kapcsolatos és nagy hat�
 
 A DAO-k decentralizált autonóm szervezetek. Ezek az Ethereum technológiára építve működtetnek szerveződéseket és együttműködéseket. Például a tagság kezelése, a javaslatok megszavazása vagy összegyűjtött eszközök kezelése kapcsán. Bár kísérleti fázisban vannak, de rengeteg lehetőséget ajánlanak, hogy találjon egy hasonlóan gondolkodó csoportot, együttműködő partnereket és hatást gyakoroljon az Ethereum közösségre. [Bővebben a DAO-król](/dao/)
 
-- [DAOSquare](https://www.daosquare.io) [@DAOSquare](https://twitter.com/DAOSquare) – _A DAO koncepció támogatása a nem technikai területeken, illetve hogy az emberek értéket teremtsenek a DAO által_
+- [DAOSquare](https://daosquare.io/) [@DAOSquare](https://twitter.com/DAOSquare) – _A DAO koncepció támogatása a nem technikai területeken, illetve hogy az emberek értéket teremtsenek a DAO által_
 - [Developer DAO](https://www.developerdao.com/) [@developer_dao](https://twitter.com/developer_dao) – _Fejlesztők közössége, akik hisznek az internet közös tulajdonlásában_
 - [dOrg](https://dOrg.tech) [@dOrg_tech](https://twitter.com/dOrg_tech) – _egy szabadúszó web3-fejlesztői csapat, amely DAO-ként működik_
-- [DXdao](https://DXdao.eth.link/) [@DXdao](https://twitter.com/DXdao_) – _decentralizált dapp- és protokollfejlesztés, illetve -irányítás_
 - [HausDAO](https://daohaus.club) [@nowdaoit](https://twitter.com/nowdaoit) – _A DAOhaus közösségi irányítása_
-- [Hero DAO](https://herodao.org/) [@hero_dao](https://twitter.com/hero_dao) – _Közösség által tulajdonolt szuperhős franchise_
-- [LexDAO](https://lexdao.coop) [@lex_DAO](https://twitter.com/lex_DAO) – _Jogi szerepkörök_
+- [LexDAO](https://lexdao.org) [@lex_DAO](https://twitter.com/lex_DAO) – _Jogi szerepkörök_
 - [Machi X](https://machix.com) [@MachiXOfficial](https://twitter.com/MachiXOfficial) - _Művészeti közösség_
-- [MetaCartel](https://metacartel.org) [@Meta_Cartel](https://twitter.com/Meta_Cartel) – _DAO inkubátor_
 - [MetaCartel Ventures](https://metacartel.xyz) [@VENTURE_DAO](https://twitter.com/VENTURE_DAO) – _kockázati tőke a korai fázisban lévő kriptoprojektek számára_
 - [MetaGame](https://metagame.wtf) [@MetaFam](https://twitter.com/MetaFam) – _MMORPG játékmechanika a való élethez_
 - [MetaFactory](https://metafactory.ai) [@TheMetaFactory](https://twitter.com/TheMetaFactory) – _Digifizikális ruházati márkák_
-- [ΜΓΔ](https://metagammadelta.com/) (Meta Gamma Delta) [@metagammadelta](https://twitter.com/metagammadelta) – _Nők által vezetett projektek_
 - [MolochDAO](https://molochdao.com) [@MolochDAO](https://twitter.com/MolochDAO) – _Az Ethereum-fejlesztések finanszírozását intéző közösség_
 - [Raid Guild](https://raidguild.org) [@RaidGuild](https://twitter.com/RaidGuild) – _Web3-fejlesztők csoportja_
 

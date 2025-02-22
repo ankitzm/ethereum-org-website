@@ -3,7 +3,7 @@ title: Mnyororo Kioleza
 description: Jifunze juu ya Mnyororo Kioleza - Kisasisho kilichoanzishwa na Ethereum ya uthibitisho-wa-hisa.
 lang: sw
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: Mnyororo Kioleza haitabadili kitu chochote katika Ethereum ya leo.
 summaryPoint2: Itaratibu mtandao, na kutumikia kama safu ya makubaliano.
@@ -49,7 +49,7 @@ Visasisho vyote vya Eth2 vinahusiana kwa kiasi fulani. Basi hebu tukumbushe jins
 
 Mnyororo Kioleza, mwanzoni, itakuwa imetengana na Mtandao mkuu wa Ethereum tunaotumia leo hii. Lakini mwishowe vitaunganishwa. Mpango ni "kuunganisha" Mtandao Mkuu kwenye mfumo wa uthibitisho-wa-hisa amabao Mnyororo Kioleza unaudhibiti na kuuratibu.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
     Unganisha
 </ButtonLink>
 
@@ -57,12 +57,8 @@ Mnyororo Kioleza, mwanzoni, itakuwa imetengana na Mtandao mkuu wa Ethereum tunao
 
 Minyororo ya Vigae itakua salama kuingia katika ikolojia ya Ethereum pale tu utaratibu wa makubaliano kwenye uthibitisho-wa-hisa utakapochukua nafasi. Mnyororo Kioleza utaanzisha hisa, ikitengeneza njia ili uboreshwaji wa mnyororo-kigae ufuate.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
     Minyororo ya Kigae
 </ButtonLink>
 
 <Divider />
-
-## Ingiliana na Mnyororo Kioleza {#interact-with-beacon-chain}
-
-<BeaconChainActions />

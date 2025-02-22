@@ -10,82 +10,17 @@ lang: fr
 
 Vous recherchez l'assistance officielle Ethereum ? La première chose que vous devez savoir est le fait qu'Ethereum est décentralisé. Cela signifie qu'aucune organisation, entité ou personne n'est propriétaire d'Ethereum et, de ce fait, il n'existe aucune assistance officielle.
 
-Comprendre la nature décentralisée d'Ethereum est essentiel, car quiconque prétendant représenter l'assiatnce officielle d'Ethereum essaie probablement de vous escroquer ! La meilleure protection contre les arnaques consiste à vous informer et à prendre la sécurité au sérieux.
+Comprendre la nature décentralisée d’Ethereum est essentiel car **toute personne prétendant être le support officiel d’Ethereum essaie probablement de vous arnaquer !** La meilleure protection contre les escrocs est de vous informer et de prendre la sécurité au sérieux.
 
-<DocLink to="/security/">
+<DocLink href="/security/">
   Sécurité d'Ethereum et prévention des arnaques
 </DocLink>
 
-<DocLink to="/learn/">
+<DocLink href="/learn/">
   Apprendre les fondamentaux d'Ethereum
 </DocLink>
 
 Malgré le manque d'assistance officielle, de nombreux groupes, communautés et projets à travers l'écosystème Ethereum sont heureux de vous aider. Vous pouvez trouver beaucoup d'informations et de ressources utiles sur cette page. Vous avez d'autres questions ? Rejoignez le [Discord ethereum.org](/discord/) et nous essaierons de vous aider.
-
-## Assistance concernant votre portefeuille {#wallet-support}
-
-Vous rencontrez un problème avec votre portefeuille ? La plupart des portefeuilles ont des équipes d'assistance dédiées qui peuvent vous aider :
-
-- [MetaMask](https://metamask.zendesk.com/hc/)
-- [Argent](https://support.argent.xyz/hc/)
-- [MyEtherWallet](https://help.myetherwallet.com/)
-
-_Cette liste est non-exhaustive. Vous avez besoin d'aide pour trouver l'assistance pour un portefeuille spécifique ? Rejoignez le [Discord ethereum.org](https://discord.gg/ethereum-org) et nous tenterons de vous aider._
-
-Vous êtes à la recherche d'un portefeuille Ethereum ? [Explorez notre liste complète de portefeuilles Ethereum](/wallets/find-wallet/).
-
-## Créer des applications décentralisées {#building-support}
-
-Le développement d'une application décentralisée peut être difficile. Voici quelques espaces axés sur leur création, avec des développeurs Ethereum chevronnés qui seront heureux de vous faire part de leur expérience.
-
-- [Alchemy University](https://university.alchemy.com/#starter_code)
-- [Discord CryptoDevs](https://discord.com/invite/5W5tVb3)
-- [StackExchange Ethereum](https://ethereum.stackexchange.com/)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/web3)
-- [Web3 University](https://www.web3.university/)
-- [LearnWeb3](https://discord.com/invite/learnweb3)
-
-Vous pouvez aussi consulter notre documentation ainsi que des guides de développement dans notre section [Ressources pour les développeurs Ethereum](/developers/).
-
-### Outils {#dapp-tooling}
-
-Votre question concerne un outil, un projet ou une bibliothèque en particulier ? La plupart des projets disposent de serveurs de discussion ou des forums dédiés au soutien des membres.
-
-Voici quelques exemples connus :
-
-- [Solidity](https://gitter.im/ethereum/solidity/)
-- [ethers.js](https://discord.gg/6jyGVDK6Jx)
-- [web3.js](https://discord.gg/GsABYQu4sC)
-- [Hardhat](https://discord.gg/xtrMGhmbfZ)
-- [Truffle](https://discord.gg/8uKcsccEYE)
-- [Alchemy](http://alchemy.com/discord)
-- [Tenderly](https://discord.gg/fBvDJYR)
-
-## Exécuter un nœud {#node-support}
-
-Si vous exécutez un nœud ou un validateur, voici quelques communautés qui sont consacrées à aider ceux qui débutent.
-
-- [Discord EthStaker](https://discord.gg/ethstaker)
-- [Reddit EthStaker](https://www.reddit.com/r/ethstaker)
-
-La plupart des équipes qui créent des clients Ethereum disposent aussi d'espaces dédiés, ouverts au public, dans lesquels vous pouvez obtenir une aide et poser des questions.
-
-### Clients d'exécution {#execution-clients}
-
-- [Geth](https://discord.gg/FqDzupGyYf)
-- [Nethermind](https://discord.gg/YJx3pm8z5C)
-- [Besu](https://discord.gg/p8djYngzKN)
-- [Erigon](https://github.com/ledgerwatch/erigon/issues)
-
-### Clients de consensus {#consensus-clients}
-
-- [Prysm](https://discord.gg/prysmaticlabs)
-- [Nimbus](https://discord.gg/nSmEH3qgFv)
-- [Lighthouse](https://discord.gg/cyAszAh)
-- [Teku](https://discord.gg/7hPv2T6)
-- [Lodestar](https://discord.gg/aMxzVcr)
-
-Vous pouvez aussi [apprendre comment exécuter un nœud ici](/developers/docs/nodes-and-clients/run-a-node/).
 
 ## Questions fréquemment posées {#faq}
 
@@ -109,8 +44,62 @@ Les transactions sur Ethereum peuvent parfois se bloquer si vous avez soumis des
 
 ### Comment miner de l'Ethereum ? {#mining-ethereum}
 
-Le minage d'Ethereum n'est plus possible. Le minage a disparu lors du passage d'Ethereum de la preuve de travail à la preuve d'enjeu. Désormais, en place des mineurs, Ethereum dispose de validateurs. Les validateurs misent de l'ETH et reçoivent des récompenses pour la sécurisation du réseau.
+Le minage d'Ethereum n'est plus possible. La possibilité de miner a disparu lors du passage d'Ethereum de la [preuve de travail](/glossary/#pow) à la [preuve d'enjeu](/glossary/#pos). Désormais, en place des mineurs, Ethereum dispose de validateurs. Tout le monde peut [mettre en jeu](/glossary/#staking) de l'ETH et recevoir des récompenses de mise en jeu en exécutant un programme de validation pour sécuriser le réseau.
 
-### Comment devenir un staker/validateur ? {#become-validator}
+### Comment devenir un validateur / faire fonctionner un validateur ? {#how-to-stake}
 
 Pour devenir un validateur, vous devez miser 32 ETH dans le contrat de dépôt Ethereum et mettre en place un nœud de validateur. Davantage d'informations sont disponibles sur nos [pages de staking](/staking) et sur [la plateforme de lancement de staking](https://launchpad.ethereum.org/).
+
+## Créer des applications décentralisées {#building-support}
+
+Le développement d'une application décentralisée peut être difficile. Voici quelques espaces axés sur leur création, avec des développeurs Ethereum chevronnés qui seront heureux de vous faire part de leur expérience.
+
+- [Alchemy University](https://university.alchemy.com/#starter_code)
+- [Discord CryptoDevs](https://discord.com/invite/5W5tVb3)
+- [StackExchange Ethereum](https://ethereum.stackexchange.com/)
+- [StackOverflow](https://stackoverflow.com/questions/tagged/web3)
+- [Web3 University](https://www.web3.university/)
+- [LearnWeb3](https://discord.com/invite/learnweb3)
+
+Vous pouvez aussi consulter notre documentation ainsi que des guides de développement dans notre section [Ressources pour les développeurs Ethereum](/developers/).
+
+### Outils {#dapp-tooling}
+
+Votre question concerne un outil, un projet ou une bibliothèque en particulier ? La plupart des projets disposent de serveurs de discussion ou des forums dédiés au soutien des membres.
+
+Voici quelques exemples connus :
+
+- [Solidity](https://gitter.im/ethereum/solidity)
+- [ethers.js](https://discord.gg/6jyGVDK6Jx)
+- [web3.js](https://discord.gg/GsABYQu4sC)
+- [Hardhat](https://discord.gg/xtrMGhmbfZ)
+- [Alchemy](http://alchemy.com/discord)
+- [Tenderly](https://discord.gg/fBvDJYR)
+
+## Exécuter un nœud {#node-support}
+
+Si vous exécutez un nœud ou un validateur, voici quelques communautés qui sont consacrées à aider ceux qui débutent.
+
+- [Discord EthStaker](https://discord.gg/ethstaker)
+- [Reddit EthStaker](https://www.reddit.com/r/ethstaker)
+
+La plupart des équipes qui créent des clients Ethereum disposent aussi d'espaces dédiés, ouverts au public, dans lesquels vous pouvez obtenir une aide et poser des questions.
+
+### Clients d'exécution {#execution-clients}
+
+- [Geth](https://discord.gg/FqDzupGyYf)
+- [Nethermind](https://discord.gg/YJx3pm8z5C)
+- [Besu](https://discord.gg/p8djYngzKN)
+- [Erigon](https://github.com/ledgerwatch/erigon/issues)
+- [Reth](https://github.com/paradigmxyz/reth/discussions)
+
+### Clients de consensus {#consensus-clients}
+
+- [Prysm](https://discord.gg/prysmaticlabs)
+- [Nimbus](https://discord.gg/nSmEH3qgFv)
+- [Lighthouse](https://discord.gg/cyAszAh)
+- [Teku](https://discord.gg/7hPv2T6)
+- [Lodestar](https://discord.gg/aMxzVcr)
+- [Grandine](https://discord.gg/H9XCdUSyZd)
+
+Vous pouvez aussi [apprendre comment exécuter un nœud ici](/developers/docs/nodes-and-clients/run-a-node/).

@@ -33,7 +33,7 @@ summaryPoints:
 
 <ExpandableCard title="バークルツリーは、ウィットネスのサイズを厳密にどの程度削減できるのでしょうか?" eventCategory="/roadmap/verkle-trees" eventName="clicked exactly how much can Verkle trees reduce witness size?">
 
-ウィットネスのサイズは、含まれるリーフの数によって変わります。 例えば、1000枚のリーフを扱うウィットネスは、マークルツリーで約3.5MB(ツリーが7レベルと仮定しています)、 バークルツリーでは約150KB(ツリーが4レベルあると仮定します)となり、**約23分の1**に縮小できます。 このウィットネスのサイズ縮小により、ステートレスクライアントでも許容できる大きさになります。 多項式ウィットネスは、使用される個別の多項式コミットメントによって、0.128～1KBの範囲に収まります。
+ウィットネスのサイズは、含まれるリーフの数によって変わります。 例えば、1000枚のリーフを扱うウィットネスは、マークルツリーで約3.5MB(ツリーが7レベルと仮定しています)、 バークルツリーでは約150KB(ツリーが4レベルあると仮定します)となり、**約23分の1**に縮小できます。 このウィットネスのサイズ縮小により、ステートレスクライアントでも許容できる大きさになります。 多項式ウィットネスは、使用する具体的な多項式コミットメントに応じて、0.128kBから1kBの範囲です。
 
 </ExpandableCard>
 
@@ -49,17 +49,18 @@ summaryPoints:
 
 バークルツリーのテストネットはすでに稼働していますが、バークルツリーをサポートするために必要なクライアントの更新はまだたくさん残っています。 コントラクトをテストネットにデプロイしたり、テストネットでクライアントを実行したりすることで、開発を進めるお手伝いができます。
 
-[ビバリーヒルズ・バークルテストネットの探索](https://beverlyhills.ethpandaops.io)
+[ Verkle Gen Devnet 2テストネットを探索する](https://verkle-gen-devnet-2.ethpandaops.io/)
 
-[Guillaume BalletによるCondrieuバークルテストネットの説明をご覧ください](https://www.youtube.com/watch?v=cPLHFBeC0Vg) (Condrieuテストネットはプルーフ・オブ・ワークでしたが、現在は[Kaustinenテストネット](https://kaustinen.ethdevops.io)に置き換えらていることにご注意ください)。
+[Guillaume BalletによるCondrieuバークルテストネットの説明をご覧ください](https://www.youtube.com/watch?v=cPLHFBeC0Vg) (Condrieuテストネットはプルーフ・オブ・ワークでしたが、現在はVerkle Gen Devnet 2テストネットに置き換えらていることにご注意ください)。
 
 ## 参考文献 {#further-reading}
 
+- [ステートレスのためのバークルツリー](https://verkle.info/)
 - [ダンクラッド・フィーストによるPEEPanEIPでのバークルツリーの説明](https://www.youtube.com/watch?v=RGJOQHzg3UQ)
 - [Guillaume BalletによるETHGlobalでのバークルツリーの説明](https://www.youtube.com/watch?v=f7bEtX3Z57o)
 - [Devcon6でのGuillaume Balletによる「バークルツリーがイーサリアムを効率的にする仕組み」](https://www.youtube.com/watch?v=Q7rStTKwuYs)
 - [ETHDenver 2020でのPiper Merriamによるステートレスクライアントに関する説明](https://www.youtube.com/watch?v=0yiZJNciIJ4)
-- [ゼロ知識ポッドキャストでのダンクラッド・フィーストによるバークルツリーとステートレスに関する説明](https://zeroknowledge.fm/episode-202-stateless-ethereum-verkle-tries-with-dankrad-feist/)
+- [ダンクラッド・フィーストによるゼロ知識ポッドキャストでのバークルツリーとステートレス性についての解説](https://zeroknowledge.fm/episode-202-stateless-ethereum-verkle-tries-with-dankrad-feist/)
 - [ヴィタリック・ブテリンによるバークルツリーの説明](https://vitalik.eth.limo/general/2021/06/18/verkle.html)
 - [ダンクラッド・フィーストによるバークルツリーの説明](https://dankradfeist.de/ethereum/2021/06/18/verkle-trie-for-eth1.html)
 - [バークルツリーのEIPドキュメント](https://notes.ethereum.org/@vbuterin/verkle_tree_eip#Illustration)

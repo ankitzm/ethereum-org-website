@@ -1,6 +1,6 @@
 ---
 title: Bloques
-description: "Una visión general de los bloques de la blockchain de Ethereum: su estructura de datos, por qué son necesarios y cómo se fabrican."
+description: 'Una visión general de los bloques de la blockchain de Ethereum: su estructura de datos, por qué son necesarios y cómo se fabrican.'
 lang: es
 ---
 
@@ -40,7 +40,7 @@ La prueba de participación (PoS) consiste en lo siguiente:
 Hay mucha información contenida en un bloque. En los niveles más altos, un bloque contiene las siguientes características:
 
 | Campo            | Descripción                                                         |
-| :--------------- | :------------------------------------------------------------------ |
+|:---------------- |:------------------------------------------------------------------- |
 | `ranura`         | la ranura a la que pertenece el bloque                              |
 | `proposer_index` | la ID del validador que propone el bloque                           |
 | `parent_root`    | el hash del bloque anterior                                         |
@@ -50,12 +50,12 @@ Hay mucha información contenida en un bloque. En los niveles más altos, un blo
 El `cuerpo` del bloque contiene una serie de características:
 
 | Campo                | Descripción                                                          |
-| :------------------- | :------------------------------------------------------------------- |
+|:-------------------- |:-------------------------------------------------------------------- |
 | `randao_reveal`      | un valor utilizado para seleccionar el siguiente bloque propuesto    |
 | `eth1_data`          | información sobre el contrato de depósito                            |
 | `grafiti`            | datos arbitrarios usados para etiquetar bloques                      |
 | `proposer_slashings` | lista de validadores por cortar                                      |
-| `attester_slashings` | lista de validadores a cortar                                        |
+| `attester_slashings` | lista de certificantes por recortar                                  |
 | `certificaciones`    | lista de certificaciones a favor del bloque actual                   |
 | `depósitos`          | lista de nuevos depósitos en el contrato de depósito                 |
 | `voluntary_exits`    | lista de validadores que salen de la red                             |
@@ -65,7 +65,7 @@ El `cuerpo` del bloque contiene una serie de características:
 El campo `certificaciones` contiene una lista con todas las certificaciones del bloque. Las certificaciones poseen su propia tipología y contienen diversos tipos de información. Cada atestación contiene:
 
 | Campo              | Descripción                                                         |
-| :----------------- | :------------------------------------------------------------------ |
+|:------------------ |:------------------------------------------------------------------- |
 | `aggregation_bits` | una lista de los validadores que participaron en esta certificación |
 | `datos`            | una terminal con múltiples subcampos                                |
 | `firma`            | firma añadida de todos los validadores que certifican               |
@@ -73,7 +73,7 @@ El campo `certificaciones` contiene una lista con todas las certificaciones del 
 El campo `datos` en la `certificación` contiene lo siguiente:
 
 | Campo               | Descripción                                                |
-| :------------------ | :--------------------------------------------------------- |
+|:------------------- |:---------------------------------------------------------- |
 | `ranura`            | el ranura a la que se refiere la certificación             |
 | `índice`            | índices para certificar validadores                        |
 | `beacon_block_root` | el hash raíz del bloque de baliza que contiene este objeto |
@@ -85,7 +85,7 @@ Ejecutar transacciones en `execution_payload` actualizará el estado general. To
 El `execution_payload_header` contiene los siguientes campos:
 
 | Campo               | Descripción                                                               |
-| :------------------ | :------------------------------------------------------------------------ |
+|:------------------- |:------------------------------------------------------------------------- |
 | `parent_hash`       | hash del bloque principal                                                 |
 | `fee_recipient`     | dirección de cuenta para pagar comisiones de transacción a                |
 | `state_root`        | hash raíz para el estado global después de aplicar cambios en este bloque |
@@ -105,7 +105,7 @@ El `execution_payload_header` contiene los siguientes campos:
 El propio `execution_payload` contiene lo siguiente (observe que esto es idéntico al encabezamiento, excepto que en lugar del hash raíz de las transacciones incluye la lista real de transacciones e información de retiradas):
 
 | Campo              | Descripción                                                               |
-| :----------------- | :------------------------------------------------------------------------ |
+|:------------------ |:------------------------------------------------------------------------- |
 | `parent_hash`      | hash del bloque padre                                                     |
 | `fee_recipient`    | dirección de la cuenta para pagar las tarifas de transacción a            |
 | `state_root`       | hash raíz para el estado global después de aplicar cambios en este bloque |
@@ -125,9 +125,9 @@ El propio `execution_payload` contiene lo siguiente (observe que esto es idénti
 La lista de `retiradas` contiene objetos de `retirada` estructurados de la siguiente manera:
 
 | Campo            | Descripción                                          |
-| :--------------- | :--------------------------------------------------- |
+|:---------------- |:---------------------------------------------------- |
 | `dirección`      | dirección de la cuenta que ha realizado una retirada |
-| `amount`         | cantidad de la retirada                              |
+| `cantidad`       | cantidad de la retirada                              |
 | `índice`         | valor del índice de la retirada                      |
 | `validatorIndex` | valor del índice del validador                       |
 
@@ -139,7 +139,7 @@ Esta implementación difiere de los sistemas basados en pruebas de trabajo cuyos
 
 ## Tamaño del bloque {#block-size}
 
-Un importante apunte final es que los bloques tienen limitaciones de tamaño. Cada bloque tiene un tamaño objetivo de 15 millones de gas, pero el tamaño de los bloques incrementará o disminuirá según las exigencias de la red, hasta el límite de 30 millones de gas por bloque (el doble del tamaño objetivo). La cantidad total de gas utilizada por todas las transacciones del bloque debe ser inferior al límite de gas del bloque. Esto es importante, porque garantiza que los bloques no pueden tener un tamaño arbitrario. Si los bloques pudieran ser del tamaño que quisiéramos, los nodos completos de menor rendimiento dejarían de adaptarse gradualmente a la red, debido a los requisitos de espacio y velocidad. Cuanto más grande sea el bloque, mayores serán los requerimientos de potencia informática para procesarlos a tiempo para la siguiente ranura. Esto constituye una fuerza centralizadora, limitada por el tamaño de los bloques.
+Un importante apunte final es que los bloques tienen limitaciones de tamaño. Cada bloque tiene un tamaño objetivo de 15 millones de gas, pero el tamaño de los bloques incrementará o disminuirá según las exigencias de la red, hasta el límite de 30 millones de gas por bloque (el doble del tamaño objetivo). El límite de gas del bloque se puede ajustar hacia arriba o hacia abajo por un factor de 1/1024 con respecto al límite de gas del bloque anterior. Como resultado, los validadores pueden cambiar el límite de gas de bloque a través del consenso. La cantidad total de gas utilizada por todas las transacciones del bloque debe ser inferior al límite de gas del bloque. Esto es importante, porque garantiza que los bloques no pueden tener un tamaño arbitrario. Si los bloques pudieran ser del tamaño que quisiéramos, los nodos completos de menor rendimiento dejarían de adaptarse gradualmente a la red, debido a los requisitos de espacio y velocidad. Cuanto más grande sea el bloque, mayores serán los requerimientos de potencia informática para procesarlos a tiempo para la siguiente ranura. Esto constituye una fuerza centralizadora, limitada por el tamaño de los bloques.
 
 ## Más información {#further-reading}
 

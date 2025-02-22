@@ -27,11 +27,11 @@ Vous cherchez les prochaines mises à jour de protocole ? [Découvrez les mises 
 
 ## 2023 {#2023}
 
-### Shanghai {#shanghai}
+### Shanghai-Capella ("Shapella") {#shapella}
 
-<NetworkUpgradeSummary name="shanghai" />
+<NetworkUpgradeSummary name="shapella" />
 
-#### Résumé {#shanghai-summary}
+#### Résumé de Shanghai {#shanghai-summary}
 
 La mise à jour Shanghai a ouvert la voie à des opérations de retrait et de basculement vers la couche d'exécution Couplée à la mise à jour Capella, cette mise à jour permet aux blocs d'accepter des opérations de retrait, permettant ainsi aux validateurs de retirer leur ETH de la chaîne phare et de le basculer vers la couche d'exécution.
 
@@ -49,13 +49,7 @@ La mise à jour Shanghai a ouvert la voie à des opérations de retrait et de ba
 
 - [Lire les spécificités de la mise à jour Shanghai](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
 
----
-
-### Capella {#capella}
-
-<NetworkUpgradeSummary name="capella" />
-
-#### Résumé {#capella-summary}
+#### Résumé de Capella {#capella-summary}
 
 La mise à jour Capella est la troisième mise à jour majeure vers la couche de consensus (Chaine phare). Elle a permis d'effectuer des retraits de mise en jeu. Capella est entrée en action en même temps que la mise à niveau de la couche d'exécution, Shanghai, et a activé la fonctionnalité de retrait de mise en jeu.
 
@@ -156,7 +150,7 @@ La mise à niveau Altair était la première mise à niveau répertoriée pour l
 
 - [Lire les spécifications de la mise à niveau Altair](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair)
 
-#### <emoji text=":tada:" size={1} me="0.5rem" />Anecdote ! {#altair-fun-fact}
+#### <Emoji text=":tada:" size={1} className="me-2" />Anecdote ! {#altair-fun-fact}
 
 Altair a été la première mise à jour majeure du réseau à disposer d'un délai de mise en œuvre précis. Toutes les mises à niveau antérieures étaient basées sur un numéro de bloc déclaré sur la chaîne de preuve de travail, dans laquelle les durées de blocage varient. La chaîne phare ne nécessite pas de résoudre de preuve de travail, mais fonctionne sur la base d'un système de périodes composées de 32 créneaux de 12 secondes pendant lesquels les validateurs peuvent proposer des blocs. C'est pourquoi nous savions exactement quand nous atteindrions l'époque 74 240 et la date de sortie d'Altair !
 
@@ -226,7 +220,7 @@ La [chaîne phare](/roadmap/beacon-chain/) avait besoin de 16 384 dépôts de 3
 
 [Lire l'annonce de l'Ethereum Foundation](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21/)
 
-<DocLink to="/roadmap/beacon-chain/">
+<DocLink href="/roadmap/beacon-chain/">
   La chaîne phare
 </DocLink>
 
@@ -242,7 +236,7 @@ Le contrat de dépôt de mise en jeu a introduit la [mise en jeu](/glossary/#sta
 
 [Lire l'annonce de l'Ethereum Foundation](https://blog.ethereum.org/2020/11/04/eth2-quick-update-no-19/)
 
-<DocLink to="/staking/">
+<DocLink href="/staking/">
   Mise en jeu
 </DocLink>
 
@@ -512,6 +506,6 @@ Le Livre jaune, rédigé par le Dr Gavin Wood, est une définition technique du 
 
 Document d'introduction publié en 2013 par Vitalik Buterin, fondateur d'Ethereum, précédant le lancement du projet en 2015.
 
-<DocLink to="/whitepaper/">
+<DocLink href="/whitepaper/">
   Livre blanc
 </DocLink>

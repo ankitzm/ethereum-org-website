@@ -8,7 +8,7 @@ lang: tr
    Ethash, Ethereum'un iş ispatı madencilik algoritmasıydı. İş ispatı tamamen durdurulmuş ve Ethereum, <a href="/developers/docs/consensus-mechanisms/pos/">hisse ispatı</a> ile güvence altına alınmıştır. <a href="/roadmap/merge/">Birleşim</a>, <a href="/developers/docs/consensus-mechanisms/pos/">hisse ispatı</a>ve <a href="/staking/">hisseleme</a> hakkında daha fazla bilgi edinin. Bu sayfa sadece tarihsel ilgi içindir!  
 </InfoBanner>
 
-[Ethash](https://github.com/ethereum/wiki/wiki/Ethash), [Dagger-Hashimoto](/developers/docs/consensus-mechanisms/pow/mining-algorithms/dagger-hashimoto) algoritmasının değiştirilmiş bir versiyonudur. Ethash iş ispatı[bellek zor](https://wikipedia.org/wiki/Memory-hard_function) bir işlemdir, bunun algoritmayı ASIC dirençli hale getirdiği düşünülür. Sonunda Ethash ASICleri geliştirildi fakat GPU madenciliği iş ispatı durdurulana kadar hâlâ geçerli bir seçenekti. Ethash, Ethereum olmayan iş ispatı ağlarında hâlâ diğer paraların madenciliğini yapmak için kullanılmaktadır.
+[Ethash](https://github.com/ethereum/wiki/wiki/Ethash), [Dagger-Hashimoto](/developers/docs/consensus-mechanisms/pow/mining/mining-algorithms/dagger-hashimoto) algoritmasının değiştirilmiş bir versiyonudur. Ethash iş ispatı[bellek zor](https://wikipedia.org/wiki/Memory-hard_function) bir işlemdir, bunun algoritmayı ASIC dirençli hale getirdiği düşünülür. Sonunda Ethash ASICleri geliştirildi fakat GPU madenciliği iş ispatı durdurulana kadar hâlâ geçerli bir seçenekti. Ethash, Ethereum olmayan iş ispatı ağlarında hâlâ diğer paraların madenciliğini yapmak için kullanılmaktadır.
 
 ## Ethash nasıl çalışır? {#how-does-ethash-work}
 
@@ -135,7 +135,7 @@ def calc_dataset(full_size, cache):
 
 ## Ana döngü {#main-loop}
 
-Şimdi, belirli bir başlık ve nonce için nihai değerimizi üretmek için tüm veri kümesinden verileri topladığımız ana "hashimoto" benzeri döngüyü belirtiyoruz. Aşağıdaki kodda, `başlık`, kesilmiş bir \_ _ blok başlığı, yani **mixHash** ve **nonce** alanlarını hariç tutan bir başlığının RLP temsilinin SHA3-256 \_karmasını_ temsil eder. `nonce`, büyük endian düzende 64 bitlik işaretsiz bir tamsayının sekiz baytıdır. Yani `nonce[::-1]` bu değerin sekiz baytlık küçük endian temsilidir:
+Şimdi, belirli bir başlık ve nonce için nihai değerimizi üretmek için tüm veri kümesinden verileri topladığımız ana "hashimoto" benzeri döngüyü belirtiyoruz. Aşağıdaki kodda, `başlık`, kesilmiş bir _ _ blok başlığı, yani **mixHash** ve **nonce** alanlarını hariç tutan bir başlığının RLP temsilinin SHA3-256 _karmasını_ temsil eder. `nonce`, büyük endian düzende 64 bitlik işaretsiz bir tamsayının sekiz baytıdır. Yani `nonce[::-1]` bu değerin sekiz baytlık küçük endian temsilidir:
 
 ```python
 def hashimoto(header, nonce, full_size, dataset_lookup):

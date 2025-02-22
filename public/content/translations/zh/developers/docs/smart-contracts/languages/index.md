@@ -11,6 +11,8 @@ lang: zh
 - Solidity
 - Vyper
 
+Remix 集成开发环境提供了一个全面的开发环境，用于创建和测试用 Solidity 和 Vyper 语言编写的智能合约。 [尝试使用浏览器版本的 Remix 集成开发环境](https://remix.ethereum.org)开始编写代码。
+
 更有经验的开发者也可能想要使用 Yul：一种用于[以太坊虚拟机](/developers/docs/evm/)的中间语言，或者是 Yul+ 语言，这是一种 Yul 扩展。
 
 如果你很好奇，喜欢帮助测试仍在大力发展的新语言，则可以尝试使用 Fe，这是一种新兴的智能合约语言，目前仍处于起步阶段。
@@ -35,7 +37,7 @@ lang: zh
 - [Solidity 语言网站](https://soliditylang.org/)
 - [Solidity 示例](https://docs.soliditylang.org/en/latest/solidity-by-example.html)
 - [GitHub](https://github.com/ethereum/solidity/)
-- [Solidity Gitter Chatroom](https://gitter.im/ethereum/solidity/) 桥接到 [Solidity Matrix Chatroom](https://matrix.to/#/#ethereum_solidity:gitter.im)
+- 桥接到 [Solidity Matrix 聊天室](https://matrix.to/#/#ethereum_solidity:gitter.im)的 [Solidity Gitter 聊天室](https://gitter.im/ethereum/solidity)
 - [备忘单](https://reference.auditless.com/cheatsheet)
 - [Solidity 博客](https://blog.soliditylang.org/)
 - [Solidity Twitter](https://twitter.com/solidity_lang)

@@ -1,5 +1,5 @@
 ---
-title: Capa de red
+title: "Ninguna llave\nBloque el texto del elemento (div)\nXpath: /div[@id=front-matter]/ul/li[1]/div[2]"
 description: Introducción a la capa de red de Ethereum.
 lang: es
 sidebarDepth: 2
@@ -73,7 +73,7 @@ Junto con los mensajes de saludo, el protocolo de cable también puede enviar un
 
 #### Protocolo de cable {#wire-protocol}
 
-Una vez que los pares están conectados y se ha iniciado una sesión RLPx, el protocolo de cable define cómo se comunican los pares. Inicialmente, el protocolo de cable definía tres tareas principales: sincronización de la cadena, propagación de bloques e intercambio de transacciones. Sin embargo, una vez que Ethereum cambió a la prueba de participación, la propagación de bloques y la sincronización de cadenas se convirtieron en parte de la capa de consenso. El intercambio de transacciones todavía está en el ámbito de los clientes de ejecución. El intercambio de transacciones se refiere al intercambio de transacciones pendientes entre nodos para que los mineros puedan seleccionar algunas de ellas para su inclusión en el siguiente bloque. Hay información detallada sobre estas tareas [aquí](https://github.com/ethereum/devp2p/blob/master/caps/eth.md). Los clientes que admiten estos subprotocolos los exponen a través del [JSON-RPC](/developers/docs/apis/json-rpc/).
+Una vez que los pares están conectados y se ha iniciado una sesión RLPx, el protocolo de cable define cómo se comunican los pares. Inicialmente, el protocolo de cable definía tres tareas principales: sincronización de la cadena, propagación de bloques e intercambio de transacciones. Sin embargo, una vez que Ethereum cambió a la prueba de participación, la propagación de bloques y la sincronización de cadenas se convirtieron en parte de la capa de consenso. El intercambio de transacciones todavía está en el ámbito de los clientes de ejecución. El intercambio de transacciones se refiere al intercambio de transacciones pendientes entre nodos para que los constructores de bloques puedan seleccionar algunas de ellas para su inclusión en el siguiente bloque. Hay información detallada sobre estas tareas [aquí](https://github.com/ethereum/devp2p/blob/master/caps/eth.md). Los clientes que admiten estos subprotocolos los exponen a través del [JSON-RPC](/developers/docs/apis/json-rpc/).
 
 #### les (subprotocolo ligero de ethereum) {#les}
 
@@ -125,7 +125,7 @@ Tanto los clientes de consenso como los de ejecución se ejecutan en paralelo. N
 
 A continuación se muestra un resumen del flujo de control, con la pila de red relevante entre paréntesis.
 
-### Cuando el cliente de consenso no es productor de bloques:
+### Cuando el cliente de consenso no es productor de bloques: {#when-consensus-client-is-not-block-producer}
 
 - El cliente de consenso recibe un bloque a través del protocolo de gossiping de bloques (p2p de consenso)
 - El cliente de consenso valida previamente el bloque, es decir, se asegura de que llegue de un remitente válido con los metadatos correctos
@@ -134,7 +134,7 @@ A continuación se muestra un resumen del flujo de control, con la pila de red r
 - La capa de ejecución pasa los datos de validación a la capa de consenso, bloque que ahora se considera validado (conexión local RPC)
 - La capa de consenso añade un bloque a la cabeza de su propia cadena de bloques y hace una verificación, transmitiendo la verificación en la red (p2p de consenso)
 
-### Cuando el cliente de consenso es productor de bloques:
+### Cuando el cliente de consenso es productor de bloques: {#when-consensus-client-is-block-producer}
 
 - El cliente de consenso recibe un aviso de que es el próximo productor de bloques (p2p de consenso)
 - La capa de consenso invoca el método `create block` en el cliente de ejecución (RPC local)

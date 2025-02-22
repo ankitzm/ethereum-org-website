@@ -28,16 +28,6 @@ lang: zh
 
 **注意**：大多数[开发框架](/developers/docs/frameworks/)包含一个内置的开发网络。 我们建议从一个框架开始[设置你的本地开发环境](/developers/local-environment/)。
 
-### Ganache {#ganache}
-
-快速构建一个个人的以太坊区块链，你可以用它来运行测试，执行命令，并在控制链的运行方式时检查状态。
-
-Ganache提供了一个桌面应用程序 (Ganache UI) 以及一个命令行工具 (`ganache-cli`)。 它是 Truffle 工具套装的一部分。
-
-- [网站](https://www.trufflesuite.com/ganache)
-- [GitHub](https://github.com/trufflesuite/ganache)
-- [相关文档](https://www.trufflesuite.com/docs/ganache/overview)
-
 ### 安全帽网络 {#hardhat-network}
 
 一个专门用于开发的本地以太坊网络。 该网络允许你部署合约，运行测试并调试代码。
@@ -66,9 +56,9 @@ Ganache提供了一个桌面应用程序 (Ganache UI) 以及一个命令行工�
 
 Kurtosis 是一个用于多容器测试环境的构建系统，让开发者能够在本地构建区块链网络的可复现实例。
 
-以太坊 Kurtosis 包在本地实例化了一个容器化和可参数化的以太坊测试网，支持多种不同的执行层 (EL) 和共识层 (CL) 客户端以及 n 个节点。 Kurtosis 优雅地处理所有本地端口映射和服务连接，以方便去中心化应用程序和智能合约原型设计和测试。
+以太坊 Kurtosis 包可用于通过 Docker 或 Kubernetes 快速实例化一个可参数化和高度可扩展的私有以太坊测试网。 该包支持所有主要的执行层 (EL) 和共识层 (CL) 客户端。 Kurtosis 可从容处理代表性网络的所有本地端口映射和服务连接，以用于与以太坊核心基础设施相关的验证和测试工作流程。
 
-- [以太坊网络包](https://github.com/kurtosis-tech/eth-network-package)
+- [以太坊网络包](https://github.com/kurtosis-tech/ethereum-package)
 - [网站](https://www.kurtosis.com/)
 - [GitHub](https://github.com/kurtosis-tech/kurtosis)
 - [相关文档](https://docs.kurtosis.com/)

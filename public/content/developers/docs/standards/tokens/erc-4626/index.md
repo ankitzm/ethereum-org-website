@@ -16,6 +16,22 @@ ERC-4626 in yield-bearing vaults will lower the integration effort and unlock ac
 
 The ERC-4626 token is described fully in [EIP-4626](https://eips.ethereum.org/EIPS/eip-4626).
 
+**Asynchronous vault extension (ERC-7540)**
+
+ERC-4626 is optimized for atomic deposits and redemptions up to a limit. If the limit is reached, no new deposits or redemptions can be submitted. This limitation does not work well for any smart contract system with asynchronous actions or delays as a prerequisite for interfacing with the Vault (e.g. real-world asset protocols, undercollateralized lending protocols, cross-chain lending protocols, liquid staking tokens, or insurance safety modules).
+
+ERC-7540 expands the utility of ERC-4626 Vaults for asynchronous use cases. The existing Vault interface (`deposit`/`withdraw`/`mint`/`redeem`) is fully utilized to claim asynchronous Requests.
+
+The ERC-7540 extension is described fully in [ERC-7540](https://eips.ethereum.org/EIPS/eip-7540).
+
+**Multi-asset vault extension (ERC-7575)**
+
+One missing use case that is not supported by ERC-4626 is Vaults which have multiple assets or entry points such as liquidity provider (LP) Tokens. These are generally unwieldy or non-compliant due to the requirement of ERC-4626 to itself be an ERC-20.
+
+ERC-7575 adds support for Vaults with multiple assets by externalizing the ERC-20 token implementation from the ERC-4626 implementation.
+
+The ERC-7575 extension is described fully in [ERC-7575](https://eips.ethereum.org/EIPS/eip-7575).
+
 ## Prerequisites {#prerequisites}
 
 To better understand this page, we recommend you first read about [token standards](/developers/docs/standards/tokens/) and [ERC-20](/developers/docs/standards/tokens/erc-20/).
@@ -27,7 +43,7 @@ To better understand this page, we recommend you first read about [token standar
 #### asset {#asset}
 
 ```solidity
-function asset() public view returns (address)
+function asset() public view returns (address assetTokenAddress)
 ```
 
 This function returns the address of the underlying token used for the vault for accounting, depositing, withdrawing.
@@ -59,7 +75,7 @@ This function returns the amount of `assets` that would be exchanged by the vaul
 #### maxDeposit {#maxdeposit}
 
 ```solidity
-function maxDeposit(address receiver) public view returns (uint256)
+function maxDeposit(address receiver) public view returns (uint256 maxAssets)
 ```
 
 This function returns the maximum amount of underlying assets that can be deposited in a single [`deposit`](#deposit) call by the `receiver`.
@@ -67,7 +83,7 @@ This function returns the maximum amount of underlying assets that can be deposi
 #### previewDeposit {#previewdeposit}
 
 ```solidity
-function previewDeposit(uint256 assets) public view returns (uint256)
+function previewDeposit(uint256 assets) public view returns (uint256 shares)
 ```
 
 This function allows users to simulate the effects of their deposit at the current block.
@@ -83,7 +99,7 @@ This function deposits `assets` of underlying tokens into the vault and grants o
 #### maxMint {#maxmint}
 
 ```solidity
-function maxMint(address receiver) public view returns (uint256)
+function maxMint(address receiver) public view returns (uint256 maxShares)
 ```
 
 This function returns the maximum amount of shares that can be minted in a single [`mint`](#mint) call by the `receiver`.
@@ -91,7 +107,7 @@ This function returns the maximum amount of shares that can be minted in a singl
 #### previewMint {#previewmint}
 
 ```solidity
-function previewMint(uint256 shares) public view returns (uint256)
+function previewMint(uint256 shares) public view returns (uint256 assets)
 ```
 
 This function allows users to simulate the effects of their mint at the current block.
@@ -107,7 +123,7 @@ This function mints exactly `shares` vault shares to `receiver` by depositing `a
 #### maxWithdraw {#maxwithdraw}
 
 ```solidity
-function maxWithdraw(address owner) public view returns (uint256)
+function maxWithdraw(address owner) public view returns (uint256 maxAssets)
 ```
 
 This function returns the maximum amount of underlying assets that can be withdrawn from the `owner` balance with a single [`withdraw`](#withdraw) call.
@@ -115,7 +131,7 @@ This function returns the maximum amount of underlying assets that can be withdr
 #### previewWithdraw {#previewwithdraw}
 
 ```solidity
-function previewWithdraw(uint256 assets) public view returns (uint256)
+function previewWithdraw(uint256 assets) public view returns (uint256 shares)
 ```
 
 This function allows users to simulate the effects of their withdrawal at the current block.
@@ -131,7 +147,7 @@ This function burns `shares` from `owner` and send exactly `assets` token from t
 #### maxRedeem {#maxredeem}
 
 ```solidity
-function maxRedeem(address owner) public view returns (uint256)
+function maxRedeem(address owner) public view returns (uint256 maxShares)
 ```
 
 This function returns the maximum amount of shares that can be redeemed from the `owner` balance through a [`redeem`](#redeem) call.
@@ -139,7 +155,7 @@ This function returns the maximum amount of shares that can be redeemed from the
 #### previewRedeem {#previewredeem}
 
 ```solidity
-function previewRedeem(uint256 shares) public view returns (uint256)
+function previewRedeem(uint256 shares) public view returns (uint256 assets)
 ```
 
 This function allows users to simulate the effects of their redemption at the current block.
@@ -168,11 +184,15 @@ function balanceOf(address owner) public view returns (uint256)
 
 Returns the total amount of vault shares the `owner` currently has.
 
+### Map of the interface {#mapOfTheInterface}
+
+![Map of the ERC-4626 interface](./map-of-erc-4626.png)
+
 ### Events {#events}
 
 #### Deposit Event
 
-**MUST** be emitted when tokens are deposited into the vault via the [`mint`](#mint) and [`deposit`](#deposit) methods
+**MUST** be emitted when tokens are deposited into the vault via the [`mint`](#mint) and [`deposit`](#deposit) methods.
 
 ```solidity
 event Deposit(
@@ -195,7 +215,7 @@ event Withdraw(
     address indexed receiver,
     address indexed owner,
     uint256 assets,
-    uint256 share
+    uint256 shares
 )
 ```
 

@@ -109,3 +109,4 @@ A több aláírásos szerződések olyan okosszerződésszámlák, amelyeknek t�
 - [Coinbase: Mi az az okosszerződés?](https://www.coinbase.com/learn/crypto-basics/what-is-a-smart-contract)
 - [Chainlink: Mi az az okosszerződés?](https://chain.link/education/smart-contracts)
 - [Video: Egyszerű magyarázat: Okosszerződések](https://youtu.be/ZE2HxTmxfrI)
+- [Cyfrin Updraft: Web3 tanulási és ellenőrzési platform](https://updraft.cyfrin.io)

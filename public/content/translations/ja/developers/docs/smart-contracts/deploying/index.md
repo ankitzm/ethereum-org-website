@@ -27,7 +27,7 @@ lang: ja
 
 ### スマートコントラクトをデプロイする手順 {#steps-to-deploy}
 
-The specific steps involved will depend on the development framework in question. For example, you can check out [Hardhat's documentation on deploying your contracts](https://hardhat.org/guides/deploying.html) or [Foundry's documentation on deploying and verifying a smart contract](https://book.getfoundry.sh/forge/deploying). Once deployed, your contract will have an Ethereum address like other [accounts](/developers/docs/accounts/) and can be verified using [source code verification tools](/developers/docs/smart-contracts/verifying/#source-code-verification-tools).
+具体的な手順は、使っている開発フレームワークによって異なります。 実例は、[コントラクトのデプロイに関するHardhatのドキュメント](https://hardhat.org/guides/deploying.html)または [スマートコントラクトのデプロイと検証に関するFoundryのドキュメント](https://book.getfoundry.sh/forge/deploying)をご確認ください。 デプロイされると、他の [アカウント](/developers/docs/accounts/)と同様に、コントラクトには、イーサリアムアドレスが設定されます。また、[ソースコード検証ツール](/developers/docs/smart-contracts/verifying/#source-code-verification-tools)を使って検証することができます。
 
 ## 関連ツール {#related-tools}
 
@@ -52,6 +52,13 @@ The specific steps involved will depend on the development framework in question
 **サードウェブ - _単一のコマンドを使い、任意のコントラクトを任意のEVM互換チェーンに容易にデプロイ_**
 
 - [ドキュメント](https://portal.thirdweb.com/deploy/)
+
+**Crossmint - _エンタープライズグレードのweb3開発プラットフォームで、スマートコントラクトのデプロイ、クレジットカードの有効化、クロスチェーン支払いが可能です。また、NFTの作成、配布、売却、保存、編集では、APIが使用可能です。_**
+
+- [crossmint.com](https://www.crossmint.com)
+- [ドキュメント](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
+- [ブログ](https://blog.crossmint.com)
 
 ## 関連チュートリアル {#related-tutorials}
 

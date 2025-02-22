@@ -3,8 +3,8 @@ title: Rantai Suar
 description: Belajar tentang Rantai Suar - peningkatan yang memperkenalkan bukti taruhan Ethereum.
 lang: id
 template: upgrade
-image: /upgrades/core.png
-alt: 
+image: /images/upgrades/core.png
+alt:
 summaryPoint1: Rantai Suar memperkenalkan bukti taruhan ke dalam ekosistem Ethereum.
 summaryPoint2: Rantai ini digabungkan dengan rantai bukti kerja Ethereum yang asli pada bulan September 2022.
 summaryPoint3: Rantai Suar memperkenalkan logika konsensus dan protokol gosip blok yang sekarang mengamankan Ethereum.
@@ -56,7 +56,7 @@ Semua peningkatan Ethereum saling terkait. Jadi ayo kita ingat kembali bagaimana
 
 Pada awalnya, Rantai Suar ada secara terpisah dari Jaringan Utama Ethereum, tetapi keduanya digabungkan pada tahun 2022.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   Penggabungan
 </ButtonLink>
 
@@ -64,7 +64,7 @@ Pada awalnya, Rantai Suar ada secara terpisah dari Jaringan Utama Ethereum, teta
 
 Pecahan hanya dapat masuk ke dalam ekosistem Ethereum dengan aman dengan adanya mekanisme konsensus bukti taruhan. Rantai Suar memperkenalkan penaruhan, yang 'bergabung' dengan Jaringan Utama, membuka jalan bagi pecahan untuk membantu meningkatkan skala Ethereum.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Rantai shard
 </ButtonLink>
 

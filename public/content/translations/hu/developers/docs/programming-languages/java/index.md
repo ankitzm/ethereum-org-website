@@ -5,7 +5,7 @@ lang: hu
 incomplete: true
 ---
 
-<div class="featured">Tanulj meg Ethereumon fejleszteni Java alapú projektek és eszközök használatával</div>
+<FeaturedText>Tanuljon meg Ethereumon fejleszteni Java alapú projektek és eszközök használatával</FeaturedText>
 
 Használjon Ethereumot decentralizált alkalmazások (dappok) fejlesztésére, melyek kihasználják a kriptovaluta és a blokklánc technológia nyújtotta előnyöket. Ezek a dappok megbízhatóak, ami azt jelenti, hogyha egyszer telepítették az Ethereumba, akkor mindig úgy fognak futni, ahogy programozták őket. Digitális vagyontárgyakat irányíthatnak, lehetőséget teremtve ezzel újfajta pénzügyi alkalmazások létrejöveteléhez. Decentralizáltak lehetnek, mely azt jelenti, hogy semmilyen entitás vagy személy nem irányítja őket és közel lehetetlen őket cenzúrázni.
 
@@ -33,6 +33,11 @@ Tanulja meg a [Web3J](https://github.com/web3j/web3j) és a Hyperledger Besu, a 
 - [Egy Hyperledger Besu (Pantheon) csomópont futtatása Java integrációs teszteken](https://kauri.io/article/7dc3ecc391e54f7b8cbf4e5fa0caf780/running-a-pantheon-node-in-java-integration-tests)
 - [Web3j Puska](https://kauri.io/web3j-cheat-sheet-(java-ethereum)/5dfa1ea941ac3d0001ce1d90/c)
 
+Ismerje meg az [ethers-kt](https://github.com/Kr1ptal/ethers-kt) használatát, ami egy aszinkron, nagy teljesítményű Kotlin könyvtár az EVM-alapú blokkláncokkal való interakcióhoz. JVM és Android platformokat céloz meg.
+- [ERC-20 tokenek transzferje](https://github.com/Kr1ptal/ethers-kt/blob/master/examples/src/main/kotlin/io/ethers/examples/abi/TransferERC20.kt)
+- [UniswapV2 átváltás eseményfigyeléssel](https://github.com/Kr1ptal/ethers-kt/blob/master/examples/src/main/kotlin/io/ethers/examples/tokenswapwitheventlistening/TokenSwapWithEventListening.kt)
+- [ETH / ERC-20 egyenlegkövetés](https://github.com/Kr1ptal/ethers-kt/blob/master/examples/src/main/kotlin/io/ethers/examples/balancetracker/BalanceTracker.kt)
+
 ## Köztes cikkek {#intermediate-articles}
 
 - [Tárhelykezelés Java alkalmazásokban IPFS-szel](https://kauri.io/article/3e8494f4f56f48c4bb77f1f925c6d926/managing-storage-in-a-java-application-with-ipfs)
@@ -47,6 +52,7 @@ Tanulja meg a [Web3J](https://github.com/web3j/web3j) és a Hyperledger Besu, a 
 
 - [Hyperledger Besu (Pantheon) (Ethereum kliens)](https://docs.pantheon.pegasys.tech/en/stable/)
 - [Web3J (könyvtár az Ethereum kliensekkel való interakcióhoz)](https://github.com/web3j/web3j)
+- [ethers-kt (aszinkron, nagy teljesítményű Kotlin/Java/Android könyvtár EVM-alapú blokkláncokhoz)](https://github.com/Kr1ptal/ethers-kt)
 - [Eventeum (Event Listener)](https://github.com/ConsenSys/eventeum)
 - [Mahuta (IPFS Fejlesztői Eszközök)](https://github.com/ConsenSys/mahuta)
 

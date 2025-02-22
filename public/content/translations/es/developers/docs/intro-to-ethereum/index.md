@@ -36,7 +36,7 @@ Los mecanismos criptográficos garantizan que, una vez que las transacciones se 
 
 **Ether (ETH)** es la criptomoneda nativa de Ethereum. El propósito de ETH es posibilitar la existencia de un mercado de computación. Un mercado de este tipo proporciona un incentivo económico a los participantes que verifican y ejecutan las solicitudes de transacciones y proporcionan recursos informáticos a la red.
 
-Cualquier participante que emita una solicitud de transacción también debe ofrecer cierta cantidad de ETH a la red como recompensa. Esta recompensa se otorgará a la persona que realice la verificación de la transacción, la ejecute, la registre en la cadena de bloques y la emita a la red.
+Cualquier participante que emita una solicitud de transacción también debe ofrecer cierta cantidad de ETH a la red como recompensa. La red quemará parte de la recompensa y otorgará el resto a quien finalmente haga el trabajo de verificar la transacción, la ejecute, la suba a la cadena de bloques y la transmita a la red.
 
 La cantidad de ETH que se paga corresponde al tiempo necesario para completar el cálculo. Estas recompensas también previenen que participantes maliciosos congestionen la red intencionalmente al solicitar que se ejecuten cálculos infinitos u otros scripts que consumen muchos recursos, ya que estos participantes deberán pagar también por el tiempo que lleve completar los cálculos.
 
@@ -107,7 +107,7 @@ Un fragmento de código reutilizable (un programa) que publica un desarrollador 
 ## Leer más {#further-reading}
 
 - [Informe oficial de Ethereum](/whitepaper/)
-- [¿Cómo funciona Ethereum de todos modos?](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway), _Preethi Kasireddy_ (**NB** este recurso todavía es valioso, pero tenga en cuenta que es anterior a [La Fusión](/roadmap/merge) y por lo tanto se refiere al mecanismo de prueba de trabajo de Ethereum - Ethereum es ahora seguro mediante la [prueba de participación](/developers/docs/consensus-mechanisms/pos))
+- [¿Cómo funciona Ethereum?](https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369) - _Preethi Kasireddy_ (**NB** este recurso todavía es valioso, pero tenga en cuenta que es anterior a [La Fusión](/roadmap/merge) y por lo tanto se refiere al mecanismo de prueba de trabajo de Ethereum; Ethereum ahora es seguro gracias a la [prueba de participación](/developers/docs/consensus-mechanisms/pos))
 
 _¿Conoce algún recurso comunitario que le haya sido de ayuda? Edite la página y añádalo._
 

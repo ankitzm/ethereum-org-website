@@ -1,20 +1,22 @@
 import { useEffect } from "react"
-import { appWithTranslation } from "next-i18next"
-// ChakraProvider import updated as recommended on https://github.com/chakra-ui/chakra-ui/issues/4975#issuecomment-1174234230
-// to reduce bundle size. Should be reverted to "@chakra-ui/react" in case on theme issues
-import { ChakraProvider } from "@chakra-ui/provider"
-import { extendBaseTheme } from "@chakra-ui/react"
+import { useRouter } from "next/router"
+import { NextIntlClientProvider } from "next-intl"
+import { TooltipProvider } from "@radix-ui/react-tooltip"
 import { init } from "@socialgouv/matomo-next"
-
-import customTheme from "@/@chakra-ui/theme"
 
 import { AppPropsWithLayout } from "@/lib/types"
 
-import { useLocaleDirection } from "@/hooks/useLocaleDirection"
-import { RootLayout } from "@/layouts"
-import { inter, mono } from "@/lib/fonts"
+import ThemeProvider from "@/components/ThemeProvider"
+
+import { DEFAULT_LOCALE } from "@/lib/constants"
+
+import "@/styles/global.css"
+
+import { BaseLayout } from "@/layouts/BaseLayout"
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const router = useRouter()
+
   useEffect(() => {
     if (!process.env.IS_PREVIEW_DEPLOY) {
       init({
@@ -28,31 +30,32 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
 
-  const direction = useLocaleDirection()
-
-  const theme = extendBaseTheme({ direction, ...customTheme })
-
   return (
-    <>
-      <style jsx global>
-        {`
-          :root {
-            --font-inter: ${inter.style.fontFamily};
-            --font-mono: ${mono.style.fontFamily};
-          }
-        `}
-      </style>
-      <ChakraProvider theme={theme}>
-        <RootLayout
-          contentIsOutdated={!!pageProps.frontmatter?.isOutdated}
-          contentNotTranslated={pageProps.contentNotTranslated}
-          lastDeployDate={pageProps.lastDeployDate}
-        >
-          {getLayout(<Component {...pageProps} />)}
-        </RootLayout>
-      </ChakraProvider>
-    </>
+    <NextIntlClientProvider
+      locale={(router.query.locale as string) || DEFAULT_LOCALE}
+      messages={pageProps.messages || {}}
+      onError={() => {
+        // Suppress errors by default, enable if needed to debug
+        // console.error(error)
+      }}
+      getMessageFallback={({ key }) => {
+        const keyOnly = key.split(".").pop()
+        return keyOnly || key
+      }}
+    >
+      <ThemeProvider>
+        <TooltipProvider>
+          <BaseLayout
+            contentIsOutdated={!!pageProps.frontmatter?.isOutdated}
+            contentNotTranslated={pageProps.contentNotTranslated}
+            lastDeployLocaleTimestamp={pageProps.lastDeployLocaleTimestamp}
+          >
+            {getLayout(<Component {...pageProps} />)}
+          </BaseLayout>
+        </TooltipProvider>
+      </ThemeProvider>
+    </NextIntlClientProvider>
   )
 }
 
-export default appWithTranslation(App)
+export default App

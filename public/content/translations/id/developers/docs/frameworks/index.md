@@ -22,11 +22,6 @@ Sebelum menyelami kerangka kerja, kami menyarankan Anda terlebih dahulu membaca 
 
 ## Kerangka kerja yang tersedia {#available-frameworks}
 
-**Truffle -** **_Lingkungan pengembangan, kerangka kerja pengujian, pipeline pengembangan, dan peralatan lainnya._**
-
-- [trufflesuite.com](https://www.trufflesuite.com/)
-- [GitHub](https://github.com/trufflesuite/truffle)
-
 **Hardhat -** **_Lingkungan pengembangan Ethereum untuk kalangan profesional_**
 
 - [hardhat.org](https://hardhat.org)
@@ -56,7 +51,7 @@ Sebelum menyelami kerangka kerja, kami menyarankan Anda terlebih dahulu membaca 
 
 **Scaffold-Eth -** **_Komponen Ethers.js + Hardhat + React dan pengait untuk web3: semua yang Anda butuhkan untuk mulai membangun aplikasi terdesentralisasi yang didukung oleh kontrak pintar._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 
 **The Graph -** **_Grafik untuk membuat kueri data blockchain secara efisien_**
 

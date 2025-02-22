@@ -79,7 +79,7 @@ Independientemente del método que utilices, al incluir una biblioteca, siempre 
 
 Usar una biblioteca de contratos inteligentes para tu proyecto tiene varias ventajas. En primer lugar y principalmente, te ahorra tiempo al proporcionarte los bloques de construcción listos para que los puedas incluir en tu sistema, en lugar de tener que codificarlos tú mismo.
 
-La seguridad también es un beneficio importante. Las bibliotecas de contratos inteligentes de código abierto también suelen ser objeto de un severo escrutinio. Dado que muchos proyectos dependen de ellos, existe un fuerte incentivo por parte de la comunidad para mantenerlos bajo una constante revisión. Es mucho más común encontrar errores en el código de aplicación que en las bibliotecas de contratos reutilizables. Algunas bibliotecas también son sometidas a [auditorías externas](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/audit) por seguridad adicional.
+La seguridad también es un beneficio importante. Las bibliotecas de contratos inteligentes de código abierto también suelen ser objeto de un severo escrutinio. Dado que muchos proyectos dependen de ellos, existe un fuerte incentivo por parte de la comunidad para mantenerlos bajo una constante revisión. Es mucho más común encontrar errores en el código de aplicación que en las bibliotecas de contratos reutilizables. Algunas bibliotecas también son sometidas a [auditorías externas](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/audits) por seguridad adicional.
 
 Sin embargo, el uso de bibliotecas de contratos inteligentes conlleva el riesgo de incluir código con el que no estés familiarizado en tu proyecto. Es tentador importar un contrato e incluirlo directamente en tu proyecto, pero sin entender bien lo que hace ese contrato, puedes estar introduciendo inadvertidamente un problema en tu sistema debido a un comportamiento inesperado. Asegúrate siempre de leer la documentación del código que estás importando y, a continuación, revisa el código antes de incluirlo en tu proyecto.
 
@@ -87,22 +87,22 @@ Por último, al decidir si incluir o no una biblioteca, considera su uso general
 
 ## Herramientas relacionadas {#related-tools}
 
-**Contratos de OpenZeppelin: \*\***_La biblioteca más popular para el desarrollo seguro de contratos inteligentes._\*\*
+**Contratos de OpenZeppelin: ****_La biblioteca más popular para el desarrollo seguro de contratos inteligentes._**
 
 - [Documentación](https://docs.openzeppelin.com/contracts/)
 - [GitHub](https://github.com/OpenZeppelin/openzeppelin-contracts)
 - [Foro de la comunidad](https://forum.openzeppelin.com/c/general/16)
 
-**DappSys: \*\***_Bloques de creación simples, flexibles y seguros para contratos inteligentes. _\*\*
+**DappSys: ****_Bloques de creación simples, flexibles y seguros para contratos inteligentes. _**
 
 - [Documentación](https://dappsys.readthedocs.io/)
 - [GitHub](https://github.com/dapphub/dappsys)
 
-**HQ20: \*\***_Un proyecto de Solidity con contratos, bibliotecas y ejemplos para ayudarte a construir aplicaciones distribuidas con todas las características para el mundo real._\*\*
+**HQ20: ****_Un proyecto de Solidity con contratos, bibliotecas y ejemplos para ayudarte a construir aplicaciones distribuidas con todas las características para el mundo real._**
 
 - [GitHub](https://github.com/HQ20/contracts)
 
-**Web3 Solidity SDK -\*\***_Proporciona las herramientas necesarias para construir contratos inteligentes personalizados de forma eficiente_\*\*
+**thirdweb Solidity SDK:****_ Proporciona las herramientas necesarias para crear contratos inteligentes personalizados de forma eficiente_**
 
 - [Documentación](https://portal.thirdweb.com/solidity/)
 - [GitHub](https://github.com/thirdweb-dev/contracts)
@@ -114,4 +114,4 @@ Por último, al decidir si incluir o no una biblioteca, considera su uso general
 
 ## Más lectura {#further-reading}
 
-_¿Conoces algún recurso en la comunidad que te haya servido de ayuda? Edita esta página y añádelo._
+_¿Conoce algún recurso de la comunidad que le haya servido de ayuda? Edite esta página y añádalo._

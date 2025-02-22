@@ -87,7 +87,7 @@ Now let's look at a better solution.
 
 ## Let me introduce you to GraphQL {#let-me-introduce-to-you-graphql}
 
-First let's talk about GraphQL, originally designed and implemented by Facebook. You might be familiar with the traditional Rest API model. Now imagine instead you could write a query for exactly the data that you wanted:
+First let's talk about GraphQL, originally designed and implemented by Facebook. You might be familiar with the traditional REST API model. Now imagine instead you could write a query for exactly the data that you wanted:
 
 ![GraphQL API vs. REST API](./graphql.jpg)
 
@@ -122,7 +122,7 @@ The manifest is our configuration file and defines:
 - other things to listen to like function calls or blocks
 - the mapping functions being called (see `mapping.ts` below)
 
-You can define multiple contracts and handlers here. A typical setup would have a subgraph folder inside the Truffle/Hardhat project with its own repository. Then you can easily reference the ABI.
+You can define multiple contracts and handlers here. A typical setup would have a subgraph folder inside the Hardhat project with its own repository. Then you can easily reference the ABI.
 
 For convenience reasons you also might want to use a template tool like mustache. Then you create a `subgraph.template.yaml` and insert the addresses based on the latest deployments. For a more advanced example setup, see for example the [Aave subgraph repo](https://github.com/aave/aave-protocol/tree/master/thegraph).
 
@@ -242,7 +242,7 @@ export function handleNewBet(event: PlacedBet): void {
 
 ## Using it in the Frontend {#using-it-in-the-frontend}
 
-Using something like Apollo Boost, you can easily integrate The Graph in your React dapp (or Apollo-Vue). Especially when using React hooks and Apollo, fetching data is as simple as writing a single GraphQl query in your component. A typical setup might look like this:
+Using something like Apollo Boost, you can easily integrate The Graph in your React dapp (or Apollo-Vue). Especially when using React hooks and Apollo, fetching data is as simple as writing a single GraphQL query in your component. A typical setup might look like this:
 
 ```javascript
 // See all subgraphs: https://thegraph.com/explorer/

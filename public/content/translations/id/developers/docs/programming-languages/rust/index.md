@@ -22,7 +22,6 @@ Perlu penjelasan yang lebih mendasar? Kunjungi [ethereum.org/learn](/learn/) ata
 
 ## Artikel Untuk Pemula {#beginner-articles}
 
-- [Memilih Klien Ethereum](https://www.trufflesuite.com/docs/truffle/reference/choosing-an-ethereum-client)
 - [Klien Ethereum Rust](https://openethereum.github.io/) \* **Perhatikan bahwa OpenEthereum [telah menjadi usang](https://medium.com/openethereum/gnosis-joins-erigon-formerly-turbo-geth-to-release-next-gen-ethereum-client-c6708dd06dd) dan tidak lagi dipertahankan.** Gunakan dengan hati-hati dan lebih baik beralih ke implementasi klien lainnya.
 - [Mengirimkan Transaksi ke Ethereum Menggunakan Rust](https://kauri.io/#collections/A%20Hackathon%20Survival%20Guide/sending-ethereum-transactions-with-rust/)
 - [Pengantar Kontrak Pintar dengan Klien Ethereum Parity](https://wiki.parity.io/Smart-Contracts)
@@ -42,7 +41,7 @@ Perlu penjelasan yang lebih mendasar? Kunjungi [ethereum.org/learn](/learn/) ata
 
 - [pwasm-ethereum](https://github.com/paritytech/pwasm-ethereum) - _Koleksi eksternal untuk berinteraksi dengan jaringan seperti Ethereum._
 - [Ethereum WebAssembly](https://ewasm.readthedocs.io/en/mkdocs/)
-- [oasis_std](https://docs.rs/oasis-std/0.2.7/oasis_std/) - _Referensi API OASIS_
+- [oasis_std](https://docs.rs/oasis-std/latest/oasis_std/index.html) - _Referensi API OASIS_
 - [Solaris](https://github.com/paritytech/sol-rs)
 - [SputnikVM](https://github.com/sorpaas/rust-evm) - _Implementasi Mesin Virtual Ethereum Rust_
 - [Parity](https://github.com/paritytech/parity-ethereum) - _Klient Rust Ethereum_

@@ -5,7 +5,7 @@ lang: hu
 incomplete: true
 ---
 
-<div class="featured">Tanulj meg Ethereumra fejleszteni Go-alapú projektek és eszközök használatával</div>
+<FeaturedText>Tanuljon meg Ethereumra fejleszteni Go-alapú projektek és eszközök használatával</FeaturedText>
 
 Használja az Ethereumot decentralizált alkalmazások (dappok) fejlesztésére. Ezek a dappok megbízhatóak, ami azt jelenti, hogyha egyszer telepítették az Ethereumba, akkor mindig úgy fognak futni, ahogy programozták őket. Decentralizáltak, ami azt jelenti, hogy egy peer-to-peer hálózaton futnak és nincs lehetőség egyetlen hiba miatti leállásra (single point of failure). Nincs olyan entitás vagy személy, ami irányítaná őket és szinte lehetetlen őket cenzúrázni. Digitális eszközöket irányíthatnak, lehetőséget teremtve ezzel újfajta alkalmazások létrejöveteléhez.
 
@@ -23,7 +23,6 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 
 ## Cikkek és könyvek kezdőknek {#beginner-articles-and-books}
 
-- [Ethereum kliens kiválasztása](https://www.trufflesuite.com/docs/truffle/reference/choosing-an-ethereum-client)
 - [Kezdő lépések Geth-tel](https://medium.com/@tzhenghao/getting-started-with-geth-c1a30b8d6458)
 - [Golang használata Ethereumra való kapcsolódásra](https://www.youtube.com/watch?v=-7uChuO_VzM)
 - [Ethereum okosszerződések telepítése Golang használatával](https://www.youtube.com/watch?v=pytGqQmDslE)
@@ -65,6 +64,7 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 - [Multi Geth](https://github.com/multi-geth/multi-geth) - _Az Ethereum hálózatok több fajtáját támogatja_
 - [Geth Light Client](https://github.com/zsfelfoldi/go-ethereum/wiki/Geth-Light-Client) - _Light Ethereum Subprotocol Geth implementációja_
 - [Ethereum Golang SDK](https://github.com/everFinance/goether) – _Egy egyszerű Ethereum-tárcaimplementáció és eszközök Golangban_
+- [Covalent Golang SDK](https://github.com/covalenthq/covalent-api-sdk-go) - _hatékony blokklánc-adatelérés Go SDK-n keresztül 200+ blokklánchoz_
 
 Még több anyagot keresel? Tekintse meg az [ethereum.org/developers](/developers/) oldalt
 

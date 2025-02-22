@@ -51,10 +51,10 @@ Un contrato inteligente es un código que reside en la blockchain de Ethereum y 
 
 **Scaffold-ETH _: un experimento rápido con Solidity mediante el uso de una interfaz de usuario que se adapta a su contrato inteligente._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 - [Ejemplo de DApp](https://punkwallet.io/)
 
-**Crear una aplicación Ethereum*: crear aplicaciones Ethereum con un comando. ***
+**Crear una aplicación Ethereum_: crear aplicaciones Ethereum con un comando. _**
 
 - [GitHub](https://github.com/paulrberg/create-eth-app)
 
@@ -63,7 +63,7 @@ Un contrato inteligente es un código que reside en la blockchain de Ethereum y 
 - [oneclickdapp.com](https://oneclickdapp.com)
 - [GitHub](https://github.com/oneclickdapp/oneclickdapp-v1)
 
-**Etherflow*: herramienta FOSS para que los desarrolladores de Ethereum prueben sus nodos, así como para componer & y depurar las llamadas RPC desde el navegador.*|**
+**Etherflow_: herramienta FOSS para que los desarrolladores de Ethereum prueben sus nodos, así como para componer & y depurar las llamadas RPC desde el navegador._|**
 
 - [etherflow.quiknode.io](https://etherflow.quiknode.io/)
 - [GitHub](https://github.com/abunsen/etherflow)
@@ -73,6 +73,12 @@ Un contrato inteligente es un código que reside en la blockchain de Ethereum y 
 - [Página de inicio](https://thirdweb.com/)
 - [Documentación](https://portal.thirdweb.com/)
 - [GitHub](https://github.com/thirdweb-dev/)
+
+**Crossmint_: Plataforma de desarrollo web3 de nivel empresarial para implementar contratos inteligentes, habilitar pagos con tarjeta de crédito y entre cadenas, y utilizar API para crear, distribuir, vender, almacenar y editar NFT._**
+
+- [crossmint.com](https://www.crossmint.com)
+- [Documentación](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
 
 ## Más información {#further-reading}
 

@@ -55,11 +55,17 @@ I vantaggi di questa progettazione della rete sono:
 - Ridurre la dipendenza da fornitori centralizzati
 - Ridurre l'utilizzo della larghezza di banda di Internet
 - Sincronizzazione ridotta o nulla
-- Accessibile a dispositivi con risorse limitate (<1GB RAM, disco da <100mB, 1CPU)
+- Accessibile a dispositivi con risorse limitate (<1 GB di RAM, <100 MB di spazio su disco, 1 CPU)
 
 Il diagramma seguente mostra le funzioni dei client esistenti che possono essere fornite dalla Rete Portal, consentendo agli utenti di accedere a tali funzioni su dispositivi con risorse molto limitate.
 
-![tabella della rete portal](portal-network-table2.png)
+### Le Reti Portal
+
+| Client leggero della Beacon | Rete dello stato                    | Gossip della transazione | Rete dello storico |
+| --------------------------- | ----------------------------------- | ------------------------ | ------------------ |
+| Beacon chain leggera        | Conto e archiviazione del contratto | Mempool leggero          | Intestazioni       |
+| Dati del protocollo         |                                     |                          | Corpi del blocco   |
+|                             |                                     |                          | Ricevute           |
 
 ## Diversità dei client per impostazione predefinita {#client-diversity-as-default}
 
@@ -70,6 +76,7 @@ I client della Rete Portal sono:
 - [Trin](https://github.com/ethereum/trin): scritto in Rust
 - [Fluffy](https://nimbus.team/docs/fluffy.html): scritto in Nim
 - [Ultralight](https://github.com/ethereumjs/ultralight): scritto in Typescript
+- [Shisui](https://github.com/optimism-java/shisui): scritto in Go
 
 La presenza di più implementazioni client indipendenti aumenta la resilienza e la decentralizzazione della rete Ethereum.
 
@@ -78,5 +85,5 @@ Se un client presenta problemi o vulnerabilità, gli altri client possono contin
 ## Letture consigliate {#futher-reading}
 
 - [La Rete Portal (Piper Merriam al Devcon di Bogotà)](https://www.youtube.com/watch?v=0stc9jnQLXA).
-- [Discord della Rete Portal](https://discord.gg/6XFs56cX)
-- [Sito web della Rete Portal](https://ethportal.net)
+- [Discord della Rete Portal](https://discord.gg/CFFnmE7Hbs)
+- [Sito web della Rete Portal](https://www.ethportal.net/)

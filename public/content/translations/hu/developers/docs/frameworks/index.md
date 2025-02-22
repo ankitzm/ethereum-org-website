@@ -45,6 +45,12 @@ Mielőtt elmerülne a keretrendszerekben, javasoljuk, hogy olvassa át a bevezet
 - [Dokumentáció](https://docs.web3j.io)
 - [GitHub](https://github.com/web3j/web3j)
 
+**ethers-kt –** **_Async, nagy teljesítményű Kotlin/Java/Android könyvtár EVM-alapú blokkláncokhoz._**
+
+- [GitHub](https://github.com/Kr1ptal/ethers-kt)
+- [Példák](https://github.com/Kr1ptal/ethers-kt/tree/master/examples)
+- [Discord](https://discord.gg/rx35NzQGSb)
+
 **Create Eth App -** **_Készítsen Ethereum-alapú appokat egy paranccsal. UI-keretrendszerek és DeFi-sablonok széles választék._**
 
 - [GitHub](https://github.com/paulrberg/create-eth-app)
@@ -52,7 +58,7 @@ Mielőtt elmerülne a keretrendszerekben, javasoljuk, hogy olvassa át a bevezet
 
 **Scaffold-Eth -** **_Ethers.js + Hardhat + React komponensek és hook-ok web3-hoz: minden, amire szükség van, hogy el tudjon kezdeni okosszerződések által működtetett decentralizált alkalmazásokat fejleszteni._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 
 **Tenderly -** **_Web3 fejlesztői platform, amely lehetővé teszi a blokklánc-fejlesztőknek, hogy okosszerződéseket építsenek, teszteljenek, debuggoljanak, felügyeljenek és üzemeltessenek, illetve fejlesszék a dapp UX-t._**
 
@@ -68,7 +74,7 @@ Mielőtt elmerülne a keretrendszerekben, javasoljuk, hogy olvassa át a bevezet
 
 - [alchemy.com](https://www.alchemy.com/)
 - [GitHub](https://github.com/alchemyplatform)
-- [Discord](https://discord.com/invite/A39JVCM)
+- [Discord](https://discord.com/invite/alchemyplatform)
 
 **NodeReal -** **_Ethereum fejlesztői platform._**
 
@@ -87,17 +93,17 @@ Mielőtt elmerülne a keretrendszerekben, javasoljuk, hogy olvassa át a bevezet
 - [GitHub](https://github.com/chainstack)
 - [Discord](https://discord.gg/BSb5zfp9AT)
 
+**Crossmint -** **_Vállalat szintű web3 fejlesztési platform, amely lehetővé teszi, hogy NFT alkalmazásokat építsen minden nagyobb EVM (és más) láncra._**
+
+- [Honlap](https://www.crossmint.com)
+- [Dokumentáció](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
+
 **Brownie -** **_Python-alapú fejlesztői környezet és tesztelési keretrendszer._**
 
 - [Dokumentáció](https://eth-brownie.readthedocs.io/en/latest/)
 - [GitHub](https://github.com/eth-brownie/brownie)
 - **A Brownie karbantartása jelenleg szünetel**
-
-**Truffle -** **_Fejlesztői környezet, tesztelési keretrendszer, folyamatépítő és további eszközök._**
-
-- [trufflesuite.com](https://www.trufflesuite.com/)
-- [GitHub](https://github.com/trufflesuite/truffle)
-- **A Truffle fejlesztése befejeződött** – [további információk](https://twitter.com/trufflesuite/status/1704946902393860589?t=NlIWeLTbBSAaJmS5uUAhSA&s=19)
 
 **OpenZeppelin SDK -** **_The Ultimate Smart Contract Toolkit: egy eszköztár okosszerződések fejlesztéséhez, összeállításához, továbbfejlesztéséhez, telepítéséhez és az okosszerződésekkel való interakciókhoz._**
 
@@ -105,6 +111,26 @@ Mielőtt elmerülne a keretrendszerekben, javasoljuk, hogy olvassa át a bevezet
 - [GitHub](https://github.com/OpenZeppelin/openzeppelin-sdk)
 - [Közösségi Fórum](https://forum.openzeppelin.com/c/support/17)
 - **Az OpenZeppelin SDK fejlesztése befejeződött**
+
+**Catapulta -** **_Több láncos okosszerződések telepítési eszköze, automatizálja az ellenőrzéseket a blokkfelfedezőkben, nyomon követi a telepített okosszerződéseket és megosztja a telepítési jelentéseket, plug-n-play a Foundry és Hardhat projektekhez._**
+
+- [Honlap](https://catapulta.sh/)
+- [Dokumentáció](https://catapulta.sh/docs)
+- [Github](https://github.com/catapulta-sh)
+
+**Covalent –** **_Gazdagított blokklánc API-ok 200+ lánchoz._**
+
+- [covalenthq.com](https://www.covalenthq.com/)
+- [Dokumentáció](https://www.covalenthq.com/docs/api/)
+- [GitHub](https://github.com/covalenthq)
+- [Discord](https://www.covalenthq.com/discord/)
+
+**Wake -** **_Minden az egyben Python keretrendszer a szerződéseknek a teszteléshez, fuzzinghoz, telepítéshez, sebezhetőségi vizsgálathoz és kódnavigációhoz._**
+
+- [Honlap](https://getwake.io/)
+- [Dokumentáció](https://ackeeblockchain.com/wake/docs/latest/)
+- [GitHub](https://github.com/Ackee-Blockchain/wake)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=AckeeBlockchain.tools-for-solidity)
 
 ## További olvasnivaló {#further-reading}
 

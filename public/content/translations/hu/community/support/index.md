@@ -10,82 +10,17 @@ lang: hu
 
 Egy hivatalos Ethereum ügyfélszolgálatot keres? Tudnia kell, hogy az Ethereum decentralizált. Nincs központi szervezet, entitás vagy ember, aki birtokolná az Ethereumot, ezért nincs hivatalos ügyfélszolgálat vagy támogatói csapat sem.
 
-Ezt azért is fontos megérteni, mert bárki jelentkezik Önnél, mint hivatalos ügyfélszolgálatos, az csak csaló lehet! A csalók ellen a legjobb védekezés az ismeretek szerzése és a biztonság komolyan vétele.
+Ezt azért is fontos megérteni, mert **bárki jelentkezik Önnél, mint hivatalos ügyfélszolgálatos, az csak csaló lehet!** A csalókkal szemben a legjobb védekezés, ha Ön mindig jól informált és komolyan veszi a saját biztonságát.
 
-<DocLink to="/security/">
+<DocLink href="/security/">
   Ethereum-biztonság és átverés elleni védelem
 </DocLink>
 
-<DocLink to="/learn/">
+<DocLink href="/learn/">
   Ismerje meg az Ethereum alapjait
 </DocLink>
 
 Amellett, hogy nincs hivatalos ügyfélszolgálat, számtalan csoport, közösség és projekt szeretne Önnek segíteni, illetve rengeteg hasznos információ és forrás áll rendelkezésre ezeken az oldalakon. További kérdése van? Csatlakozzon az [ethereum.org Discord](/discord/) csatornához, és megpróbálunk segíteni.
-
-## Tárca támogatás {#wallet-support}
-
-Gondjai vannak a tárcájával? A legtöbb tárcának van dedikált támogatói csapata, akik segítenek:
-
-- [MetaMask](https://metamask.zendesk.com/hc/)
-- [Argent](https://support.argent.xyz/hc/)
-- [MyEtherWallet](https://help.myetherwallet.com/)
-
-_Ez nem egy teljes lista. Segítségre van szüksége, hogy megtalálja az adott tárca támogatói csapatát? Csatlakozzon az [ethereum.org discord](https://discord.gg/ethereum-org) csatornához, és megpróbálunk segíteni._
-
-Ethereum-tárcát keres? [Fedezze fel az Ethereum-tárcák teljes választékát](/wallets/find-wallet/).
-
-## Dapp-fejlesztés {#building-support}
-
-A fejlesztés tele van kihívásokkal. Alább található néhány fejlesztőket támogató platform, tapasztalt Ethereum-fejlesztőkkel.
-
-- [Alchemy University](https://university.alchemy.com/#starter_code)
-- [CryptoDevs discord](https://discord.com/invite/5W5tVb3)
-- [Ethereum StackExchange](https://ethereum.stackexchange.com/)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/web3)
-- [Web3 University](https://www.web3.university/)
-- [LearnWeb3](https://discord.com/invite/learnweb3)
-
-Emellett dokumentációkat és fejlesztői útmutatókat is talál az [Ethereum fejlesztői források](/developers/) szekcióban.
-
-### Eszközök {#dapp-tooling}
-
-A kérdése egy bizonyos eszközhöz, projekthez vagy könyvtárhoz kapcsolódik? A legtöbb projekt működtet csevegőszervereket vagy fórumokat ilyen célból.
-
-Néhány népszerű példa:
-
-- [Solidity](https://gitter.im/ethereum/solidity/)
-- [ethers.js](https://discord.gg/6jyGVDK6Jx)
-- [web3.js](https://discord.gg/GsABYQu4sC)
-- [Hardhat](https://discord.gg/xtrMGhmbfZ)
-- [Truffle](https://discord.gg/8uKcsccEYE)
-- [Alchemy](http://alchemy.com/discord)
-- [Tenderly](https://discord.gg/fBvDJYR)
-
-## Csomópontok futtatása {#node-support}
-
-Ha Ön csomópontot vagy validátort futtat, a következő közösségek segítenek belevágni.
-
-- [EthStaker discord](https://discord.gg/ethstaker)
-- [EthStaker reddit](https://www.reddit.com/r/ethstaker)
-
-Az Ethereum klienseket építő csapatok is dedikált, nyilvános fórumokkal rendelkeznek, ahol kérdezni lehet.
-
-### Végrehajtási kliensek {#execution-clients}
-
-- [Geth](https://discord.gg/FqDzupGyYf)
-- [Nethermind](https://discord.gg/YJx3pm8z5C)
-- [Besu](https://discord.gg/p8djYngzKN)
-- [Erigon](https://github.com/ledgerwatch/erigon/issues)
-
-### Konszenzusos kliensek {#consensus-clients}
-
-- [Prysm](https://discord.gg/prysmaticlabs)
-- [Nimbus](https://discord.gg/nSmEH3qgFv)
-- [Lighthouse](https://discord.gg/cyAszAh)
-- [Teku](https://discord.gg/7hPv2T6)
-- [Lodestar](https://discord.gg/aMxzVcr)
-
-Tudja meg, hogy [futtathat csomópontot](/developers/docs/nodes-and-clients/run-a-node/).
 
 ## Gyakran ismételt kérdések {#faq}
 
@@ -109,8 +44,62 @@ A tranzakciók az Ethereumon néha várakoznak, ha a tranzakciós díj alacsonya
 
 ### Hogyan lehet Ethereumot bányászni? {#mining-ethereum}
 
-Az Ethereum bányászat többé nem elérhető. Az Ethereum áttért a proof-of-work mechanizmusról a proof-of-stake-re, így a bányászat nem létezik. Ehelyett validátorok vannak. A validátorok letétbe helyeznek ETH-t és ezért jutalmakat kapnak, miközben biztosítják a hálózatot.
+Az Ethereum bányászat többé nem elérhető. A bányászat leállt, amikor az Ethereum [proof-of-work](/glossary/#pow)-ről [proof-of-stake](/glossary/#pos)-re váltott. Ehelyett validátorok vannak. Bárki [tétbe helyezhet](/glossary/#staking) az ETH-t, és tétjutalmat kaphat a hálózat biztonságát szolgáló érvényesítő szoftver futtatásáért.
 
-### Hogyan válhat letétbe helyezővé/validátorrá? {#become-validator}
+### Hogyan legyek staker / futtathatok validátort? {#how-to-stake}
 
 A validátornak 32 ETH-t kell letétbe helyezni az Ethereum letéti szerződésben és fel kell állítani egy csomópontot. További információk [a letétbehelyezésről szóló oldalon](/staking) és a[letéti launchpaden](https://launchpad.ethereum.org/) érhetők el.
+
+## Dapp-fejlesztés {#building-support}
+
+A fejlesztés tele van kihívásokkal. Alább található néhány fejlesztőket támogató platform, tapasztalt Ethereum-fejlesztőkkel.
+
+- [Alchemy University](https://university.alchemy.com/#starter_code)
+- [CryptoDevs discord](https://discord.com/invite/5W5tVb3)
+- [Ethereum StackExchange](https://ethereum.stackexchange.com/)
+- [StackOverflow](https://stackoverflow.com/questions/tagged/web3)
+- [Web3 University](https://www.web3.university/)
+- [LearnWeb3](https://discord.com/invite/learnweb3)
+
+Emellett dokumentációkat és fejlesztői útmutatókat is talál az [Ethereum fejlesztői források](/developers/) szekcióban.
+
+### Eszközök {#dapp-tooling}
+
+A kérdése egy bizonyos eszközhöz, projekthez vagy könyvtárhoz kapcsolódik? A legtöbb projekt működtet csevegőszervereket vagy fórumokat ilyen célból.
+
+Néhány népszerű példa:
+
+- [Solidity](https://gitter.im/ethereum/solidity)
+- [ethers.js](https://discord.gg/6jyGVDK6Jx)
+- [web3.js](https://discord.gg/GsABYQu4sC)
+- [Hardhat](https://discord.gg/xtrMGhmbfZ)
+- [Alchemy](http://alchemy.com/discord)
+- [Tenderly](https://discord.gg/fBvDJYR)
+
+## Csomópontok futtatása {#node-support}
+
+Ha Ön csomópontot vagy validátort futtat, a következő közösségek segítenek belevágni.
+
+- [EthStaker discord](https://discord.gg/ethstaker)
+- [EthStaker reddit](https://www.reddit.com/r/ethstaker)
+
+Az Ethereum klienseket építő csapatok is dedikált, nyilvános fórumokkal rendelkeznek, ahol kérdezni lehet.
+
+### Végrehajtási kliensek {#execution-clients}
+
+- [Geth](https://discord.gg/FqDzupGyYf)
+- [Nethermind](https://discord.gg/YJx3pm8z5C)
+- [Besu](https://discord.gg/p8djYngzKN)
+- [Erigon](https://github.com/ledgerwatch/erigon/issues)
+- [Reth](https://github.com/paradigmxyz/reth/discussions)
+
+### Konszenzusos kliensek {#consensus-clients}
+
+- [Prysm](https://discord.gg/prysmaticlabs)
+- [Nimbus](https://discord.gg/nSmEH3qgFv)
+- [Lighthouse](https://discord.gg/cyAszAh)
+- [Teku](https://discord.gg/7hPv2T6)
+- [Lodestar](https://discord.gg/aMxzVcr)
+- [Grandine](https://discord.gg/H9XCdUSyZd)
+
+Tudja meg, hogy [futtathat csomópontot](/developers/docs/nodes-and-clients/run-a-node/).

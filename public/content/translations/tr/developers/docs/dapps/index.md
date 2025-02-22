@@ -51,7 +51,7 @@ Akıllı sözleşme, Ethereum blok zincirinde yaşayan ve tam olarak programland
 
 **Scaffold-ETH _- Akıllı sözleşmenize adapte olan bir ön uç kullanarak Solidity ile hızlıca deney yapın._**
 
-- [GitHub](https://github.com/austintgriffith/scaffold-eth)
+- [GitHub](https://github.com/scaffold-eth/scaffold-eth-2)
 - [Örnek dapp](https://punkwallet.io/)
 
 **Create Eth App _- Tek komutla Ethereum destekli uygulamalar oluşturun._**
@@ -73,6 +73,12 @@ Akıllı sözleşme, Ethereum blok zincirinde yaşayan ve tam olarak programland
 - [Ana Sayfa](https://thirdweb.com/)
 - [Dokümanlar](https://portal.thirdweb.com/)
 - [GitHub](https://github.com/thirdweb-dev/)
+
+**Crossmint _- Akıllı sözleşmeleri dağıtmak, kredi kartı ödemelerini ve zincirler arası ödemeleri mümkün kılmak ve API'leri kullanarak NFT oluşturmak, dağıtmak, satmak, depolamak ve düzenlemek amaçlı kurumsal bir Web3 geliştirme platformudur._**
+
+- [crossmint.com](https://www.crossmint.com)
+- [Dokümanlar](https://docs.crossmint.com)
+- [Discord](https://discord.com/invite/crossmint)
 
 ## Daha fazla bilgi {#further-reading}
 

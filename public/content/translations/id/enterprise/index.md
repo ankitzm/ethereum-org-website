@@ -52,7 +52,7 @@ Beberapa usaha kolaboratif untuk membuat Ethereum ramah bagi perusahaan telah di
 - [Alchemy](https://www.alchemy.com/) _menyediakan layanan dan peralatan API untuk membangun dan mengawasi aplikasi di Ethereum_
 - [Blockapps](https://blockapps.net/) _implementasi protokol Enterprise Ethereum, peralatan, dan API yang membentuk platform STRATO_
 - [Chainstack](https://chainstack.com/) _infrastruktur jaringan utama dan testnet Ethereum yang dihost di cloud pelanggan publik dan terisolasi_
-- [ConsenSys](https://consensys.net/) _menyediakan daftar produk dan peralatan untuk membangun di Ethereum, maupun layanan konsultasi dan pengembangan kustom_
+- [ConsenSys](https://consensys.io/) _menyediakan daftar produk dan peralatan untuk membangun di Ethereum, maupun layanan konsultasi dan pengembangan kustom_
 - [Envision Blockchain](https://envisionblockchain.com/) _menyediakan layanan konsultasi dan pengembangan yang berfokus pada perusahaan yang dikhususkan di Jaringan Utama Ethereum_
 - [EY OpsChain](https://blockchain.ey.com/products/contract-manager) _menyediakan alur kerja pengadaan dengan menerbitkan RFQ, kontrak, pesanan pembelian, dan faktur di keseluruhan jaringan partner bisnis terpercaya Anda_
 - [Hyperledger Besu](https://www.hyperledger.org/use/besu) _sebuah klien Ethereum sumber terbuka berfokus pada perusahaan yang dikembangkan di bawah lisensi Apache 2.0 dan ditulis dalam bahasa Java_
@@ -67,7 +67,6 @@ Beberapa usaha kolaboratif untuk membuat Ethereum ramah bagi perusahaan telah di
 - [Ernst & Young's ‘Nightfall'](https://github.com/EYBlockchain/nightfall) _sebuah kotak peralatan untuk transaksi privat_
 - [EthSigner](https://github.com/ConsenSys/ethsigner) _sebuah aplikasi penandatanganan transaksi untuk digunakan dengan penyedia web3_
 - [Tenderly](https://tenderly.co/) _sebuah Platform Data yang menyediakan analitik, peringatan, dan pengawasan dalam waktu sebenarnya dengan dukungan untuk jaringan privat._
-- [Truffle Suite](https://trufflesuite.com) _rangkaian pengembangan blockchain (Truffle, Ganache, Drizzle)_
 
 ### Solusi skalabilitas {#scalability-solutions}
 
@@ -84,7 +83,7 @@ Contoh solusi L2 yang siap dipakai atau yang akan segera dimasukkan:
 - Rollup ZK (data on chain, bukti validitas ZK)
   - [Loopring](https://loopring.org)
   - [Starkware](https://starkware.co)
-  - [Matter Labs zkSync](https://matter-labs.io/)
+  - [Matter Labs ZKsync](https://matter-labs.io/)
   - [Aztec 2.0](https://aztec.network/)
 - Validium (data off chain, bukti validitas ZK)
   - [Starkware](https://starkware.co)
@@ -130,7 +129,6 @@ Berikut adalah beberapa aplikasi perusahaan yang telah digunakan pada Jaringan U
 ### Notarisasi data {#notarization-of-data}
 
 - [BBVA](https://www.ledgerinsights.com/bbva-blockchain-loan-banking-tech-award/) _detail pinjaman terakhir di-hash dan dicatat di Jaringan Utama_
-- [Splunk](https://www.splunk.com/en_us/blog/security/the-newest-data-attack.html) _integritas data bisa dipastikan secara berkala dengan menulis hash dari data diindeks di Jaringan Utama_
 - [ANSA](https://cointelegraph.com/news/italys-top-news-agency-uses-blockchain-to-fight-fake-coronavirus-news) _agensi berita terbesar di Italia yang melawan berita palsu dan memungkinkan pembaca memverifikasi sumber berita dengan mencatatnya di Jaringan Utama_
 - [Verizon](https://decrypt.co/46745/verizon-news-press-releases-ethereum-full-transparency) _mencatat rilis berita di Ethereum untuk memastikan akuntabilitas dan kepercayaan perusahaan_
 - [Breitling](https://www.coindesk.com/breitling-arianee-all-new-watches-ethereum) _mencatat sumber dan riwayat perbaikan pengawasan di Ethereum_
@@ -138,7 +136,6 @@ Berikut adalah beberapa aplikasi perusahaan yang telah digunakan pada Jaringan U
 
 ### Rantai pasokan {#supply-chain}
 
-- [CargoX](https://cargox.io/press-releases/full/cargox-becomes-first-public-blockchain-ethereum-bill-lading-provider-approved-international-group-pi-clubs) _penyedia konosemen dan pemindahan dokumen_
 - [Morpheus.network](https://morpheus.network/) _platform otomatisasi rantai pasokan yang mengimplementasikan gabungan rantai privat dengan data ternotarisasi di Jaringan Utama Ethereum, dan digunakan oleh perusahaan seperti distributor makanan, minyak, dan gas di Kanada yaitu Federated Co-op Ltd. dan penyedia makanan binatang peliharaan di Argentina Vitalcan_
 - [Minespider](https://www.minespider.com/) _pelacakan rantai pasokan_
 - [ShipChain](https://shipchain.io) _sidechain Ethereum publik dan sistem perusahaan untuk visibilitas dan kepercayaan rantai pasokan, khususnya untuk logistik multimodal_
@@ -146,7 +143,6 @@ Berikut adalah beberapa aplikasi perusahaan yang telah digunakan pada Jaringan U
 - [Pengadaan Jaringan EY OpsChain](https://blockchain.ey.com/products/contract-manager) _memungkinkan perusahaan terlibat dalam sebuah alur kerja pengadaan dengan menerbitkan RFQ, kontrak, pemesanan pembelian, dan faktur di keseluruhan jaringan dari rekan bisnis terpercaya Anda_
 - [Treum](https://treum.io/) _menghadirkan transparansi, keterlacakan, dan kemampuan untuk diperdagangan pada rantai pasokan, menggunakan teknologi blockchain_
 - [TradeTrust](https://www.tradetrust.io/) _memverifikasi electronic Bills of Lading (eBLs) untuk pengiriman internasional_
-- [Birra Peroni](https://www.ey.com/en_gl/news/2021/05/birra-peroni-is-the-first-industrial-organization-to-mint-unique-non-fungible-tokens-using-ey-opschain-traceability) _mencetak NFT untuk setiap batch bir baru, memungkinkan visibilitas dan efisiensi yang lebih baik di seluruh rantai pasokan_
 
 ### Kredensial dan sertifikasi {#credentials}
 

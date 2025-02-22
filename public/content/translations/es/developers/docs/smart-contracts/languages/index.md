@@ -1,6 +1,6 @@
 ---
 title: Lenguajes de contrato inteligente
-description: "Descripción y comparación de los 2 lenguajes de contrato inteligente principales: Solidity y Vyper."
+description: 'Descripción y comparación de los 2 lenguajes de contrato inteligente principales: Solidity y Vyper.'
 lang: es
 ---
 
@@ -11,9 +11,11 @@ Los dos lenguajes más activos y soportados son:
 - Solidity
 - Vyper
 
-Los desarrolladores más experimentados también podrían querer usar Yul, un lenguaje intermedio para la [máquina virtual Ethereum](/developers/docs/evm/), o Yul+, una extensión de Yul.
+Remix IDE proporciona un entorno de desarrollo integral para crear y probar contratos tanto en Solidity como en Vyper. [Pruebe Remix IDE en el navegador](https://remix.ethereum.org) para empezar a programar.
 
-Si es curioso y le gustaría ayudar a testear nuevos lenguajes que aún se encuentran bajo gran desarrollo, puede experimentar con Fe, un lenguaje emergente de contratos inteligentes que aún está en sus inicios.
+Los desarrolladores más experimentados también podrían querer usar Yul, un lenguaje intermedio para la [máquina virtual de Ethereum](/developers/docs/evm/), o Yul+, una extensión de Yul.
+
+Si es curioso y le gustaría ayudar a testear nuevos lenguajes que aún se encuentran en gran desarrollo, puede experimentar con Fe, un lenguaje emergente de contratos inteligentes que aún está en sus inicios.
 
 ## Requisitos previos {#prerequisites}
 
@@ -35,7 +37,7 @@ El conocimiento previo de lenguajes de programación, especialmente de JavaScrip
 - [Portal de lenguaje de Solidity](https://soliditylang.org/)
 - [Solidity by Example](https://docs.soliditylang.org/en/latest/solidity-by-example.html)
 - [GitHub](https://github.com/ethereum/solidity/)
-- [Sala de chat Solidity Glitter](https://gitter.im/ethereum/solidity) puenteada a [Sala de chat Solidity Matrix](https://matrix.to/#/#ethereum_solidity:gitter.im)
+- [Sala de chat de Solidity (Glitter)](https://gitter.im/ethereum/solidity) enlazada con la [Sala de chat de Solidity (Matrix)](https://matrix.to/#/#ethereum_solidity:gitter.im)
 - [Hoja de trampas](https://reference.auditless.com/cheatsheet)
 - [Blog de Solidity](https://blog.soliditylang.org/)
 - [Twitter de Solidity](https://twitter.com/solidity_lang)
@@ -275,25 +277,25 @@ El siguiente es un contrato simple implementado en Fe.
 ```
 type BookMsg = bytes[100]
 
-contrato GuestBook:
+contract GuestBook:
     pub guest_book: map<address, BookMsg>
 
     event Signed:
         book_msg: BookMsg
 
     pub def sign(book_msg: BookMsg):
-        self. uest_book[msg.sender] = book_msg
+        self.guest_book[msg.sender] = book_msg
 
         emit Signed(book_msg=book_msg)
 
     pub def get_msg(addr: address) -> BookMsg:
-        return self. uest_book[addr].to_mem()
+        return self.guest_book[addr].to_mem()
 
 ```
 
 ## ¿Cómo escoger? {#how-to-choose}
 
-Como en cualquier otro lenguaje de programación, se trata principalmente de elegir la herramienta adecuada para el trabajo correcto, así como las preferencias personales.
+Como sucede con cualquier otro lenguaje de programación, se trata principalmente de elegir la herramienta adecuada para el trabajo correcto, así como las preferencias personales.
 
 Estas son algunas cosas que debe tener en cuenta si aún no ha probado ninguno de los lenguajes:
 
@@ -316,7 +318,7 @@ Estas son algunas cosas que debe tener en cuenta si aún no ha probado ninguno d
 
 ## Comparación de lenguajes {#language-comparisons}
 
-Si desea obtener comparaciones sobre la sintaxis básica, el ciclo de vida de los contratos, las interfaces, los operadores, las estructuras de datos, las funciones, el flujo de control, etc., eche un vistazo a esta [hoja de apuntes de Auditless](https://reference.auditless.com/cheatsheet/)
+Si desea obtener comparaciones sobre la sintaxis básica, el ciclo de vida de los contratos, las interfaces, los operadores, las estructuras de datos, las funciones, el flujo de control, etc., eche un vistazo a esta [hoja de apuntes de Auditless](https://reference.auditless.com/cheatsheet/).
 
 ## Más información {#further-reading}
 

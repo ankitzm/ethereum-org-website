@@ -1,20 +1,11 @@
-import { useTranslation } from "next-i18next"
-import {
-  Drawer,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerOverlay,
-  Flex,
-  Hide,
-  useToken,
-} from "@chakra-ui/react"
-
 import Card from "@/components/Card"
-import OldHeading from "@/components/OldHeading"
-import Text from "@/components/OldText"
+import { Flex, Stack, VStack } from "@/components/ui/flex"
+import { Sheet, SheetClose, SheetContent } from "@/components/ui/sheet"
 
 import { TriangleSVG, TriangleSVGProps } from "./Triangle"
 import { useTrilemma } from "./useTrilemma"
+
+import { useTranslation } from "@/hooks/useTranslation"
 
 const Trilemma = () => {
   const { t } = useTranslation("page-roadmap-vision")
@@ -32,60 +23,46 @@ const Trilemma = () => {
     ...trilemmaChecks,
   }
 
-  // TODO: Replace with direct token implementation after UI migration is completed
-  const lgBp = useToken("breakpoints", "lg")
-
   return (
-    <Flex
-      alignItems="flex-start"
-      flexDirection={{ base: "column", lg: "row" }}
-      justifyContent="space-between"
-    >
-      <Flex
-        flexDirection="column"
-        my={{ base: 8, md: 12 }}
-        mx={{ md: 12 }}
-        py={8}
-        flex={{
-          base: "1 1 100%",
-          lg: "0 1 500px",
-        }}
-      >
-        <OldHeading fontSize="2rem" mt={0}>
-          {t("page-roadmap-vision-trilemma-h2")}
-        </OldHeading>
-        <Text>{t("page-roadmap-vision-trilemma-p")}</Text>
-        <Text>{t("page-roadmap-vision-trilemma-p-1")}</Text>
-        <Text>{t("page-roadmap-vision-trilemma-p-2")}</Text>
-        <Text fontWeight={600} hideFrom={lgBp}>
-          {t("page-roadmap-vision-trilemma-modal-tip")}:
-        </Text>
-        <Card {...cardDetail} mt={8} minH="300px" hideBelow={lgBp} />
-      </Flex>
-      <Hide above={lgBp}>
-        <Drawer
-          isOpen={mobileModalOpen}
-          onClose={handleModalClose}
-          placement="bottom"
-        >
-          <DrawerOverlay background="rgba(0,0,0,0.3)" />
-          <DrawerContent
-            border="none"
-            borderTopRadius="1rem"
-            background="background.base"
-          >
-            <Card
-              {...cardDetail}
-              background="none"
-              border="none"
-              justifyContent="flex-start"
-              my={8}
-            />
-            <DrawerCloseButton top="6" insetInlineEnd="6" />
-          </DrawerContent>
-        </Drawer>
-      </Hide>
-      <TriangleSVG {...triangleSVGProps} />
+    <Flex className="flex-col items-center justify-between space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
+      <Stack className="mt-16 space-y-8 md:mx-12 md:mt-20 lg:mb-20 lg:mr-0 lg:flex-[0_1_500px]">
+        <h2>{t("page-roadmap-vision-trilemma-h2")}</h2>
+        <VStack className="space-y-6">
+          <p>{t("page-roadmap-vision-trilemma-p")}</p>
+          <p>{t("page-roadmap-vision-trilemma-p-1")}</p>
+          <p>{t("page-roadmap-vision-trilemma-p-2")}</p>
+          <p className="font-semibold lg:hidden">
+            {t("page-roadmap-vision-trilemma-modal-tip")}:
+          </p>
+        </VStack>
+        <Card {...cardDetail} className="mt-6 hidden min-h-[300px] lg:block" />
+      </Stack>
+      <Sheet open={mobileModalOpen} onOpenChange={handleModalClose}>
+        <SheetContent side="bottom" className="rounded-t-[16px]">
+          <Card {...cardDetail} className="my-8 border-none bg-transparent" />
+          <SheetClose className="absolute right-3 top-5">
+            <span className="sr-only">Close</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </SheetClose>
+        </SheetContent>
+      </Sheet>
+
+      <div>
+        <TriangleSVG {...triangleSVGProps} />
+      </div>
     </Flex>
   )
 }

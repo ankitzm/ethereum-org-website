@@ -11,7 +11,7 @@ hideEditButton: true
 
 <UpcomingEventsList/>
 
-A lista nem teljeskörű, a közösség tagjai frissítik. Tudomása van egy tervezett Ethereum-eseményről? [Kérjük, adja hozzá!](https://github.com/ethereum/ethereum-org-website/blob/dev/src/data/community-events.json)
+A lista nem teljeskörű, a közösség tagjai frissítik. Tudomása van egy tervezett Ethereum-eseményről? [Kérjük, adja hozzá](https://github.com/ethereum/ethereum-org-website/blob/dev/src/data/community-events.json)!
 
 ## Ethereum-találkozók {#meetups}
 

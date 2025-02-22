@@ -1,10 +1,10 @@
 ---
-title: Metti i tuoi ETH in staking in solo
-description: Una panoramica di come iniziare a mettere in staking in solo i tuoi ETH
+title: Staking dometico dei tuoi ETH
+description: Una panoramica su come iniziare a mettere i tuoi ETH in staking domestico
 lang: it
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-solo.png
+image: /images/staking/leslie-solo.png
 alt: Leslie il rinoceronte sul suo chip informatico.
 sidebarDepth: 2
 summaryPoints:
@@ -13,31 +13,31 @@ summaryPoints:
   - Rimuovi la fiducia e non lasciar mai perdere il controllo delle chiavi dei tuoi fondi
 ---
 
-## Cos'è lo staking in solo? {#what-is-solo-staking}
+## Cos'è lo staking domestico? {#what-is-solo-staking}
 
-Lo staking in solo è l'atto di [operare un nodo di Ethereum](/run-a-node/) connesso a Internet e depositare 32 ETH per attivare un [validatore](#faq), dandoti l'abilità di partecipare direttamente nel consenso della rete.
+Lo staking domestico è l'atto di [eseguire un nodo di Ethereum](/run-a-node/) connesso a Internet e depositare 32 ETH per attivare un [validatore](#faq), dandoti la capacità di partecipare direttamente al consenso della rete.
 
-**Lo staking in solo aumenta la decentralizzazione della rete di Ethereum**, rendendola più resistente alla censura e più robusto contro gli attacchi. Altri metodi di staking potrebbero non aiutare la rete nello stesso modo. Lo staking in solo è la migliore opzione di staking per proteggere Ethereum.
+**Lo staking domestico aumenta la decentralizzazione della rete di Ethereum**, rendendola più resistente alla censura e robusta contro gli attacchi. Altri metodi di staking potrebbero non aiutare la rete nello stesso modo. Lo staking domestico è la migliore opzione di staking per proteggere Ethereum.
 
 Un nodo di Ethereum consiste sia nel client del livello di esecuzione (EL), che di un client del livello di consenso (CL). Questi client sono software che cooperano, insieme a una valida serie di chiavi di firma, per verificare le transazioni e i blocchi, attestare al capo corretto della catena, aggregare le attestazioni e proporre i blocchi.
 
-Gli staker in solo sono responsabili di operare l'hardware necessario a eseguire questi client. Si consiglia vivamente di usare una macchina dedicata per questo, che operi da casa, il che è estremamente vantaggioso per l'integrità della rete.
+Gli staker domestici sono responsabili di utilizzare l'hardware necessario a eseguire questi client. Si consiglia vivamente di usare una macchina dedicata per questo, che operi da casa, il che è estremamente vantaggioso per l'integrità della rete.
 
-Uno staker in solo riceve ricompense direttamente dal protocollo per mantenere il proprio validatore propriamente funzionante e online.
+Uno staker domestico riceve ricompense direttamente dal protocollo per mantenere il proprio validatore correttamente in funzione e online.
 
-## Perché mettere in staking in solitaria? {#why-stake-solo}
+## Perché fare staking domestico? {#why-stake-solo}
 
-Lo staking in solo richiede una maggiore responsabilità, ma fornisce il massimo controllo sui fondi e la configurazione di staking.
+Lo staking domestico richiede maggiori responsabilità, ma fornisce il massimo controllo sui propri fondi e sulla propria configurazione di staking.
 
 <CardGrid>
   <Card title="Ottieni nuovi ETH" emoji="💸" description="Earn ETH-denominated rewards directly from the protocol when your validator is online, without any middlemen taking a cut." />
   <Card title="Controllo completo" emoji="🎛️" description="Keep your own keys. Choose the combination of clients and hardware that allows you to minimize your risk and best contribute to the health and security of the network. Third-party staking services make these decisions for you, and they don't always make the safest choices." />
-  <Card title="Sicurezza della rete" emoji="🔐" description="Solo staking is the most impactful way to stake. By running a validator on your own hardware at home, you strengthen the robustness, decentralization, and security of the Ethereum protocol." />
+  <Card title="Sicurezza della rete" emoji="🔐" description="Home staking is the most impactful way to stake. By running a validator on your own hardware at home, you strengthen the robustness, decentralization, and security of the Ethereum protocol." />
 </CardGrid>
 
-## Considerazioni prima dello staking in solo {#considerations-before-staking-solo}
+## Considerazioni prima dello staking domestico {#considerations-before-staking-solo}
 
-Per quanto vorremmo che lo staking in solo fosse accessibile e privo di rischi per tutti, questa non è la realtà. Esistono alcune serie considerazioni pratiche da tenere a mente prima di scegliere di mettere i tuoi ETH in staking in solo.
+Per quanto vorremmo che lo staking domestico fosse accessibile e privo di rischi per tutti, questa non è la realtà. Esistono serie considerazioni pratiche da tenere a mente prima di scegliere di mettere i propri ETH in staking domestico.
 
 <InfoGrid>
 <ExpandableCard title="Lettura necessaria" eventCategory="SoloStaking" eventName="clicked required reading">
@@ -93,7 +93,7 @@ Il Launchpad di Staking è un'applicazione open source che ti aiuterà a diventa
 
 ## Cosa considerare con il nodo e gli strumenti di configurazione del client {#node-tool-considerations}
 
-Esistono sempre più strumenti e servizi per aiutarti a mettere i tuoi ETH in staking in solo, ma ognuno presenta diversi rischi e benefici.
+Esistono sempre più strumenti e servizi per aiutarti a mettere i tuoi ETH in staking domestico, ma ognuno presenta rischi e benefici differenti.
 
 Gli indicatori di attributo sono usati di seguito per segnalare punti di forza e debolezze notevoli che uno strumento di staking elencato potrebbe avere. Usa questa sezione come un riferimento per come definire questi attributi mentre stai scegliendo quali strumenti usare per guidarti per il tuo percorso di staking.
 
@@ -109,7 +109,7 @@ Esistono una varietà di opzioni disponibili per aiutarti con la tua configurazi
 
 <StakingProductsCardGrid category="nodeTools" />
 
-Ricorda l'importanza di scegliere un [client di minoranza](/developers/docs/nodes-and-clients/client-diversity/), poiché migliora la sicurezza della rete e limita i tuoi rischi. Gli strumenti che ti consentono di configurare il client di minoranza sono denotati come <em style={{ textTransform: "uppercase" }}>"multi-client".</em>
+Ricorda l'importanza di scegliere un [client di minoranza](/developers/docs/nodes-and-clients/client-diversity/), poiché migliora la sicurezza della rete e limita i tuoi rischi. Gli strumenti che ti consentono di configurare il client di minoranza sono contrassegnati come <em style={{ textTransform: "uppercase" }}>"multi-client".</em>
 
 ### Generatori di chiavi
 
@@ -119,7 +119,7 @@ Questi strumenti sono utilizzabili come un'alternativa alla [CLI di deposito di 
 
 Hai un suggerimento per uno strumento di staking che abbiamo dimenticato? Dai un'occhiata alla nostra [politica di elenco dei prodotti](/contributing/adding-staking-products/) per verificare l'idoneità e sottoporcelo.
 
-## Esplora le guide di staking in solo {#staking-guides}
+## Esplora le guide allo staking domestico {#staking-guides}
 
 <StakingGuides />
 
@@ -138,7 +138,7 @@ Ogni coppia di chiavi associata ad un validatore richiede esattamente 32 ETH pe
 
 Non depositare più di 32 ETH per un singolo validatore. Non incrementerà le tue ricompense. Se un indirizzo di prelievo è stato impostato per il validatore, i fondi in eccesso oltre i 32 ETH saranno prelevati automaticamente a tale indirizzo durante la successiva <a href="/staking/withdrawals/#validator-sweeping">pulizia dei validatori</a>.
 
-Se lo staking in solo sembra troppo impegnativo per te, considera di usare un fornitore di <a href="/staking/saas/">staking come servizio</a>, o se stai operando con meno di 32 ETH, dai un'occhiata ai <a href="/staking/pools/">pool di staking</a>.
+Se lo staking domestico sembra troppo impegnativo per te, prendi in considerazione di utilizzare un fornitore di <a href="/staking/saas/">staking come servizio</a> o, se hai meno di 32 ETH, dai un'occhiata ai <a href="/staking/pools/">pool di staking</a>.
 </ExpandableCard>
 
 <ExpandableCard title="Sarà tagliato se resto offline? (tldr: No.)">
@@ -167,7 +167,7 @@ I bug equivalenti in un <em>client di minoranza non sarebbero mai finalizzati</e
 <ExpandableCard title="Quale client è il migliore?">
 I client individuali potrebbero variare lievemente in termini di prestazioni e interfaccia utente, poiché ognuno è sviluppato da team differenti che usano diversi linguaggi di programmazione. Detto ciò, nessuno di essi è il "migliore." Tutti i client di produzione sono eccellenti pezzi di software, che eseguono tutti le stesse funzioni fondamentali per sincronizzarsi e interagire con la blockchain.
 
-Poiché tutti i client di produzione forniscono la stessa funzionalità di base, è davvero molto importante che tu scelga un <strong>client di minoranza</strong>, vale a dire qualsiasi client che NON sia attualmente in uso da una maggioranza di validatori sulla rete. Questo potrebbe sembrare controintuitivo, ma operare un client di maggioranza o di super maggioranza espone maggiormente al rischio di tagli nel caso di un bug in quel client. Operare un client di minoranza riduce drasticamente tali rischi.
+Poiché tutti i client di produzione forniscono la stessa funzionalità di base, è davvero molto importante che tu scelga un <strong>client di minoranza</strong>, vale a dire qualsiasi client che NON sia attualmente in uso da una maggioranza di validatori sulla rete. Questo potrebbe sembrare controintuitivo, ma operare un client di maggioranza o di super maggioranza espone  maggiormente al rischio di tagli nel caso di un bug in quel client. Operare un client di minoranza riduce drasticamente tali rischi.
 
 <a href="https://mirror.xyz/jmcook.eth/S7ONEka_0RgtKTZ3-dakPmAHQNPvuj15nh0YGKPFriA">Scopri di più sul perché la diversità dei client è fondamentale</a>
 </ExpandableCard>
@@ -190,14 +190,17 @@ Una volta impostate le credenziali di prelievo, i pagamenti delle ricompense (gl
 
 Per sbloccare e ricevere il tuo intero saldo, devi inoltre completare il processo di uscita dal tuo validatore.
 
-<ButtonLink to="/staking/withdrawals/">Di più sulle ricompense di staking</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Di più sulle ricompense di staking</ButtonLink>
 </ExpandableCard>
 
 ## Approfondimenti {#further-reading}
 
+- [The Ethereum Staking Directory](https://www.staking.directory/) - _Eridian and Spacesider_
 - [Problema di diversità dei client di Ethereum](https://hackernoon.com/ethereums-client-diversity-problem) - _@emmanuelawosika 2022_
 - [Aiutare la diversità dei client](https://www.attestant.io/posts/helping-client-diversity/) - _Jim McDonald 2022_
 - [La diversità del client sul livello di consenso di Ethereum](https://mirror.xyz/jmcook.eth/S7ONEka_0RgtKTZ3-dakPmAHQNPvuj15nh0YGKPFriA) - _jmcook.eth 2022_
 - [How to: acquistare l'hardware del validatore di Ethereum](https://www.youtube.com/watch?v=C2wwu1IlhDc) - _EthStaker 2022_
 - [Passo dopo Passo: come unirsi alla Testnet di Ethereum 2.0](https://kb.beaconcha.in/guides/tutorial-eth2-multiclient) - _Butta_
 - [Suggerimenti per la prevenzione dei tagli di Eth2](https://medium.com/prysmatic-labs/eth2-slashing-prevention-tips-f6faa5025f50) - _Raul Jordan 2020_
+
+<QuizWidget quizKey="staking-solo" />

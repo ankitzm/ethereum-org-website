@@ -32,9 +32,9 @@ Por último, el validador firma la certificación y la transmite a la red.
 
 Hay una sobrecarga sustancial asociada con el paso de estos datos por la red para cada validador. Por lo tanto, las certificaciones de validadores individuales se añaden dentro de las subredes antes de transmitirse más ampliamente. Esto incluye el añadido de firmas para que una certificación que se transmita incluya los `datos` de consenso y una sola firma formada por la combinación de las firmas de todos los validadores que están de acuerdo con esos `datos`. Esto se puede comprobar utilizando `aggregation_bits`, ya que proporciona el índice de cada validador en su comité (cuyo ID se proporciona en los `datos`) que se puede utilizar para consultar firmas individuales.
 
-En cada época se selecciona un validador en cada subred para ser el `agregador`. El agregador recopila todas las certificaciones de los que oye hablar a través de la red de intercambio de información que tienen `datos` equivalentes a los suyos. El remitente de cada certificación coincidente se registra en los `aggregation_bits`. A continuación, el agregador transmite el agregado de certificación a la red más amplia.
+En cada época, se seleccionan 16 validadores en cada subred para que sean los `agregadores`. Los agregadores recopilan todos los certificados o atestaciones de los que escuchan a través de la red de gossip que tienen `datos` equivalentes a los suyos. El remitente de cada certificación coincidente se registra en los `aggregation_bits`. A continuación, los agregadores transmiten el agregado de atestaciones a la red más amplia.
 
-Cuando se selecciona un validador para ser un proponente de bloques, agrupan las certificaciones agregadas de las subredes hasta la última ranura en el nuevo bloque.
+Cuando se selecciona un validador para ser un proponente de bloques, este agrupa las certificaciones agregadas de las subredes hasta la última ranura en el nuevo bloque.
 
 ### Ciclo de vida de inclusión de la certificación {#attestation-inclusion-lifecycle}
 
@@ -50,9 +50,15 @@ El ciclo de vida de la certificación se describe en el siguiente esquema:
 
 ## Recompensas {#rewards}
 
-Se recompensa a los validadores por presentar certificaciones. La recompensa de certificación depende de dos variable: la `recompensa de base` y el `retraso de inclusión`. El mejor caso para el retraso de inclusión es que sea igual a 1.
+Se recompensa a los validadores por presentar certificaciones. La recompensa de la certificación depende de las banderas de participación (fuente, objetivo y cabeza), la recompensa base y la tasa de participación.
 
-`attestation reward = 7/8 x base reward x (1/inclusion delay)`
+Cada una de las banderas de participación puede ser verdadera o falsa, dependiendo de la certificación presentada y de su retraso en la inclusión.
+
+La mejor situación se produce cuando las tres banderas son ciertas, en cuyo caso un validador ganaría (por bandera correcta):
+
+`recompensa += recompensa base * peso de la bandera * tasa de atestación de la bandera / 64`
+
+La tasa de certificación de la bandera se mide utilizando la suma de los saldos efectivos de todos los validadores de certificación para la bandera dada, en comparación con el saldo efectivo del activo total.
 
 ### La recompensa de base {#base-reward}
 
@@ -81,6 +87,6 @@ Tenga en cuenta que en algunos casos un agregador afortunado también puede conv
 ## Más lecturas {#further-reading}
 
 - [Certificaciones en la especificación de consenso anotada de Vitalik](https://github.com/ethereum/annotated-spec/blob/master/phase0/beacon-chain.md#attestationdata)
-- [Certificaciones en eth2book.info](https://eth2book.info/altair/part3/containers/dependencies#attestationdata)
+- [Certificaciones en eth2book.info](https://eth2book.info/capella/part3/containers/dependencies/#attestationdata)
 
 _¿Conoces algún recurso en la comunidad que te haya servido de ayuda? Edita esta página y añádelo._

@@ -5,7 +5,7 @@ lang: hu
 incomplete: false
 ---
 
-<div class="featured">Tanuljon meg Ethereumra fejleszteni Ruby-alapú projektek és eszközök használatával.</div>
+<FeaturedText>Tanuljon meg Ethereumra fejleszteni Ruby-alapú projektek és eszközök használatával.</FeaturedText>
 
 Használj Ethereumot decentralizált alkalmazások (avagy "dappok") fejlesztésére, melyek kihasználják a kriptovaluta és a blokklánc technológia nyújtotta előnyöket. Ezek a dappok nem igényelnek bizalmat a felhasználó oldaláról, ami azt jelenti, hogyha egyszer telepítették az Ethereumba, akkor mindig úgy fognak futni, ahogy programozták őket. Digitális vagyontárgyakat irányíthatnak, lehetőséget teremtve ezzel az újfajta pénzügyi alkalmazások számra. Decentralizáltak lehetnek, mely azt jelenti, hogy semmilyen entitás vagy személy nem irányítja őket és közel lehetetlen őket cenzúrázni.
 

@@ -34,35 +34,33 @@ There is a difference between looking something up in the 'trie' and the underly
 The update and delete operations for radix tries can be defined as follows:
 
 ```
-    def update(node,path,value):
+    def update(node_hash, path, value):
+        curnode = db.get(node_hash) if node_hash else [ NULL ] * 17
+        newnode = curnode.copy()
         if path == '':
-            curnode = db.get(node) if node else [ NULL ] * 17
-            newnode = curnode.copy()
             newnode[-1] = value
         else:
-            curnode = db.get(node) if node else [ NULL ] * 17
-            newnode = curnode.copy()
-            newindex = update(curnode[path[0]],path[1:],value)
+            newindex = update(curnode[path[0]], path[1:], value)
             newnode[path[0]] = newindex
-        db.put(hash(newnode),newnode)
+        db.put(hash(newnode), newnode)
         return hash(newnode)
 
-    def delete(node,path):
-        if node is NULL:
+    def delete(node_hash, path):
+        if node_hash is NULL:
             return NULL
         else:
-            curnode = db.get(node)
+            curnode = db.get(node_hash)
             newnode = curnode.copy()
             if path == '':
                 newnode[-1] = NULL
             else:
-                newindex = delete(curnode[path[0]],path[1:])
+                newindex = delete(curnode[path[0]], path[1:])
                 newnode[path[0]] = newindex
 
             if all(x is NULL for x in newnode):
                 return NULL
             else:
-                db.put(hash(newnode),newnode)
+                db.put(hash(newnode), newnode)
                 return hash(newnode)
 ```
 
@@ -139,10 +137,10 @@ Examples:
 Here is the extended code for getting a node in the Merkle Patricia trie:
 
 ```
-    def get_helper(node,path):
-        if path == []: return node
-        if node = '': return ''
-        curnode = rlp.decode(node if len(node) < 32 else db.get(node))
+    def get_helper(node_hash,path):
+        if path == []: return node_hash
+        if node_hash == '': return ''
+        curnode = rlp.decode(node_hash if len(node_hash) < 32 else db.get(node_hash))
         if len(curnode) == 2:
             (k2, v2) = curnode
             k2 = compact_decode(k2)
@@ -153,25 +151,25 @@ Here is the extended code for getting a node in the Merkle Patricia trie:
         elif len(curnode) == 17:
             return get_helper(curnode[path[0]],path[1:])
 
-    def get(node,path):
+    def get(node_hash,path):
         path2 = []
         for i in range(len(path)):
             path2.push(int(ord(path[i]) / 16))
             path2.push(ord(path[i]) % 16)
         path2.push(16)
-        return get_helper(node,path2)
+        return get_helper(node_hash,path2)
 ```
 
 ### Example Trie {#example-trie}
 
-Suppose we want a trie containing four path/value pairs `('do', 'verb')`, `('dog', 'puppy')`, `('doge', 'coin')`, `('horse', 'stallion')`.
+Suppose we want a trie containing four path/value pairs `('do', 'verb')`, `('dog', 'puppy')`, `('doge', 'coins')`, `('horse', 'stallion')`.
 
 First, we convert both paths and values to `bytes`. Below, actual byte representations for _paths_ are denoted by `<>`, although _values_ are still shown as strings, denoted by `''`, for easier comprehension (they, too, would actually be `bytes`):
 
 ```
     <64 6f> : 'verb'
     <64 6f 67> : 'puppy'
-    <64 6f 67 65> : 'coin'
+    <64 6f 67 65> : 'coins'
     <68 6f 72 73 65> : 'stallion'
 ```
 
@@ -180,12 +178,12 @@ Now, we build such a trie with the following key/value pairs in the underlying D
 ```
     rootHash: [ <16>, hashA ]
     hashA:    [ <>, <>, <>, <>, hashB, <>, <>, <>, [ <20 6f 72 73 65>, 'stallion' ], <>, <>, <>, <>, <>, <>, <>, <> ]
-    hashB:    [ <00 6f>, hashD ]
-    hashD:    [ <>, <>, <>, <>, <>, <>, hashE, <>, <>, <>, <>, <>, <>, <>, <>, <>, 'verb' ]
-    hashE:    [ <17>, [ <>, <>, <>, <>, <>, <>, [ <35>, 'coin' ], <>, <>, <>, <>, <>, <>, <>, <>, <>, 'puppy' ] ]
+    hashB:    [ <00 6f>, hashC ]
+    hashC:    [ <>, <>, <>, <>, <>, <>, hashD, <>, <>, <>, <>, <>, <>, <>, <>, <>, 'verb' ]
+    hashD:    [ <17>, [ <>, <>, <>, <>, <>, <>, [ <35>, 'coins' ], <>, <>, <>, <>, <>, <>, <>, <>, <>, 'puppy' ] ]
 ```
 
-When one node is referenced inside another node, what is included is `H(rlp.encode(x))`, where `H(x) = keccak256(x) if len(x) >= 32 else x` and `rlp.encode` is the [RLP](/developers/docs/data-structures-and-encoding/rlp) encoding function.
+When one node is referenced inside another node, what is included is `H(rlp.encode(node))`, where `H(x) = keccak256(x) if len(x) >= 32 else x` and `rlp.encode` is the [RLP](/developers/docs/data-structures-and-encoding/rlp) encoding function.
 
 Note that when updating a trie, one needs to store the key/value pair `(keccak256(x), x)` in a persistent lookup table _if_ the newly-created node has length >= 32. However, if the node is shorter than that, one does not need to store anything, since the function f(x) = x is reversible.
 
@@ -254,7 +252,7 @@ More information on this can be found in the [EIP 2718](https://eips.ethereum.or
 
 ### Receipts Trie {#receipts-trie}
 
-Every block has its own Receipts trie. A `path` here is: `rlp(transactionIndex)`. `transactionIndex` is its index within the block it's mined. The receipts trie is never updated. Similar to the Transactions trie, there are current and legacy receipts. To query a specific receipt in the Receipts trie, the index of the transaction in its block, the receipt payload and the transaction type are required. The Returned receipt can be of type `Receipt` which is defined as the concatenation of `TransactionType` and `ReceiptPayload` or it can be of type `LegacyReceipt` which is defined as `rlp([status, cumulativeGasUsed, logsBloom, logs])`.
+Every block has its own Receipts trie. A `path` here is: `rlp(transactionIndex)`. `transactionIndex` is its index within the block it was included in. The receipts trie is never updated. Similar to the Transactions trie, there are current and legacy receipts. To query a specific receipt in the Receipts trie, the index of the transaction in its block, the receipt payload and the transaction type are required. The Returned receipt can be of type `Receipt` which is defined as the concatenation of `TransactionType` and `ReceiptPayload` or it can be of type `LegacyReceipt` which is defined as `rlp([status, cumulativeGasUsed, logsBloom, logs])`.
 
 More information on this can be found in the [EIP 2718](https://eips.ethereum.org/EIPS/eip-2718) documentation.
 

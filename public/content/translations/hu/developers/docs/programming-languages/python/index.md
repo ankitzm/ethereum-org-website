@@ -5,7 +5,7 @@ lang: hu
 incomplete: true
 ---
 
-<div class="featured">Tanuljon meg Ethereumra fejleszteni Python alapú projektek és eszközök használatával</div>
+<FeaturedText>Tanuljon meg Ethereumra fejleszteni Python alapú projektek és eszközök használatával</FeaturedText>
 
 Használj Ethereumot decentralizált alkalmazások (avagy "dappok") fejlesztésére, melyek kihasználják a kriptovaluta és a blokklánc technológia nyújtotta előnyöket. Ezek a dappok megbízhatóak, ami azt jelenti, hogyha egyszer telepítették az Ethereumba, akkor mindig úgy fognak futni, ahogy programozták őket. Digitális vagyontárgyakat irányíthatnak, lehetőséget teremtve ezzel újfajta pénzügyi alkalmazások létrejöveteléhez. Decentralizáltak lehetnek, mely azt jelenti, hogy semmilyen entitás vagy személy nem irányítja őket és közel lehetetlen őket cenzúrázni.
 
@@ -51,21 +51,22 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 - [Web3.py](https://github.com/ethereum/web3.py) – _Python könyvtár az Ethereummal történő interakciókra_
 - [Vyper](https://github.com/ethereum/vyper/) – _Pythonikus okosszerződés nyelv az EVM-re_
 - [Ape](https://github.com/ApeWorX/ape) – _ Az okosszerződés fejlesztői eszköz a pythonisták, adatkutatók és biztonsági szakértők számára._
-- [Brownie](https://github.com/eth-brownie/brownie) – _Python keretrendszer Ethereum okosszerződések telepítésére, tesztelésére és alkalmazására_
 - [py-evm](https://github.com/ethereum/py-evm) – _Az Ethereum virtuális gép implementációja_
 - [eth-tester](https://github.com/ethereum/eth-tester) – _Eszközök az Ethereum-alapú alkalmazások teszteléséhez_
 - [eth-utils](https://github.com/ethereum/eth-utils/) - _használati funkciók Ethereumhoz kapcsolódó kódbázisokkal való munkához_
 - [py-solc-x](https://pypi.org/project/py-solc-x/) – _Python wrapper a solc solidity fordító köré 0.5.x támogatással_
-- [py-wasm](https://github.com/ethereum/py-wasm) – _A web assembly interpreter Python-implementációja_
-- [pydevp2p](https://github.com/ethereum/pydevp2p) – _Az Ethereum P2P stack implementációja_
 - [pymaker](https://github.com/makerdao/pymaker) – _Python API Maker szerződésekre_
 - [siwe](https://github.com/spruceid/siwe-py) – _Bejelentkezés az Ethereummal (siwe) Pythonra_
 - [Web3 decentralizált pénzügyek (DeFi) Ethereum integrációhoz](https://github.com/tradingstrategy-ai/web3-ethereum-defi) – _Egy Python csomag, mely készen áll az ERC-20, Uniswap és más népszerű projektekkel való integrációra_
+- [Wake](https://getwake.io) - _Minden az egyben Python keretrendszer a szerződéseknek a teszteléshez, fuzzinghoz, telepítéshez, sebezhetőségi vizsgálathoz és kódnavigációhoz (nyelvi szerver - [eszközök a Solidity-hez](https://marketplace.visualstudio.com/items?itemName=AckeeBlockchain.tools-for-solidity))_
 
 ### Archivált / a karbantartás megszűnt: {#archived--no-longer-maintained}
 
 - [Trinity](https://github.com/ethereum/trinity) – _Ethereum Python-kliens_
 - [Mamba](https://github.com/arjunaskykok/mamba) – _Keretrendszer Vyper nyelven írt okosszerződések írására, fordítására és telepítésére_
+- [Brownie](https://github.com/eth-brownie/brownie) – _Python keretrendszer Ethereum okosszerződések telepítésére, tesztelésére és alkalmazására_
+- [pydevp2p](https://github.com/ethereum/pydevp2p) – _Az Ethereum P2P stack implementációja_
+- [py-wasm](https://github.com/ethereum/py-wasm) – _A web assembly interpreter Python-implementációja_
 
 Még több anyagot keresel? Tekintse meg az [ethereum.org/developers](/developers/) oldalt.
 
@@ -82,8 +83,8 @@ A következő Ethereum-alapú projektek a fent említett eszközöket használj�
 ## Python közösségi egyeztetések {#python-community-contributors}
 
 - [Ethereum Python közösségi Discord csatorna](https://discord.gg/9zk7snTfWe) a Web3.py és más Python keretrendszerhez kapcsolódó beszélgetésekhez
-- [Vyper Discord csatorna](https://discord.gg/SdvKC79cJk) a Vyper okosszerződések programozásáról szóló beszélgetésekhez
+- [Vyper Discord](https://discord.gg/SdvKC79cJk) a Vyper okosszerződés programozással kapcsolatos beszélgetésekre
 
 ## Egyéb összesített listák {#other-aggregated-lists}
 
-A Vyper wikinek [elképesztő anyaglistája van Vyperrel kapcsolatban.](https://github.com/ethereum/vyper/wiki/Vyper-tools-and-resources)
+A Vyper wiki egy [rendkívüli listát tartalmaz a Vyper-forrásokról](https://github.com/vyperlang/vyper/wiki/Vyper-tools-and-resources).

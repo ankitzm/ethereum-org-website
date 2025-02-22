@@ -17,7 +17,7 @@ sidebarDepth: 3
 
 サイドチェーンの独自性（イーサリアムとの相違点）のひとつとしては、採用されているコンセンサス・アルゴリズムが挙げられます。 サイドチェーンでは、コンセンサスをイーサリアムに依存せず、各サイドチェーンのニーズに合わせて別のコンセンサス・プロトコルを選択することができます。 サイドチェーンで用いられているコンセンサス・アルゴリズムの例としては、以下が挙げられます：
 
-- [プルーフ・オブ・オーソリティ](https://wikipedia.org/wiki/Proof_of_authority)
+- [プルーフ・オブ・オーソリティ](/developers/docs/consensus-mechanisms/poa/)
 - [プルーフ・オブ・ステークの委任](https://en.bitcoin.it/wiki/Delegated_proof_of_stake)
 - [ビザンチン・フォールトトレランス](https://decrypt.co/resources/byzantine-fault-tolerance-what-is-it-explained)
 

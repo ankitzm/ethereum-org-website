@@ -1,185 +1,77 @@
-import { useRouter } from "next/router"
-import {
-  Badge,
-  Box,
-  type BoxProps,
-  Divider as ChakraDivider,
-  Flex,
-  type FlexProps,
-  type HeadingProps,
-  ListItem as ChakraListItem,
-  type ListItemProps,
-  type ListProps,
-  OrderedList as ChakraOrderedList,
-  UnorderedList as ChakraUnorderedList,
-  useToken,
-} from "@chakra-ui/react"
+import type { HTMLAttributes } from "react"
 
 import { ChildOnlyProp } from "@/lib/types"
 import type { DocsFrontmatter, MdPageContent } from "@/lib/interfaces"
 
-import BannerNotification from "@/components/BannerNotification"
-import { ButtonLink } from "@/components/Buttons"
+import BannerNotification from "@/components/Banners/BannerNotification"
 import CallToContribute from "@/components/CallToContribute"
 import Card from "@/components/Card"
 import Codeblock from "@/components/Codeblock"
-import CrowdinContributors from "@/components/CrowdinContributors"
 import DeveloperDocsLinks from "@/components/DeveloperDocsLinks"
 import DocsNav from "@/components/DocsNav"
 import Emoji from "@/components/Emoji"
 import FeedbackCard from "@/components/FeedbackCard"
-import GitHubContributors from "@/components/GitHubContributors"
+import FileContributors from "@/components/FileContributors"
 import GlossaryTooltip from "@/components/Glossary/GlossaryTooltip"
 import InfoBanner from "@/components/InfoBanner"
-import Link from "@/components/Link"
 import MainArticle from "@/components/MainArticle"
 import {
   Heading1 as MdHeading1,
   Heading2 as MdHeading2,
   Heading3 as MdHeading3,
   Heading4 as MdHeading4,
-  Paragraph,
 } from "@/components/MdComponents"
-import RollupProductDevDoc from "@/components/RollupProductDevDoc"
 import SideNav from "@/components/SideNav"
 import SideNavMobile from "@/components/SideNavMobile"
-import { mdxTableComponents } from "@/components/Table"
 import TableOfContents from "@/components/TableOfContents"
 import Translation from "@/components/Translation"
+import { ButtonLink } from "@/components/ui/buttons/Button"
+import { Divider } from "@/components/ui/divider"
+import InlineLink from "@/components/ui/Link"
+import { mdxTableComponents } from "@/components/ui/table"
 import YouTube from "@/components/YouTube"
 
+import { cn } from "@/lib/utils/cn"
 import { getEditPath } from "@/lib/utils/editPath"
 
-// Utils
-import { DEFAULT_LOCALE } from "@/lib/constants"
+import { usePathname } from "@/i18n/routing"
 
-import { useClientSideGitHubLastEdit } from "@/hooks/useClientSideGitHubLastEdit"
+const baseHeadingClasses =
+  "font-mono uppercase font-bold scroll-mt-40 break-words"
 
-const Page = (props: ChildOnlyProp & Pick<FlexProps, "dir">) => (
-  <Flex
-    direction="column"
-    w="full"
-    borderBottom="1px"
-    borderColor="border"
-    {...props}
-  />
-)
-
-const Divider = () => (
-  <ChakraDivider
-    my={16}
-    w="10%"
-    borderBottomWidth={1}
-    borderColor="homeDivider"
-  />
-)
-
-type ContentContainerProps = Pick<BoxProps, "children" | "dir">
-
-const ContentContainer = (props: ContentContainerProps) => (
-  <Flex
-    justify={"space-between"}
-    w="full"
-    py={0}
-    ps={0}
-    pe={{ base: 0, lg: 8 }}
-    backgroundColor="ednBackground"
-    {...props}
-  />
-)
-
-const baseHeadingStyle: HeadingProps = {
-  fontFamily: "mono",
-  textTransform: "uppercase",
-  fontWeight: "bold",
-  scrollMarginTop: 40,
-}
-
-const H1 = (props: HeadingProps) => (
+const H1 = (props: HTMLAttributes<HTMLHeadingElement>) => (
   <MdHeading1
-    {...baseHeadingStyle}
-    fontSize={{ base: "2rem", md: "2.5rem" }}
-    mt={{ base: 0, md: 8 }}
-    mb={{ base: 4, md: 8 }}
+    className={cn(baseHeadingClasses, "max-md:mt-0 max-md:text-[2rem]")}
     {...props}
   />
 )
 
-const H2 = (props: HeadingProps) => (
+const H2 = (props: HTMLAttributes<HTMLHeadingElement>) => (
   <MdHeading2
-    {...baseHeadingStyle}
-    fontSize="2xl"
-    lineHeight={{ base: 1.2, md: 1.4 }}
-    pb={2}
-    mt={12}
-    borderBottom="1px"
-    borderColor="border"
+    className={cn(
+      baseHeadingClasses,
+      "mt-12 border-b border-[#e5e5e5] pb-2 text-2xl max-md:leading-4xs dark:border-[#333]"
+    )}
     {...props}
   />
 )
 
-const baseSubHeadingStyles: HeadingProps = {
-  lineHeight: 1.4,
-  fontWeight: "semibold",
-}
+const baseSubHeadingClasses = "leading-xs font-semibold break-words"
 
-const H3 = (props: HeadingProps) => (
-  <MdHeading3 {...baseSubHeadingStyles} mt={12} {...props} />
+const H3 = (props: HTMLAttributes<HTMLHeadingElement>) => (
+  <MdHeading3 className={cn(baseSubHeadingClasses, "mt-12")} {...props} />
 )
 
-const H4 = (props: HeadingProps) => (
-  <MdHeading4 {...baseSubHeadingStyles} {...props} />
+const H4 = (props: HTMLAttributes<HTMLHeadingElement>) => (
+  <MdHeading4 className={baseSubHeadingClasses} {...props} />
 )
-
-const UnorderedList = (props: ListProps) => (
-  <ChakraUnorderedList ms="1.45rem" {...props} />
-)
-const OrderedList = (props: ListProps) => (
-  <ChakraOrderedList ms="1.45rem" {...props} />
-)
-
-const ListItem = (props: ListItemProps) => (
-  <ChakraListItem color="text300" {...props} />
-)
-
-// Apply styles for classes within markdown here
-const Content = (props: ChildOnlyProp) => {
-  const mdBreakpoint = useToken("breakpoints", "md")
-
-  return (
-    <Box
-      as={MainArticle}
-      flex={`1 1 ${mdBreakpoint}`}
-      maxW={{ base: "full", lg: mdBreakpoint }}
-      pt={{ base: 32, md: 12 }}
-      pb={{ base: 8, md: 16 }}
-      px={{ base: 8, md: 16 }}
-      m="0 auto"
-      sx={{
-        ".citation": {
-          p: {
-            color: "text200",
-          },
-        },
-      }}
-      {...props}
-    />
-  )
-}
 
 const BackToTop = (props: ChildOnlyProp) => (
-  <Flex
-    display={{ lg: "none" }}
-    mt={12}
-    pt={8}
-    borderTop="1px"
-    borderColor="border"
-    {...props}
-  >
-    <Link to="#top">
+  <div className="display-none mt-12 flex border-t pt-8" {...props}>
+    <InlineLink href="#top">
       <Translation id="back-to-top" /> ↑
-    </Link>
-  </Flex>
+    </InlineLink>
+  </div>
 )
 
 export const docsComponents = {
@@ -187,13 +79,8 @@ export const docsComponents = {
   h2: H2,
   h3: H3,
   h4: H4,
-  p: Paragraph,
-  ul: UnorderedList,
-  ol: OrderedList,
-  li: ListItem,
   pre: Codeblock,
   ...mdxTableComponents,
-  Badge,
   ButtonLink,
   Card,
   CallToContribute,
@@ -202,90 +89,78 @@ export const docsComponents = {
   Emoji,
   GlossaryTooltip,
   InfoBanner,
-  RollupProductDevDoc,
   YouTube,
 }
 
-interface DocsLayoutProps
-  extends Pick<
-      MdPageContent,
-      | "slug"
-      | "tocItems"
-      | "lastUpdatedDate"
-      | "crowdinContributors"
-      | "contentNotTranslated"
-    >,
-    ChildOnlyProp {
-  frontmatter: DocsFrontmatter
-}
+type DocsLayoutProps = Pick<
+  MdPageContent,
+  | "slug"
+  | "tocItems"
+  | "lastEditLocaleTimestamp"
+  | "contributors"
+  | "contentNotTranslated"
+> &
+  Required<Pick<MdPageContent, "lastEditLocaleTimestamp">> &
+  ChildOnlyProp & {
+    frontmatter: DocsFrontmatter
+  }
 
 export const DocsLayout = ({
   children,
   frontmatter,
-  slug,
   tocItems,
-  lastUpdatedDate,
-  crowdinContributors,
+  lastEditLocaleTimestamp,
+  contributors,
   contentNotTranslated,
 }: DocsLayoutProps) => {
   const isPageIncomplete = !!frontmatter.incomplete
-  const { asPath: relativePath } = useRouter()
-  const absoluteEditPath = getEditPath(relativePath)
-
-  const gitHubLastEdit = useClientSideGitHubLastEdit(relativePath)
-  const intlLastEdit = "data" in gitHubLastEdit ? gitHubLastEdit.data! : ""
-  const useGitHubContributors =
-    frontmatter.lang === DEFAULT_LOCALE || crowdinContributors.length === 0
+  const pathname = usePathname()
+  const absoluteEditPath = getEditPath(pathname)
 
   return (
-    <Page>
-      <SideNavMobile path={relativePath} />
+    <div className="flex w-full flex-col border-b">
+      <SideNavMobile path={pathname} />
       {isPageIncomplete && (
         <BannerNotification shouldShow={isPageIncomplete}>
           <Translation id="page-developers-docs:banner-page-incomplete" />
         </BannerNotification>
       )}
-      <ContentContainer dir={contentNotTranslated ? "ltr" : "unset"}>
-        <SideNav path={relativePath} />
-        <Content>
+      <div
+        className="flex justify-between bg-background-highlight lg:pe-8"
+        dir={contentNotTranslated ? "ltr" : "unset"}
+      >
+        <SideNav path={pathname} />
+        <MainArticle className="min-w-0 flex-1 px-8 pb-8 pt-8 md:px-16 md:pb-16 md:pt-12">
           <H1 id="top">{frontmatter.title}</H1>
-          {useGitHubContributors ? (
-            <GitHubContributors
-              relativePath={relativePath}
-              lastUpdatedDate={lastUpdatedDate!}
-            />
-          ) : (
-            <CrowdinContributors
-              relativePath={relativePath}
-              lastUpdatedDate={intlLastEdit}
-              contributors={crowdinContributors}
-            />
-          )}
+          <FileContributors
+            contributors={contributors}
+            lastEditLocaleTimestamp={lastEditLocaleTimestamp}
+          />
           <TableOfContents
-            slug={slug}
             editPath={absoluteEditPath}
             items={tocItems}
             isMobile
             maxDepth={frontmatter.sidebarDepth!}
             hideEditButton={!!frontmatter.hideEditButton}
           />
-          {children}
+          <div className="prose prose-lg max-w-none break-words">
+            {children}
+          </div>
           {isPageIncomplete && <CallToContribute editPath={absoluteEditPath} />}
           <BackToTop />
           <FeedbackCard isArticle />
           <DocsNav contentNotTranslated={contentNotTranslated} />
-        </Content>
+        </MainArticle>
         {tocItems && (
           <TableOfContents
-            slug={slug}
+            className={isPageIncomplete ? "pt-20" : "pt-12"}
             editPath={absoluteEditPath}
             items={tocItems}
             maxDepth={frontmatter.sidebarDepth!}
             hideEditButton={!!frontmatter.hideEditButton}
-            pt={isPageIncomplete ? "5rem" : "3rem"}
           />
         )}
-      </ContentContainer>
-    </Page>
+      </div>
+    </div>
   )
 }

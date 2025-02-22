@@ -18,7 +18,7 @@ La prueba de participación requiere que los nodos, conocidos como validadores, 
 
 La prueba de trabajo consume mucha más energía, porque la actividad de minería conlleva el consumo de electricidad. La prueba de participación, por otro lado, requiere solo una cantidad muy pequeña de energía: los validadores de Ethereum incluso pueden ejecutarse en un dispositivo de baja potencia como Raspberry Pi. Se cree que el mecanismo de prueba de participación de Ethereum es más seguro que la prueba de trabajo, porque el coste del ataque es mayor y las consecuencias para un atacante son más severas.
 
-La prueba de trabajo frente a la prueba de participación es un tema polémico. [El blog de Vitalik Buterin](https://vitalik.eth.limo/general/2017/12/31/pos_faq.html#what-are-the-benefits-of-proof-of-stake-as-opposed-to-proof-of-work) y el debate entre Justin Drake y Lyn Alden dan un buen resumen de los argumentos.
+La prueba de trabajo frente a la prueba de participación es un tema polémico. [El blog de Vitalik Buterin](https://vitalik.eth.limo/general/2017/12/31/pos_faq.html#what-are-the-benefits-of-proof-of-stake-as-opposed-to-proof-of-work)y el debate entre Justin Drake y Lyn Alden ofrecen un buen resumen de los argumentos.
 
 <YouTube id="1m12zgJ42dI" />
 
@@ -74,7 +74,7 @@ Los validadores tienen que participar con ETH para tener algo que perder si se c
 
 ## ¿Cómo se selecciona a los validadores? {#how-are-validators-selected}
 
-Se elige de forma pseudoaleatoria a un solo validador para proponer un bloque en cada ranura utilizando un algoritmo llamado RANDAO, que mezcla un hash del proponente de bloques con una semilla que se actualiza a cada bloque. Este valor sirve para seleccionar un validador específico del conjunto de validadores totales. La selección del validador se fija con cuatro épocas de antelación.
+Se elige de forma pseudoaleatoria a un solo validador para proponer un bloque en cada ranura utilizando un algoritmo llamado RANDAO, que mezcla un hash del proponente de bloques con una semilla que se actualiza a cada bloque. Este valor sirve para seleccionar un validador específico del conjunto de validadores totales. La selección del validador se fija con una antelación de dos épocas.
 
 [Más información sobre la selección del validador](/developers/docs/consensus-mechanisms/pos/block-proposal)
 

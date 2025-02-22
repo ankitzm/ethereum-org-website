@@ -4,13 +4,11 @@ description: Introduction à la machine virtuelle Ethereum et en quoi elle conce
 lang: fr
 ---
 
-L’instanciation physique de l’EVM ne peut pas être décrite aussi facilement qu'on pointerait du doigt un nuage ou une vague, mais elle _existe_ en tant qu'entité unique gérée par des milliers d'ordinateurs connectés exécutant un client Ethereum.
-
-Le protocole Ethereum en lui-même existe uniquement dans le but de maintenir le fonctionnement continu, ininterrompu et immuable de cette machine d'état spéciale. Il s'agit de l'environnement dans lequel existent tous les comptes Ethereum et les contrats intelligents. Pour tout bloc donné de la chaîne, Ethereum a un seul et unique état « canonique » (conforme), et l'EVM est ce qui définit les règles pour le calcul d'un nouvel état valide de bloc en bloc.
+La machine virtuelle Ethereum (EVM) est un environnement virtuel décentralisé qui exécute le code de manière cohérente et sécurisée sur tous les nœuds Ethereum. Les nœuds exécutent l'EVM qui exécute des contrats intelligents, utilisant du «[gaz](/gas/)» pour mesurer l'effort de calcul requis pour les [opérations](/developers/docs/evm/opcodes/), garantissant une allocation efficace des ressources et la sécurité du réseau.
 
 ## Prérequis {#prerequisites}
 
-Une certaine familiarité avec la terminologie commune en informatique, comme [les octets](https://wikipedia.org/wiki/Byte), [la mémoire](https://wikipedia.org/wiki/Computer_memory), et une [pile](<https://wikipedia.org/wiki/Stack_(abstract_data_type)>) sont nécessaires pour comprendre l'EVM. Il peut se révéler utile d'être à l'aise avec les concepts de cryptographie/blockchain comme les [fonctions de hachage](https://wikipedia.org/wiki/Cryptographic_hash_function), et [l'arbre de Merkle](https://wikipedia.org/wiki/Merkle_tree).
+Une certaine familiarité avec la terminologie commune en informatique, comme [les octets](https://wikipedia.org/wiki/Byte), [la mémoire](https://wikipedia.org/wiki/Computer_memory), et une [pile](https://wikipedia.org/wiki/Stack_(abstract_data_type)) sont nécessaires pour comprendre l'EVM. Il peut se révéler utile d'être à l'aise avec les concepts de cryptographie/blockchain comme les [fonctions de hachage](https://wikipedia.org/wiki/Cryptographic_hash_function), et [l'arbre de Merkle](https://wikipedia.org/wiki/Merkle_tree).
 
 ## Du registre à la machine d'état {#from-ledger-to-state-machine}
 
@@ -63,7 +61,7 @@ Les [clients d'exécution Ethereum](/developers/docs/nodes-and-clients/#executio
 - [Py-EVM](https://github.com/ethereum/py-evm) - _Python_
 - [evmone](https://github.com/ethereum/evmone) - _C++_
 - [ethereumjs-vm](https://github.com/ethereumjs/ethereumjs-vm) - _JavaScript_
-- [eEVM](https://github.com/microsoft/eevm) - _C++_
+- [revm](https://github.com/bluealloy/revm) - _Rust_
 
 ## Complément d'information {#further-reading}
 
@@ -73,6 +71,7 @@ Les [clients d'exécution Ethereum](/developers/docs/nodes-and-clients/#executio
 - [Codes d'opérations de l'EVM](https://www.ethervm.io/)
 - [Documents de Référence aux Codes Opératoires de la Machine Virtuelle Ethereum](https://www.evm.codes/)
 - [Une courte introduction dans la documentation de Solidity](https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#index-6)
+- [Maîtriser Ethereum - La Machine Virtuelle Ethereum](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc)
 
 ## Sujets connexes {#related-topics}
 

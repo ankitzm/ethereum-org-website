@@ -26,11 +26,11 @@ Suchen Sie nach weiteren Protokoll-Upgrades? [Erfahren Sie mehr über anstehende
 
 ## 2023 {#2023}
 
-### Shanghai {#shanghai}
+### Shanghai-Capella ("Shapella") {#shapella}
 
-<NetworkUpgradeSummary name="shanghai" />
+<NetworkUpgradeSummary name="shapella" />
 
-#### Zusammenfassung {#shanghai-summary}
+#### Shanghai-Zusammenfassung {#shanghai-summary}
 
 Das Shanghai-Update ebnete den Weg für Staking-Auszahlungen auf der Ausführungsebene. Die Fusion mit dem Capella-Upgrade ermöglichte es Blöcken, Auszahlungen zu akzeptieren, wodurch Stakern erlaubt wurde, ihre ETH von der Beacon Chain auf der Ausführungsebene abzuheben.
 
@@ -48,13 +48,7 @@ Das Shanghai-Update ebnete den Weg für Staking-Auszahlungen auf der Ausführung
 
 - [Lesen Sie die Spezifikation für das Shanghai-Upgrade](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
 
----
-
-### Capella {#capella}
-
-<NetworkUpgradeSummary name="capella" />
-
-#### Zusammenfassung {#capella-summary}
+#### Capella-Zusammenfassung {#capella-summary}
 
 Das Capella-Update war das drittgrößte Upgrade für die Konsensebene (Beacon Chain) und ermöglichte Staking-Abhebungen. Mit Capella, das gleichzeitig mit dem Upgrade der Ausführungsebene, Shanghai, erfolgte, wurde die Staking-Abhebungsfunktion zur Verfügung gestellt.
 
@@ -155,7 +149,7 @@ Das Altair-Upgrade war das erste geplante Upgrade für die [Beacon Chain](/roadm
 
 - [Lesen Sie die Spezifikation zum Altair-Upgrade](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair)
 
-#### <emoji text=":tada:" size={1} me="0.5rem" />Fun Fact! {#altair-fun-fact}
+#### <emoji text=":tada:" size={1} className="me-2" />Fun Fact! {#altair-fun-fact}
 
 Altair war das erste große Netzwerk-Upgrade, für das es einen genauen Einführungszeitpunkt gab. Jedes vorherige Upgrade basierte auf einer angegebenen Blocknummer auf der Proof-of-Work-Chain, bei der die Blockzeiten variieren. Die Beacon Chain erfordert kein Lösen von Proof-of-Work und arbeitet stattdessen mit einem zeitbasierten Epochensystem, das aus 32 zwölfsekündigen „Slots" besteht, in denen Validatoren Blöcke vorschlagen können. Deshalb wussten wir genau, wann wir Epoche 74.240 erreichen würden und Altair live gehen würde!
 
@@ -225,7 +219,7 @@ Die [Beacon Chain](/roadmap/beacon-chain/) benötigte zum sicheren Betrieb 16.38
 
 [Die Ankündigung der Ethereum Foundation lesen](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21/)
 
-<DocLink to="/roadmap/beacon-chain/">
+<DocLink href="/roadmap/beacon-chain/">
   Die Beacon Chain
 </DocLink>
 
@@ -241,7 +235,7 @@ Mit dem Staking-Einzahlungsvertrag wurde [Staking](/glossary/#staking) im Ökosy
 
 [Lies die Ankündigung der Ethereum Foundation](https://blog.ethereum.org/2020/11/04/eth2-quick-update-no-19/)
 
-<DocLink to="/staking/">
+<DocLink href="/staking/">
   Staking
 </DocLink>
 
@@ -512,6 +506,6 @@ Das Yellowpaper, verfasst von Dr. Gavin Wood, ist eine technische Definition des
 
 Dieses einleitende Papier wurde ursprünglich 2013 von Vitalik Buterin, dem Gründer von Ethereum, vor dem Projektstart im Jahr 2015 veröffentlicht.
 
-<DocLink to="/whitepaper/">
+<DocLink href="/whitepaper/">
   Whitepaper
 </DocLink>

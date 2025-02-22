@@ -3,14 +3,15 @@ title: マージ
 description: マージについて - イーサリアムメインネットへのプルーフ・オブ・ステークの導入
 lang: ja
 template: upgrade
-image: /upgrades/merge.png
+image: /images/upgrades/merge.png
+alt:
 summaryPoint1: イーサリアムメインネットは現在プルーフ・オブ・ステークを使用していますが、これまではそうではありませんでした。
 summaryPoint2: 旧プルーフ・オブ・ワークのメカニズムからプルーフ・オブ・ステークへのアップグレードはマージと呼ばれます。
 summaryPoint3: マージとは、元のイーサリアムメインネットが、ビーコンチェーンとよばれる別のプルーフ・オブ・ステークのブロックチェーンと統合(マージ)し、1つのチェーンになったことを意味します。
-summaryPoint4: マージによりイーサリアムのエネルギー消費が最大99.95%削減されました。
+summaryPoint4: マージによりイーサリアムのエネルギー消費が99.95%削減されました。
 ---
 
-<UpgradeStatus dateKey="page-upgrades-beacon-date">
+<UpgradeStatus isShipped dateKey="page-upgrades:page-upgrades-beacon-date">
   マージは、2022年9月15日に行われました。 これにより、イーサリアムはプルーフ・オブ・ステーク・コンセンサスへの移行を完了し、公式にプルーフ・オブ・ワークは廃止されました。この移行により、エネルギー消費量が最大99.95%削減されました。
 </UpgradeStatus>
 
@@ -107,7 +108,7 @@ id="developers">
 
 ## マージとエネルギー消費 {#merge-and-energy}
 
-マージは、イーサリアムでのプルーフ・オブ・ワークの終わりを意味し、より持続可能で環境に優しいイーサリアムの時代をスタートさせました。 イーサリアムのエネルギー消費量は推定で99.95%減少し、環境に優しいブロックチェーンとなりました。 [イーサリアムのエネルギー消費の詳細](/energy-consumption/)
+マージにより、イーサリアムのプルーフ・オブ・ワーク（PoW）の時代が終わり、より持続可能で環境に優しいイーサリアムの時代が始まりました。 イーサリアムのエネルギー消費量は推定で99.95%減少し、環境に優しいブロックチェーンとなりました。 [イーサリアムのエネルギー消費の詳細](/energy-consumption/)
 
 ## マージとスケーリング {#merge-and-scaling}
 
@@ -201,7 +202,7 @@ contentPreview="False. Validator exits are rate limited for security reasons.">
 
 ブロックは、コンセンサスに参加する権利を得るために、ETHをステーキングしたノードを検証することで提案されます。 これらのアップグレードは、シャーディングを含む将来のスケーラビリティのアップグレードの準備段階となります。
 
-<ButtonLink to="/roadmap/beacon-chain/">
+<ButtonLink href="/roadmap/beacon-chain/">
   ビーコンチェーン
 </ButtonLink>
 
@@ -217,7 +218,7 @@ contentPreview="False. Validator exits are rate limited for security reasons.">
 
 シャーディング計画は急速に進展していますが、トランザクションの実行をスケールリングするレイヤー2技術の台頭と成功により、ロールアップコントラクトからの圧縮コールデータ(calldata)の保存を負荷分散する最適な方法を見つけることにシフトしています。これにより、ネットワーク容量を指数関数的に増やすことができるようになります。 プルーフ・オブ・ステークへの移行がなければ、これは実現不可能なことでした。
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   シャーディング画像
 </ButtonLink>
 

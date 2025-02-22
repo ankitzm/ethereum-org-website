@@ -6,7 +6,7 @@ import { DEFAULT_LOCALE, FAKE_LOCALE } from "@/lib/constants"
 
 import i18nConfig from "../../../i18n.config.json"
 
-// same data as in the `config.json` but indexed by language code
+// Same data as in the `config.json` but indexed by language code
 export const languages: Languages = i18nConfig.reduce((result, config) => {
   return { ...result, [config.code]: config }
 }, {} as Languages)
@@ -38,7 +38,7 @@ export const getRequiredNamespacesForPage = (
   path: string,
   layout?: string | undefined
 ) => {
-  const baseNamespaces = ["common", "page-languages"]
+  const baseNamespaces = ["common"]
 
   const requiredNamespacesForPath = getRequiredNamespacesForPath(path)
   const requiredNamespacesForLayout = getRequiredNamespacesForLayout(layout)
@@ -89,7 +89,7 @@ const getRequiredNamespacesForPath = (relativePath: string) => {
     primaryNamespace = "page-eth"
   }
 
-  if (path.startsWith("/glossary/") || path.startsWith("/dapps/")) {
+  if (path.startsWith("/glossary/")) {
     requiredNamespaces = [...requiredNamespaces, "glossary"]
   }
 
@@ -159,18 +159,47 @@ const getRequiredNamespacesForPath = (relativePath: string) => {
     primaryNamespace = "page-run-a-node"
   }
 
-  if (path.startsWith("/wallets/")) {
+  if (path.endsWith("/wallets/")) {
     primaryNamespace = "page-wallets"
-    requiredNamespaces = [...requiredNamespaces, "glossary"]
   }
 
-  if (path.startsWith("/wallets/find-wallet/")) {
+  if (path.endsWith("/wallets/find-wallet/")) {
     primaryNamespace = "page-wallets-find-wallet"
-    requiredNamespaces = [...requiredNamespaces, "page-wallets"]
+    requiredNamespaces = [...requiredNamespaces, "page-wallets", "table"]
   }
 
+  // TODO: Remove this when the page is translated
   if (path.startsWith("/layer-2/")) {
     primaryNamespace = "page-layer-2"
+  }
+
+  if (path.startsWith("/layer-2/learn/")) {
+    primaryNamespace = "page-layer-2-learn"
+  }
+
+  if (path.startsWith("/layer-2/networks/")) {
+    requiredNamespaces = [...requiredNamespaces, "table"]
+  }
+
+  if (path.startsWith("/contributing/translation-program/translatathon/")) {
+    primaryNamespace = "page-translatathon"
+  }
+
+  // Glossary tooltips
+  if (
+    path.startsWith("/dapps/") ||
+    path.startsWith("/layer-2/") ||
+    path.startsWith("/layer-2/learn/") ||
+    path.startsWith("/get-eth/") ||
+    path.startsWith("/stablecoins/") ||
+    path.startsWith("/staking/") ||
+    path.startsWith("/run-a-node/") ||
+    path.startsWith("/what-is-ethereum/") ||
+    path.startsWith("/eth/") ||
+    path.startsWith("/wallets/") ||
+    path.startsWith("/gas/")
+  ) {
+    requiredNamespaces = [...requiredNamespaces, "glossary-tooltip"]
   }
 
   // Quizzes
@@ -178,6 +207,7 @@ const getRequiredNamespacesForPath = (relativePath: string) => {
   if (
     path.startsWith("/eth/") ||
     path.startsWith("/layer-2/") ||
+    path.startsWith("/layer-2/learn/") ||
     path.startsWith("/nft/") ||
     path.startsWith("/roadmap/merge/") ||
     path.startsWith("/roadmap/scaling/") ||
@@ -187,7 +217,9 @@ const getRequiredNamespacesForPath = (relativePath: string) => {
     path.startsWith("/wallets/") ||
     path.startsWith("/web3/") ||
     path.startsWith("/what-is-ethereum/") ||
-    path.startsWith("/quizzes/")
+    path.startsWith("/quizzes/") ||
+    path.startsWith("/stablecoins/") ||
+    path.startsWith("/defi/")
   ) {
     requiredNamespaces = [...requiredNamespaces, "learn-quizzes"]
   }
@@ -203,7 +235,7 @@ const getRequiredNamespacesForLayout = (layout?: string) => {
 
   // namespaces required for all layouts
   if (layout) {
-    requiredNamespaces = [...requiredNamespaces, "glossary"]
+    requiredNamespaces = [...requiredNamespaces, "glossary-tooltip"]
   }
 
   if (layout === "docs") {

@@ -5,9 +5,8 @@ author: Markus Waas
 lang: es
 tags:
   - "solidity"
-  - "contratos Inteligentes"
+  - "contratos inteligentes"
   - "almacenamiento"
-  - "truffle"
 skill: intermediate
 published: 2020-06-26
 source: soliditydeveloper.com
@@ -18,21 +17,11 @@ sourceUrl: https://soliditydeveloper.com/max-contract-size
 
 El [22 de noviembre de 2016](https://blog.ethereum.org/2016/11/18/hard-fork-no-4-spurious-dragon/) el hard-fork Spurious Dragon introdujo [EIP-170](https://eips.ethereum.org/EIPS/eip-170), que agregó un límite de tamaño del contrato inteligente de 24.576 bytes. Para usted, como desarrollador de Solidity, esto significa que cuando añada más y más funcionalidad a su contrato, en algún momento alcanzará el límite y al realizar la implementación verá el error:
 
-`Advertencia: El tamaño del código del contrato excede los 24576 bytes (un límite introducido en el Spurious Dragon). This contract may not be deployable on Mainnet. Considere habilitar el optimizador (con un valor de "ejecución" bajo), desactivar las cadenas de reversión, o utilizar librerías.`
+`Warning: Contract code size exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.`
 
 Este límite se introdujo para prevenir ataques de denegación de servicio (DOS). Cualquier llamada a un contrato es relativamente barata en términos de gas. Sin embargo, el impacto de una llamada al contrato para nodos Ethereum aumenta desproporcionadamente dependiendo del tamaño del código del contrato llamado (leer el código del disco, preprocesar el código, agregar datos a la prueba Merkle). Cada vez que uno se encuentre en una situación en la que el atacante requiera pocos recursos para causar mucho trabajo a los demás, obtiene el potencial para ataques de DOS.
 
 Originalmente esto era un problema menor porque el tamaño natural de un contrato es el límite de gas de un bloque. Obviamente, un contrato debe implementarse dentro de una transacción que contenga todo el código de bytes del contrato. Si incluye solo esa transacción en un bloque, puede usar todo ese gas, pero no es infinito. Desde la [Actualización London](/history/#london), el límite de gas de un bloque ha podido variar entre 15 millones y 30 millones de unidades dependiendo de la demanda de la red.
-
-## Asuma el reto {#taking-on-the-fight}
-
-Desafortunadamente, no hay una manera fácil de obtener el tamaño del código de bytes de sus contratos. Una gran herramienta que lo ayudará es el complemento [truffle-contract-size](https://github.com/IoBuilders/truffle-contract-size) si usa Truffle.
-
-1. `npm instalador truffle-contrato-tamaño`
-2. Añadir el complemento a _truffle-config.js_: `plugins: ["truffle-contract-size"]`
-3. Ejecutar `truffle run contract-size`
-
-Esto le ayudará a averiguar cómo sus cambios están afectando los tamaños totales del contrato.
 
 A continuación veremos algunos métodos ordenados según su posible impacto. Piénsalo en términos de pérdida de peso. La mejor estrategia para que alguien alcance su peso deseado (en nuestro caso 24kb) es centrarse primero en los métodos de gran impacto. En la mayoría de los casos, basta con corregir la dieta para conseguirlo, pero a veces se necesita un poco más. Luego puedes añadir algo de ejercicio (impacto medio) o incluso suplementos (impacto bajo).
 

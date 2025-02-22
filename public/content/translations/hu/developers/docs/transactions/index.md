@@ -12,7 +12,7 @@ Ennek az oldalnak a jobb megértése érdekében javasoljuk, hogy először a [S
 
 ## Mi az a tranzakció? {#whats-a-transaction}
 
-Az Ethereum-tranzakció egy külső tulajdonú számla által kezdeményezett tevékenységre utal, más szóval egy számla, amelyet egy ember, nem pedig egy szerződés kezel. Például, ha Bob elküld Alice-nek 1 ETH-et, akkor Bob számláját terhelni kell, Alice számlájára pedig jóvá kell írni az összeget. Ez az állapotot megváltoztató művelet egy tranzakción belül történik.
+Az Ethereum-tranzakció egy külső tulajdonú számla által kezdeményezett tevékenységre utal, más szóval egy számla, amelyet egy ember, nem pedig egy szerződés kezel. Például, ha Bob elküld Alice-nek 1 ETH-t, akkor Bob számláját terhelni kell, Alice számlájára pedig jóvá kell írni az összeget. Ez az állapotot megváltoztató művelet egy tranzakción belül történik.
 
 ![Diagram, amely egy állapotot módosító tranzakciót ábrázol](./tx.png) _Diagram átvéve az [Ethereum EVM illusztrálva](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_ anyagból
 
@@ -23,7 +23,7 @@ A tranzakciókért fizetni kell, és be kell kerüljenek egy validált blokkba. 
 Az elküldött tranzakció a következő információkat tartalmazza:
 
 - `from` – a küldő címe, aki aláírja a tranzakciót. Ez egy külső tulajdonú számla, mivel a szerződéses számlák nem küldenek tranzakciót.
-- `recipient` – a fogadó címe (ha egy külső tulajdonú számla, akkor a tranzakció értéket továbbít. Ha egy szerződéses számla, akkor a tranzakció szerződéskódot fog végrehajtani)
+- `to` – a fogadó címe (ha egy külső tulajdonú számla, akkor a tranzakció értéket továbbít. Ha egy szerződéses számla, akkor a tranzakció szerződéskódot fog végrehajtani)
 - `signature` – a küldő azonosítója. Ez akkor jön létre, amikor a feladó privát kulcsa aláírja a tranzakciót, és megerősíti, hogy a küldő engedélyezte ezt a tranzakciót
 - `nonce` – egy növekvő számláló, amely a számláról küldött tranzakciók számát mutatja
 - `value` – az átküldendő ETH mennyisége a küldőtől a címzettnek (WEI-ben, ahol 1 ETH 1e+18 wei-nek felel meg)
@@ -153,11 +153,18 @@ Az elégetendő alapdíj **-0,00399 ETH**
 
 A validátor megtartja a borravalót, ami **+0,000210 ETH**
 
-Az okosszerződéses interakciók is gázt igényelnek.
 
 ![Egy diagram, amely a fel nem használt gáz visszatérítését ábrázolja](./gas-tx.png) _Diagram átvéve az [Ethereum EVM illusztrálva](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_ anyagból
 
 A tranzakcióban fel nem használt összes gáz visszakerül a felhasználó számlájára.
+
+### Okosszerződéses interakciók {#smart-contract-interactions}
+
+Minden olyan tranzakció gázt igényel, mely okosszerződéssel függ össze.
+
+Az okosszerződések olyan funkciókat is tartalmazhatnak, mint a [`view`](https://docs.soliditylang.org/en/latest/contracts.html#view-functions) vagy [`pure`](https://docs.soliditylang.org/en/latest/contracts.html#pure-functions), melyek nem változtatnak a szerződés állapotán. Emiatt ezen függvények meghívása egy külső tulajdonú számláról (EOA) nem igényel gázt. Az ennek megfelelő RPC meghívás az [`eth_call`](/developers/docs/apis/json-rpc#eth_call)
+
+Kivéve, ha az `eth_call` révén használják ezeket, a `view` vagy `pure` függvényeket általában belülről hívják meg (vagyis magából a szerződésből vagy másik szerződésből), ami gázba kerül.
 
 ## Tranzakció-életciklus {#transaction-lifecycle}
 
@@ -190,6 +197,16 @@ Ahol a mezők jelentése:
 
 - `TransactionType` – egy szám 0 és 0x7f között, összesen 128 lehetséges tranzakciótípusra.
 - `TransactionPayload` – tetszőleges bájtsor, amelyet a tranzakció típusa határoz meg.
+
+A `TransactionType` értéke alapján a tranzakció a következő kategórába eshet
+
+1. **0-s típusú (eredeti) tranzakciók:** Az eredeti tranzakciós formátum az Ethereum bevezetése óta. Nem tartalmaznak az [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) által bevezetett jellemzőket, mint a dinamikus gázdíj-kalkuláció vagy elérhetőségi listák az okosszerződéseknek. Ezek az eredeti tranzakciók nem tartalmaznak olyan specifikus előtagot, amely jelezné a típusukat a sorosított formájukban, a `0xf8` bájttal kezdődnek, amikor [Rekurzív hosszúságú prefix (RLP)](/developers/docs/data-structures-and-encoding/rlp) kódolást használnak. A TransactionType értéke ekkor `0x0`.
+
+2. **1-es típusú tranzakciók:** Az [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) vezette be ezeket az Ethereum [Berlin frissítése](/history/#berlin) során, és ezek egy `accessList` (elérési lista) paramétert tartalmaznak. Ez a lista meghatározza azokat a címeket és tárolási kulcsokat, melyeket a tranzakció várhatóan elér, hogy így csökkentse a [gáz](/developers/docs/gas/)költségét az összetett tranzakcióknak, melyek okosszerződésekből erednek. Az EIP-1559 díjpiaci változások nem részei az 1-es típusú tranzakcióknak. Ezek magukba foglalnak egy `yParity` paramétert, amely lehet `0x0` vagy `0x1`, amely a secp256k1 aláírás y értékének megfelelését jelöli. Ezek a `0x01`bájttal kezdődnek, és a TransactionType értéke `0x1`.
+
+3. **2-es típusú tranzakciók**, általában EIP-1559-tranzakciók, melyeket az [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) vezetett be az Ethereum [London frissítésekor](/history/#london). Ezek lettek az Ethereum-hálózat sztenderd tranzakciótípusai. Egy új díjpiaci mechanizmust vezettek be, amely javítja az előrejelezhetőséget azáltal, hogy egy alapdíjra és egy prioritási díjra osztja fel a tranzakciós díjat. A `0x02` bájttal kezdődnek és olyan mezőket tartalmaznak, mint a `maxPriorityFeePerGas` és `maxFeePerGas`. Jelenleg a 2-es típusú tranzakciók az alapértelmezettek a rugalmasság és a hatékonyság okán, főleg a nagy hálózati leterheltség idején, mert a felhasználók jobban tudják kezelni a tranzakciós díjakat ezáltal. A TransactionType értéke ezekre `0x2`.
+
+
 
 ## További olvasnivaló {#further-reading}
 

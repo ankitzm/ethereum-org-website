@@ -1,20 +1,16 @@
-import { useTranslation } from "next-i18next"
+import { ButtonLink } from "./ui/buttons/Button"
+import { Flex } from "./ui/flex"
 import {
-  Flex,
-  Image,
   Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-  useToken,
-} from "@chakra-ui/react"
-
-import { ButtonLink } from "./Buttons"
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./ui/table"
 
 import { useRtlFlip } from "@/hooks/useRtlFlip"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export interface TableRow {
   name: string
@@ -35,7 +31,6 @@ const StablecoinsTable = ({
   content,
   hasError,
 }: StablecoinsTableProps) => {
-  const [textColor] = useToken("colors", ["text"])
   const { flipForRtl } = useRtlFlip()
   const { t } = useTranslation("page-stablecoins")
 
@@ -47,84 +42,51 @@ const StablecoinsTable = ({
   }
 
   return (
-    <Table
-      variant="unstyled"
-      my={8}
-      borderRadius="sm"
-      border={`1px solid ${textColor}`}
-      bg="background.base"
-      mb={8}
-      minW="720px"
-    >
-      <Thead bg="ednBackground" color="text200">
-        <Tr borderBottom={`1px solid ${textColor}`} mb="1px">
+    <Table className="my-8 min-w-[720px] bg-background">
+      <TableHeader>
+        <TableRow>
           {columns.map((column, idx) => (
-            <Th
-              key={idx}
-              py={5}
-              fontSize="md"
-              fontWeight="normal"
-              letterSpacing="normal"
-            >
-              {column}
-            </Th>
+            <TableHead key={idx}>{column}</TableHead>
           ))}
 
           {content && content[0]?.url && (
-            <Th p={5} fontSize="md" fontWeight="normal" textAlign="end">
-              <Text as="span" display="inline-block" transform={flipForRtl}>
+            <TableHead className="text-right font-normal">
+              <span className="inline-block" style={{ transform: flipForRtl }}>
                 ↗
-              </Text>
-            </Th>
+              </span>
+            </TableHead>
           )}
-        </Tr>
-      </Thead>
-      <Tbody>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
         {hasError && (
-          <Tr p={4}>
-            <Td colSpan={4}>{t("page-stablecoins-table-error")}</Td>
-          </Tr>
+          <TableRow className="p-4">
+            <TableCell colSpan={4}>
+              {t("page-stablecoins-table-error")}
+            </TableCell>
+          </TableRow>
         )}
 
         {content.map(({ name, marketCap, image, type, url }, idx) => (
-          <Tr
-            key={idx}
-            color="text"
-            borderBottom={`1px solid ${textColor}`}
-            _hover={{
-              textDecoration: "none",
-              borderBottom: `1px solid ${textColor}`,
-              bg: "primary200",
-              color: "black300",
-            }}
-            _focus={{
-              borderBottom: `1px solid ${textColor}`,
-              bg: "primary200",
-              color: "black300",
-            }}
-          >
-            <Td>
-              <Flex align="center">
-                {image && <Image src={image} alt="" me={4} boxSize={6} />}
+          <TableRow key={idx}>
+            <TableCell>
+              <Flex>
+                {image && <img src={image} alt="" className="me-4 h-6 w-6" />}
                 <>{name}</>
               </Flex>
-            </Td>
-            <Td>
-              <Flex align="center">{marketCap}</Flex>
-            </Td>
-            <Td>
-              <Flex align="center">{stablecoinsType[type]}</Flex>
-            </Td>
+            </TableCell>
+            <TableCell>{marketCap}</TableCell>
+            <TableCell>{stablecoinsType[type]}</TableCell>
             {url && (
-              <Td textAlign="end">
-                <ButtonLink to={url} size="sm">
-                  Go to {name}
+              <TableCell className="text-right">
+                <ButtonLink href={url} size="sm">
+                  {t("page-stablecoins-go-to")} {name}
                 </ButtonLink>
-              </Td>
+              </TableCell>
             )}
-          </Tr>
+          </TableRow>
         ))}
-      </Tbody>
+      </TableBody>
     </Table>
   )
 }

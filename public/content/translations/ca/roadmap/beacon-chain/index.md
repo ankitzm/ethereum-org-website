@@ -3,7 +3,7 @@ title: La cadena de balisa
 description: Aprèn més coses sobre la Cadena de Balisa - la millora que va introduir la prova de participació d'Ethereum.
 lang: ca
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: La Cadena de Balisa no canvia en res l'Ethereum que utilitzem avui en dia.
 summaryPoint2: Coordinarà la xarxa, fent servei com a capa de consens.
@@ -49,7 +49,7 @@ Les millores d'Ethereum estan d'alguna manera interrelacionades. Recapitulem com
 
 En un principi, la cadena de balisa serà independent de la xarxa principal d'Ethereum que fem servir actualment. Però, en última instància, estaran connectades. La idea és "fusionar" la xarxa principal amb el sistema de prova de participació, que la cadena de balisa coordinarà i controlarà.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
     La fusió
 </ButtonLink>
 
@@ -57,12 +57,8 @@ En un principi, la cadena de balisa serà independent de la xarxa principal d'Et
 
 Les cadenes de fragments només poden entrar de forma segura a l'ecosistema Ethereum si existeix un mecanisme de consens de prova de participació. La cadena de balisa introduirà l'aposta i aplanarà el camí a la futura introducció de la cadena de fragments.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
     Cadenes de fragments
 </ButtonLink>
 
 <Divider />
-
-## Interactuar amb la cadena de balisa {#interact-with-beacon-chain}
-
-<BeaconChainActions />

@@ -2,7 +2,6 @@
 title: Az Ethereum irányítása
 description: Annak bemutatása, hogy az Ethereummal kapcsolatos döntések hogyan születnek meg.
 lang: hu
-postMergeBannerTranslation: page-upgrades-post-merge-banner-governance-ood
 ---
 
 # Bevezetés az Ethereum irányításába {#introduction}
@@ -33,7 +32,7 @@ A másik megközelítés, a láncon kívüli irányítás az, amikor a protokoll
 
 _Miközben a protokollszintű Ethereum-irányítás láncon kívül zajlik, addig számos alkalmazási területe van a láncon belüli irányításnak, mint például a decentralizált autonóm szervezetek (DAO) működése._
 
-<ButtonLink to="/dao/">
+<ButtonLink href="/dao/">
   Bővebben a DAO-król
 </ButtonLink>
 
@@ -49,7 +48,7 @@ Az [Ethereum-közösségben](/community/) számos érdekelt fél van, akik szere
 - **Csomópont-operátorok**: akik csomópontokat működtetnek, amelyek blokkokat és tranzakciókat javasolnak, illetve elutasítják az érvénytelen tranzakciókat vagy blokkokat. [Bővebben a csomópontokról](/developers/docs/nodes-and-clients/).
 - **EIP-szerzők**: ők javasolnak változásokat az Ethereum-protokollt illetően Ethereum fejlesztési javaslatok (EIP) formájában. [Bővebben az EIP-ekről](/eips/).
 - **Validátorok**: ők olyan csomópontokat futtatnak, melyek új blokkokat tudnak adni az Ethereum-blokklánchoz.
-- **Protokollfejlesztők** (azaz „Magfejlesztők”): ők kezelik a különféle Ethereum implementációkat (pl. go-ethereum, Nethermind, Besu, Erigon a végrehajtási rétegen; Prysm, Lighthouse, Nimbus, Teku, Lodestar a konszenzusrétegen). [Bővebben az Ethereum-kliensekről](/developers/docs/nodes-and-clients/).
+- **Protokollfejlesztők** (azaz „Magfejlesztők” ): ők kezelik a különféle Ethereum-implementációkat (pl. go-ethereum, Nethermind, Besu, Erigon, Reth a végrehajtási rétegen; Prysm, Lighthouse, Nimbus, Teku, Lodestar, Grandine a konszenzusrétegen). [Bővebben az Ethereum-kliensekről](/developers/docs/nodes-and-clients/).
 
 _Megjegyzés: bárki lehet több csoport tagja is (pl. a protokollfejlesztő lehet EIP-bajnok is, futtathat Beaconlánc-validátort és használhat DeFi-alkalmazásokat). A koncepcionális egyértelműség miatt könnyebb, ha megkülönböztetjük őket._
 
@@ -59,7 +58,7 @@ _Megjegyzés: bárki lehet több csoport tagja is (pl. a protokollfejlesztő leh
 
 Az egyik fontos Ethereum-irányítási eszköz az **Ethereum fejlesztési javaslatok (EIP)** kezelése. Az EIP olyan szabvány, amely egy lehetséges új funkciót vagy folyamatot specifikál az Ethereum számára. Az Ethereum-közösség bármelyik tagja létrehozhat EIP-t. Ha Önt érdekli az EIP írása, értékelése vagy irányítása, akkor:
 
-<ButtonLink to="/eips/">
+<ButtonLink href="/eips/">
   Bővebben az EIP-kről
 </ButtonLink>
 
@@ -121,7 +120,7 @@ Az elágazások akkor jönnek létre, amikor komoly technikai változások tört
 
 A DAO-elágazás volt a válasz egy [2016-os DAO-támadásra](https://www.coindesk.com/understanding-dao-hack-journalists), amikor egy sebezhető [DAO](/glossary/#dao) szerződésből 3,6 millió ETH-t ürítettek le a támadás során. Az elágazás a pénzeszközöket a hibás szerződésből egy újba tette át, hogy a támadás során károsultak kaphassanak belőle.
 
-Ennek az akciónak a kezelését megszavazták az Ethereum közösségen belül. Bármely ETH tulajdonos szavazhatott egy tranzakción keresztül [egy szavazási platformon](http://v1.carbonvote.com/). Az elágazás mellett több mint a szavazók 85%-a voksolt.
+Ennek az akciónak a kezelését megszavazták az Ethereum közösségen belül. Bármely ETH tulajdonos szavazhatott egy tranzakción keresztül [egy szavazási platformon](https://web.archive.org/web/20170620030820/http://v1.carbonvote.com/). Az elágazás mellett több mint a szavazók 85%-a voksolt.
 
 Fontos megjegyezni, hogy miközben a protokoll tényleg elágazott, hogy visszafordítsa a támadást, a szavazás súlya megkérdőjelezhető:
 
@@ -155,13 +154,13 @@ Miközben a specifikáció és a fejlesztés teljesen nyitott volt, a hivatalos 
 
 Amikor a Beacon-lánc egyesült az Ethereum végrehajtási réteggel 2022. szeptember 15-én, a Merge teljesült a [Paris hálózati frissítés](/history/#paris) részeként. Az [EIP-3675](https://eips.ethereum.org/EIPS/eip-3675) javaslat státusza véglegesre változott befejezve az átállást a proof-of-stake mechanizmusra.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   A beolvadásról bővebben
 </ButtonLink>
 
 <Divider />
 
-## Hogyan lehet ebben részt venni? {#get-involved}
+## Hogyan lehet részt venni? {#get-involved}
 
 - [Javasoljon egy EIP-t](/eips/#participate)
 - [Vitassa meg a jelenlegi javaslatokat](https://ethereum-magicians.org/)
@@ -179,5 +178,5 @@ Az Ethereumban az irányítás nincs szigorúan definiálva. A közösség kül�
 - [Hogyan működik az Ethereum irányítása?](https://cryptotesters.com/blog/ethereum-governance) – _Cryptotesters_
 - [Hogyan működik az Ethereum irányítása](https://medium.com/coinmonks/how-ethereum-governance-works-71856426b63a) – _Micah Zoltu_
 - [Kik az az Ethereum protokollfejlesztői?](https://hudsonjameson.com/2020-06-22-what-is-an-ethereum-core-developer/) – _Hudson Jameson_
-- [Irányítás – 2. rész: a plutokrácia, vagyis a gazdagok általi irányítás még mindig nem az igazi](https://vitalik.eth.limo/general/2018/03/28/plutocracy.html) – _Vitalik Buterin_
-- [Túllépni az érmealapú szavazáson](https://vitalik.eth.limo/general/2021/08/16/voting3.html) – _Vitalik Buterin_
+- [Irányítás, 2. rész: A plutokrácia még mindig rossz](https://vitalik.eth.limo/general/2018/03/28/plutocracy.html) – _Vitalik Buterin_
+- [Túl az érmealapú szavazásra épülő irányításon](https://vitalik.eth.limo/general/2021/08/16/voting3.html) – _Vitalik Buterin_

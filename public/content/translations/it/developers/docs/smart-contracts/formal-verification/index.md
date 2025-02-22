@@ -26,7 +26,7 @@ Sono utilizzate diverse tecniche per modellizzare i contratti intelligenti per l
 
 I modelli di alto livello si concentrano sulla relazione tra contratti intelligenti e agenti esterni, come conti posseduti esternamente (EOA), conti di contratti e l'ambiente della blockchain. Tali modelli sono utili per definire le proprietà che specificano come un contratto dovrebbe comportarsi in risposta a determinate interazioni degli utenti.
 
-Al contrario, altri modelli formali si concentrano sul comportamento di basso livello di un contratto intelligente. Mentre i modelli di alto livello possono aiutare a ragionare sulla funzionalità di un contratto, potrebbero non riuscire a catturare i dettagli dei meccanismi interni dell'implementazione. I modelli di basso livello applicano una visualizzazione a scatola bianca per analizzare il programma e si affidano a rappresentazioni di basso livello delle applicazioni del contratto intelligente, quali tracce del programma e [grafici del flusso di controllo](https://en.wikipedia.org/wiki/Control-flow_graph), per ragionare sulle proprietà rilevanti alla sua esecuzione.
+Al contrario, altri modelli formali si concentrano sul comportamento di basso livello di un contratto intelligente. Sebbene i modelli di alto livello possano aiutare a ragionare sulla funzionalità di un contratto, potrebbero non riuscire a catturare i dettagli sui meccanismi interni dell'implementazione. I modelli di basso livello applicano una visualizzazione a scatola bianca per analizzare il programma e si affidano a rappresentazioni di basso livello delle applicazioni del contratto intelligente, quali tracce del programma e [grafici del flusso di controllo](https://en.wikipedia.org/wiki/Control-flow_graph), per ragionare sulle proprietà rilevanti alla sua esecuzione.
 
 I modelli di basso livello sono considerati ideali perché rappresentano l'effettiva esecuzione di un contratto intelligente nell'ambiente di esecuzione di Ethereum (cioè, l'[EVM](/developers/docs/evm/)). Le tecniche di modellizzazione di basso livello sono particolarmente utili nello stabilire le proprietà di sicurezza essenziali nei contratti intelligenti e nel rilevare le potenziali vulnerabilità.
 
@@ -78,7 +78,7 @@ Le specifiche in stile Hoare possono garantire la _correttezza parziale_ o la _c
 
 L'ottenimento della prova di correttezza totale è difficile, poiché alcune esecuzioni potrebbero tardare a terminare, o non terminare affatto. Detto ciò, il fatto che l'esecuzione termini è probabilmente una questione irrilevante, poiché il meccanismo di carburante di Ethereum impedisce i cicli infiniti del programma (l'esecuzione termina con esito positivo o a causa dell'errore 'carburante terminato').
 
-Le specifiche dei contratti intelligenti create utilizzando la logica di Hoare avranno precondizioni, postcondizioni e invarianti definite per l'esecuzione di funzioni e cicli in un contratto. Le precondizioni spesso includono la possibilità di input errati a una funzione, con le postcondizioni che descrivono la risposta prevista per tali input (es., generare un'eccezione specifica). In questo modo, le proprietà in stile Hoare sono efficaci per assicurare la correttezza delle implementazioni del contratto.
+Le specifiche dei contratti intelligenti create utilizzando la logica di Hoare avranno precondizioni, postcondizioni e invarianti definite per l'esecuzione di funzioni e cicli in un contratto. Le precondizioni spesso includono la possibilità di input errati a una funzione, con le postcondizioni che descrivono la risposta prevista per tali input (es., generare un'eccezione specifica). In questo modo le proprietà in stile Hoare sono efficaci per garantire la correttezza delle implementazioni del contratto.
 
 Molti quadri di verifica formale utilizzano le specifiche in stile Hoare per provare la correttezza semantica delle funzioni. Inoltre, è possibile aggiungere le proprietà in stile Hoare (come asserzioni) direttamente al codice del contratto utilizzando le istruzioni `require` e `assert` in Solidity.
 
@@ -212,16 +212,16 @@ Inoltre, non sempre per i verificatori di programmi è possibile determinare se 
 
 ### Linguaggi di specifica per la creazione di specifiche formali {#specification-languages}
 
-**Act**: \_\*Act consente la specifica di aggiornamenti d'archiviazione, pre e post condizioni e invarianti del contratto. La sua suite di strumenti contiene inoltre backend di prova in grado di dimostrare molte proprietà tramite Coq, risolutori SMT o hevm.\*\*
+**Act**: _*Act consente la specifica di aggiornamenti d'archiviazione, pre e post condizioni e invarianti del contratto. La sua suite di strumenti contiene inoltre backend di prova in grado di dimostrare molte proprietà tramite Coq, risolutori SMT o hevm.**
 
 - [GitHub](https://github.com/ethereum/act)
 - [Documentazione](https://ethereum.github.io/act/)
 
-**Scribble** - \_\*Scribble trasforma le annotazioni di codice nel linguaggio di specifica di Scribble in asserzioni concrete che verificano la specifica.\*\*
+**Scribble** - _*Scribble trasforma le annotazioni di codice nel linguaggio di specifica di Scribble in asserzioni concrete che verificano la specifica.**
 
 - [Documentazione](https://docs.scribble.codes/)
 
-**Dafny** - \_\*Dafny è un linguaggio di programmazione pronto alla verifica che si basa su annotazioni di alto livello per ragionare sulla correttezza del codice e dimostrarla.\*\*
+**Dafny** - _*Dafny è un linguaggio di programmazione pronto alla verifica che si basa su annotazioni di alto livello per ragionare sulla correttezza del codice e dimostrarla.**
 
 - [GitHub](https://github.com/dafny-lang/dafny)
 
@@ -232,15 +232,15 @@ Inoltre, non sempre per i verificatori di programmi è possibile determinare se 
 - [Sito web](https://www.certora.com/)
 - [Documentazione](https://docs.certora.com/en/latest/index.html)
 
-**SMTChecker di Solidity** - \_\*SMTChecker di Solidity è un revisore del modello integrato basato sulle SMT (Satisfiability Modulo Theories) e la risoluzione di Horn. Conferma se il codice sorgente di un contratto corrisponde alle specifiche durante la compilazione e controlla staticamente le violazioni delle proprietà di sicurezza.\*\*
+**SMTChecker di Solidity** - _*SMTChecker di Solidity è un revisore del modello integrato basato sulle SMT (Satisfiability Modulo Theories) e la risoluzione di Horn. Conferma se il codice sorgente di un contratto corrisponde alle specifiche durante la compilazione e controlla staticamente le violazioni delle proprietà di sicurezza.**
 
 - [GitHub](https://github.com/ethereum/solidity)
 
-**solc-verify** - \_\*solc-verify è una versione estesa del compilatore di Solidity che può eseguire la verifica formale automatizzata sul codice di Solidity utilizzando le annotazioni e la verifica modulare del programma.\*\*
+**solc-verify** - _*solc-verify è una versione estesa del compilatore di Solidity che può eseguire la verifica formale automatizzata sul codice di Solidity utilizzando le annotazioni e la verifica modulare del programma.**
 
 - [GitHub](https://github.com/SRI-CSL/solidity)
 
-**KEVM** - \_\*KEVM è una semantica formale della Macchina Virtuale di Ethereum (EVM), scritta nel quadro K. KEVM è eseguibile e può dimostrare determinate asserzioni correlate alle proprietà utilizzando la logica di raggiungibilità.\*\*
+**KEVM** - _*KEVM è una semantica formale della Macchina Virtuale di Ethereum (EVM), scritta nel quadro K. KEVM è eseguibile e può dimostrare determinate asserzioni correlate alle proprietà utilizzando la logica di raggiungibilità.**
 
 - [GitHub](https://github.com/runtimeverification/evm-semantics)
 - [Documentazione](https://jellopaper.org/)
@@ -259,12 +259,12 @@ Inoltre, non sempre per i verificatori di programmi è possibile determinare se 
 
 ### Strumenti basati sull'esecuzione simbolica per rilevare modelli vulnerabili nei contratti intelligenti {#symbolic-execution-tools}
 
-**Manticore** - \__Uno strumento per analizzare il bytecode dell'EVM basato sull'esecuzione simbolica_.\*
+**Manticore** - _*Uno strumento per analizzare il bytecode dell'EVM basato sull'esecuzione simbolica*.*
 
 - [GitHub](https://github.com/trailofbits/manticore)
 - [Documentazione](https://github.com/trailofbits/manticore/wiki)
 
-**hevm** - \_\*hevm è un motore di esecuzione simbolica e verificatore di equivalenza per il bytecode dell'EVM.\*\*
+**hevm** - _*hevm è un motore di esecuzione simbolica e verificatore di equivalenza per il bytecode dell'EVM.**
 
 - [GitHub](https://github.com/dapphub/dapptools/tree/master/src/hevm)
 

@@ -3,7 +3,7 @@ title: Beacon Chain
 description: Saznajte vieše o nadogradnji Beacon Chain kojom je implementiran dokaz uloga u Ethereumu.
 lang: hr
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: Nadogradnja Beacon Chain implementirala je dokaz uloga u ekosustav Ethereuma.
 summaryPoint2: Nadogradnja je objedinjena s izvornim lancem dokaza rada Ethereuma u rujnu 2022.
@@ -58,7 +58,7 @@ Sve nadogradnje Ethereuma donekle su međusobno povezane. Dakle, ponovimo ukratk
 
 U početku je Beacon Chain postojao odvojeno od glavne mreže Ethereuma. Godine 2022. konačno su objedinjeni.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   Spajanje
 </ButtonLink>
 
@@ -66,7 +66,7 @@ U početku je Beacon Chain postojao odvojeno od glavne mreže Ethereuma. Godine 
 
 Razdjeljivanje se sigurno može uvesti u Ethereumov ekosustav samo ako je uspostavljen mehanizam konsenzusa dokaza uloga. Beacon Chain uveo je ulaganje objedinjeno s glavnom mrežom i tako pripremio teren za razdjeljivanje koje će pomoći u daljnjem prilagođavanju Ethereuma.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Lanci djelića
 </ButtonLink>
 

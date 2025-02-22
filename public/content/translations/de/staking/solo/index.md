@@ -4,7 +4,7 @@ description: Ein Überblick darüber, wie Sie mit dem Solo-Staking Ihres ETH beg
 lang: de
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-solo.png
+image: /images/staking/leslie-solo.png
 alt: Leslie das Nashorn auf ihrem eigenen Computerchip.
 sidebarDepth: 2
 summaryPoints:
@@ -105,7 +105,7 @@ Es gibt eine Vielzahl von Optionen, die Ihnen bei der Einrichtung helfen. Verwen
 
 <ProductDisclaimer />
 
-### Node-Tools
+### Node-Werkzeuge
 
 <StakingProductsCardGrid category="nodeTools" />
 
@@ -190,7 +190,7 @@ Sobald die Auszahlungsdaten festgelegt sind, werden Prämienzahlungen (über den
 
 Um Ihr gesamtes Guthaben zu entsperren und zu erhalten, müssen Sie auch den Prozess des Verlassens Ihres Validators abschließen.
 
-<ButtonLink to="/staking/withdrawals/">Mehr zu Staking-Auszahlungen</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Mehr zu Staking-Auszahlungen</ButtonLink>
 </ExpandableCard>
 
 ## Weiterführende Informationen {#further-reading}
@@ -202,3 +202,5 @@ Um Ihr gesamtes Guthaben zu entsperren und zu erhalten, müssen Sie auch den Pro
 - [Anleitung: Ethereum-Validator-Hardware kaufen](https://www.youtube.com/watch?v=C2wwu1IlhDc) – _EthStaker 2022_
 - [Schritt für Schritt: Wie man dem Ethereum 2.0 Testnetz beitritt](https://kb.beaconcha.in/Guides/Tutorium-eth2-Multi-Client) - _ Butta_
 - [Eth2-Slashing-Präventionstipps](https://medium.com/prysmatic-labs/eth2-Slashing-Präventionstipps-f6faa5025f50) – _Raul Jordan 2020 _
+
+<QuizWidget quizKey="staking-solo" />

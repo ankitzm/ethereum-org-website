@@ -1,53 +1,56 @@
-import { Box, Heading, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/react"
+import type { CommonHeroProps } from "@/lib/types"
 
-import { CommonHeroProps } from "@/lib/types"
-
-import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs"
+import Breadcrumbs from "@/components/Breadcrumbs"
 import { Image } from "@/components/Image"
+import { Stack } from "@/components/ui/flex"
 
 import { CallToAction } from "../CallToAction"
 
-export interface ContentHeroProps extends Omit<CommonHeroProps, "header"> {
-  breadcrumbs: BreadcrumbsProps
-}
+export type ContentHeroProps = Omit<CommonHeroProps<string>, "header">
 
 const ContentHero = (props: ContentHeroProps) => {
-  const { breadcrumbs, heroImg, buttons, title, description } = props
+  const { breadcrumbs, heroImg, buttons, title, description, blurDataURL } =
+    props
   return (
-    <Box bgImg="bgMainGradient">
-      <SimpleGrid columns={{ base: 1, lg: 2 }} maxW="1536px" mx="auto" gap="4">
-        <Box
-          height={{ base: "300px", md: "400px", lg: "full" }}
-          order={{ lg: 1 }}
-        >
+    <div className="bg-gradient-main">
+      <div className="mx-auto grid max-w-screen-2xl grid-cols-1 items-center lg:grid-cols-2">
+        <div className="h-[300px] md:h-[400px] lg:order-1 lg:h-full">
           <Image
+            className="box h-full max-h-[451px] w-full flex-auto object-contain md:flex-none"
             src={heroImg}
             alt=""
             priority
-            style={{ objectFit: "contain" }}
-            boxSize="full"
+            blurDataURL={blurDataURL}
+            width={760}
+            height={451}
+            // TODO: adjust value when the old theme breakpoints are removed (src/theme.ts)
+            sizes="(max-width: 992px) 100vw, 760px"
           />
-        </Box>
-        <Stack p={{ base: "8", lg: "16" }} spacing="9" justify="center">
+        </div>
+        <Stack className="justify-center gap-9 p-8 lg:p-16">
           <Breadcrumbs {...breadcrumbs} />
-          <Stack spacing="6">
-            <Heading as="h1" size="2xl">
-              {title}
-            </Heading>
-            <Text fontSize="lg">{description}</Text>
-            <HStack spacing="4">
-              {buttons!.map((button, idx) => {
-                if (!button) return
-                return <CallToAction key={idx} {...button} />
-              })}
-            </HStack>
+          <Stack className="gap-6">
+            <h1>{title}</h1>
+            {typeof description === "string" ? (
+              <p className="text-lg">{description}</p>
+            ) : (
+              description
+            )}
+            {buttons && (
+              <Stack className="flex-col gap-4 md:flex-row">
+                {buttons.map((button, idx) => {
+                  if (!button) return
+                  return <CallToAction key={idx} index={idx} {...button} />
+                })}
+              </Stack>
+            )}
           </Stack>
           {/* TODO:
            * Add conditional Big Stat box here
            */}
         </Stack>
-      </SimpleGrid>
-    </Box>
+      </div>
+    </div>
   )
 }
 

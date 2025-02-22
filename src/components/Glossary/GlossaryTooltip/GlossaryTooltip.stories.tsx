@@ -1,12 +1,34 @@
-import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 
-import GlossaryTooltip from "."
+import { Center } from "@/components/ui/flex"
 
-export default {
-  component: GlossaryTooltip,
-} as Meta<typeof GlossaryTooltip>
+import GlossaryTooltipComponent from "."
 
-export const Basic: StoryFn<typeof GlossaryTooltip> = () => (
-  <GlossaryTooltip termKey="big-endian">big-endian</GlossaryTooltip>
-)
+const meta = {
+  title: "Molecules / Overlay Content / Glossary Tooltip",
+  component: GlossaryTooltipComponent,
+  args: {
+    termKey: "bridge",
+    children: "bridge",
+  },
+  decorators: [
+    (Story) => (
+      <Center className="size-128">
+        <Story />
+      </Center>
+    ),
+  ],
+} satisfies Meta<typeof GlossaryTooltipComponent>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {}
+
+// for chromatic story snapshot showing the rendered popover
+export const OnOpen: Story = {
+  args: {
+    open: true,
+  },
+}

@@ -106,3 +106,4 @@ Nagy vonalakban a proof-of-stake-nek ugyanaz a végcélja, mint a proof-of-work-
 
 - [Bányászat](/developers/docs/consensus-mechanisms/pow/mining/)
 - [Proof-of-stake](/developers/docs/consensus-mechanisms/pos/)
+- [Proof-of-authority (jogosultsági igazolás)](/developers/docs/consensus-mechanisms/poa/)

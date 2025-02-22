@@ -11,6 +11,8 @@ A két legaktívabb és leginkább karbantartott nyelv:
 - Solidity
 - Vyper
 
+A Remix IDE egy átfogó fejlesztési környezetet nyújt a szerződések létrehozásához és teszteléséhez Solidity és Vyper nyelveken. [Próbálja ki a böngészőben elérhető Remix IDE](https://remix.ethereum.org) használatát a kódoláshoz.
+
 A tapasztaltabb fejlesztők kipróbálhatják a Yul nyelvet, mely egy haladó nyelv az [Ethereum virtuális gépre](/developers/docs/evm/), vagy ennek kiterjesztését, melynek neve Yul+.
 
 Amennyiben Ön kíváncsi típus, és szeret olyan új nyelvek tesztelésében segíteni, amelyek még komoly fejlesztés előtt állnak, akkor fedezze fel a Fe-t, egy kialakulóban lévő okosszerződésnyelvet, amely még gyerekcipőben jár.
@@ -35,7 +37,7 @@ A programozási nyelvek, különösen a JavaScript vagy a Python korábbi ismere
 - [Solidity Nyelvportál](https://soliditylang.org/)
 - [Solidity példák alapján](https://docs.soliditylang.org/en/latest/solidity-by-example.html)
 - [GitHub](https://github.com/ethereum/solidity/)
-- [Solidity Gitter csevegőszoba](https://gitter.im/ethereum/solidity/), amely átirányít a [Solidity Matrix csevegőszobába](https://matrix.to/#/#ethereum_solidity:gitter.im)
+- [Solidity Gitter Chatroom](https://gitter.im/ethereum/solidity) összekötve a [Solidity Matrix Chatroom](https://matrix.to/#/#ethereum_solidity:gitter.im)-mal
 - [Puska](https://reference.auditless.com/cheatsheet)
 - [Solidity Blog](https://blog.soliditylang.org/)
 - [Solidity Twitter](https://twitter.com/solidity_lang)
@@ -264,7 +266,7 @@ Ha már nagy tapasztalatra tett szert az okosszerződésekkel kapcsolatban, akko
 
 - [GitHub](https://github.com/ethereum/fe)
 - [Fe bejelentés](https://snakecharmers.ethereum.org/fe-a-new-language-for-the-ethereum-ecosystem/)
-- [Fe 2021-es útiterv](https://notes.ethereum.org/LVhaTF30SJOpkbG1iVw1jg)
+- [Fe 2021-es ütemterv](https://notes.ethereum.org/LVhaTF30SJOpkbG1iVw1jg)
 - [Fe Discord-csevegés](https://discord.com/invite/ywpkAXFjZH)
 - [Fe Twitter](https://twitter.com/official_fe)
 

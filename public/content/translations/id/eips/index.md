@@ -18,7 +18,7 @@ EIP memainkan peranan penting bagaimana perubahan terjadi dan terdokumentasi di 
 
 Setiap peningkatan jaringan terdiri dari sekumpulan EIP yang harus diimplementasikan oleh masing-masing [klien Ethereum](/learn/#clients-and-nodes) di jaringan. Ini berarti bahwa untuk tetap berada dalam konsensus dengan klien lain di Jaringan Utama Ethereum, pengembang klien harus memastikan bahwa mereka telah menerapkan semua EIP yang diperlukan.
 
-Seiring dengan menyediakan spesifikasi teknis untuk perubahan, EIP adalah unit di mana tata kelola terjadi di Ethereum: siapa pun bebas untuk mengusulkan EIP, kemudian beragam pemangku kepentingan di dalam komunitas akan berdebat untuk menentukan apakah usulan itu harus diadopsi sebagai standar atau dimasukkan ke dalam peningkatan jaringan. Karena EIP non-inti tidak harus diadopsi oleh semua aplikasi (misalnya, dimungkinkan untuk membuat token yang dapat dipertukarkan yang tidak mengimplementasikan EIP-20), tetapi EIP inti harus diadopsi secara luas (karena semua simpulhar us ditingkatkan untuk tetap menjadi bagian dari jaringan yang sama), EIP inti membutuhkan konsensus yang lebih luas di dalam komunitas dibandingkan dengan EIP non-inti.
+Seiring dengan menyediakan spesifikasi teknis untuk perubahan, EIP adalah unit di mana pemerintahan terjadi di Ethereum: siapa pun bebas untuk mengusulkan EIP, kemudian beragam pemangku kepentingan di dalam komunitas akan berdebat untuk menentukan apakah usulan itu harus diadopsi sebagai standar atau dimasukkan ke dalam peningkatan jaringan. Karena EIP non-inti tidak harus diadopsi oleh semua aplikasi (misalnya, dimungkinkan untuk membuat token yang dapat dipertukarkan yang tidak mengimplementasikan EIP-20), tetapi EIP inti harus diadopsi secara luas (karena semua simpulhar us ditingkatkan untuk tetap menjadi bagian dari jaringan yang sama), EIP inti membutuhkan konsensus yang lebih luas di dalam komunitas dibandingkan dengan EIP non-inti.
 
 ## Riwayat EIP {#history-of-eips}
 
@@ -54,9 +54,17 @@ Proses standardisasi lengkap yang disertai dengan bagan dideskripsikan dalam [EI
 
 Jika Anda tertarik untuk membaca lebih lanjut tentang EIP, lihat [situs web EIP](https://eips.ethereum.org/) dan [EIP-1](https://eips.ethereum.org/EIPS/eip-1). Berikut adalah beberapa tautan yang berguna:
 
-- [Daftar setiap EIP](https://eips.ethereum.org/all)
+- [Daftar setiap Proposal Peningkatan Ethereum](https://eips.ethereum.org/all)
 - [Penjelasan tentang semua jenis EIP](https://eips.ethereum.org/EIPS/eip-1#eip-types)
 - [Penjelasan tentang semua status EIP](https://eips.ethereum.org/EIPS/eip-1#eip-process)
+
+### Proyek pendidikan komunitas {#community-projects}
+
+- [PEEPanEIP](https://www.youtube.com/playlist?list=PL4cwHXAawZxqu0PKKyMzG_3BJV_xZTi1F) — *PEEPanEIP adalah seri video edukasi yang membahas Ethereum Improvement Proposal (EIPs) dan fitur-fitur utama dari pembaruan yang akan datang.*
+- [EIP Untuk Kutu Buku](https://ethereum2077.substack.com/t/eip-research) — *EIP Untuk Kutu Buku memberikan gambaran umum gaya ELI5 yang komprehensif dari berbagai Proposal Peningkatan Ethereum (EIP), termasuk EIP inti dan EIP lapisan aplikasi/infrastruktur (ERC), untuk mengedukasi pembaca dan membentuk konsensus di sekitar perubahan yang diusulkan pada protokol Ethereum.*
+- [EIPs.wtf](https://www.eips.wtf/) — *EIPs.wtf memberikan informasi tambahan untuk Proposal Peningkatan Ethereum (EIP), termasuk statusnya, detail implementasi, permintaan penarikan terkait, dan umpan balik komunitas.*
+- [EIP.Fun](https://eipfun.substack.com/) — *EIP.Fun memberikan berita terbaru tentang Proposal Peningkatan Ethereum (EIP), pembaruan tentang pertemuan EIP, dan banyak lagi.*
+- [EIPs Insight](https://eipsinsight.com/) — *EIPs Insight adalah representasi dari keadaan proses Proposal peningkatan Ethereum (EIP) & statistik sesuai dengan informasi yang dikumpulkan dari berbagai sumber.*
 
 ## Partisipasi {#participate}
 
@@ -66,6 +74,6 @@ Siapa pun dapat membuat EIP. Sebelum mengirimkan proposal, seseorang harus memba
 
 <cite class="citation">
 
-Isi halaman yang disediakan ini merupakan bagian dari [Tata Kelola Pengembangan Protokol Ethereum dan Peningkatan Jaringan Coordination](https://hudsonjameson.com/2020-03-23-ethereum-protocol-development-governance-and-network-upgrade-coordination/) oleh Hudson Jameson
+Isi halaman yang disediakan ini merupakan bagian dari [Pemerintahan Pengembangan Protokol Ethereum dan Peningkatan Jaringan Coordination](https://hudsonjameson.com/2020-03-23-ethereum-protocol-development-governance-and-network-upgrade-coordination/) oleh Hudson Jameson
 
 </cite>

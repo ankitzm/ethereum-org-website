@@ -3,7 +3,7 @@ title: Oddajniška veriga
 description: Več informacij o oddajniški verigi – nadgradnji, s katero je bil uveden Ethereum z dokazom o deležu.
 lang: sl
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: Oddajniška veriga je v Ethereumovo okolje vpeljala dokaz o deležu.
 summaryPoint2: Z izvirno Ethereumovo verigo, ki je uporabljala dokaz o delu, je bila spojena septembra 2022.
@@ -58,7 +58,7 @@ Vse nadgradnje Ethereuma so med seboj delno povezane. Povzemimo torej, kako odda
 
 Oddajniška veriga je najprej delovala neodvisno od Ethereumovega glavnega omrežja, vendar sta se leta 2022 spojila.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   Spojitev
 </ButtonLink>
 
@@ -66,7 +66,7 @@ Oddajniška veriga je najprej delovala neodvisno od Ethereumovega glavnega omre�
 
 Razdrobitev je mogoče v Ethereumovo okolje varno uvesti le, ko je vpeljan mehanizem za doseganje soglasja z dokazom o deležu. Oddajniška veriga je vpeljala zastavljanje, ki se je "spojilo" z glavnim omrežem in tlakovalo pot razdrobitvi, ki bo pomagala pri širitvi Ethereumovega omrežja.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Razdrobljene verige
 </ButtonLink>
 

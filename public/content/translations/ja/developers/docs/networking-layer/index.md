@@ -73,7 +73,7 @@ Helloメッセージには以下が含まれます。
 
 #### ワイヤプロトコル {#wire-protocol}
 
-ピアが接続され、RLPxセッションが開始されると、ワイヤプロトコルはピアがどのように通信するかを定義します。 当初、ワイヤプロトコルは、チェーンの同期、ブロックの伝搬、トランザクションの交換という3つの主要なタスクを定義していました。 しかし、イーサリアムがプルーフ・オブ・ステーク(PoS)に移行すると、ブロック伝搬とチェーン同期はコンセンサスレイヤーの一部となりました。 トランザクションの交換は、依然として実行クライアントの範疇にあります。 トランザクションの交換とは、保留中のトランザクションをノード間で交換し、マイナーがその一部を次のブロックに含めるために選択できるようにすることです。 これらのタスクの詳細については、[こちら](https://github.com/ethereum/devp2p/blob/master/caps/eth.md)をご覧ください。 これらのサブプロトコルをサポートするクライアントは、[JSON-RPC](/developers/docs/apis/json-rpc/)を介してそれらを公開します。
+ピアが接続され、RLPxセッションが開始されると、ワイヤプロトコルはピアがどのように通信するかを定義します。 当初、ワイヤプロトコルは、チェーンの同期、ブロックの伝搬、トランザクションの交換という3つの主要なタスクを定義していました。 しかし、イーサリアムがプルーフ・オブ・ステーク(PoS)に移行すると、ブロック伝搬とチェーン同期はコンセンサスレイヤーの一部となりました。 トランザクションの交換は、依然として実行クライアントの範疇にあります。 トランザクション交換とは、ノード間で保留中のトランザクションを交換し、ブロックビルダーが次のブロックに含めるためにそれらの一部を選択できるようにすることを指します。 これらのタスクの詳細については、[こちら](https://github.com/ethereum/devp2p/blob/master/caps/eth.md)をご覧ください。 これらのサブプロトコルをサポートするクライアントは、[JSON-RPC](/developers/docs/apis/json-rpc/)を介してそれらを公開します。
 
 #### ライト・イーサリアム・サブプロトコル(les) {#les}
 
@@ -125,7 +125,7 @@ SSZは、シンプル・シリアライゼーションの略です。 SSZは、�
 
 制御フローの概要を以下に示します。括弧内は関連するネットワークスタックです。
 
-### コンセンサスクライアントがブロック生成者でない場合:
+### コンセンサスクライアントがブロック生成者でない場合: {#when-consensus-client-is-not-block-producer}
 
 - コンセンサスクライアントがブロック・ゴシップ・プロトコル(コンセンサスp2p)を介してブロックを受信する
 - コンセンサスクライアントはブロックを事前に検証し、確正しいメタデータを持つ有効な送信者からのものであることを確実にする
@@ -134,7 +134,7 @@ SSZは、シンプル・シリアライゼーションの略です。 SSZは、�
 - 実行レイヤーは検証データをコンセンサスレイヤーに返し、ブロックは検証済みとみなされる(ローカルRPC接続)
 - コンセンサスレイヤーはブロックを自分のブロックチェーンの先頭に追加して証明し、そのアテステーション(証明)をネットワーク上にブロードキャストする(コンセンサスp2p)
 
-### コンセンサスクライアントがブロック生成者の場合:
+### コンセンサスクライアントがブロック生成者の場合: {#when-consensus-client-is-block-producer}
 
 - コンセンサスクライアントが次のブロック生成者であることを通知される(consensus p2p)
 - コンセンサスレイヤーが実行クライアントの`create block`メソッドを呼び出す(ローカルRPC)
@@ -152,4 +152,4 @@ SSZは、シンプル・シリアライゼーションの略です。 SSZは、�
 
 ## 参考文献 {#further-reading}
 
-[DevP2P](https://github.com/ethereum/devp2p) [LibP2p](https://github.com/libp2p/specs) [コンセンサスレイヤーネットワークの仕様](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/p2p-interface.md#enr-structure) カデムリアからdiscv5[discv5](https://vac.dev/kademlia-to-discv5) [カデムリアペーパー](https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf) [Ethereumピアツーピア入門](https://p2p.paris/en/talks/intro-ethereum-networking/) [eth1eth2の関係](http://ethresear.ch/t/eth1-eth2-client-relationship/7248) [マージとeth2クライアントの詳細に関するビデオ](https://www.youtube.com/watch?v=zNIrIninMgg)
+[DevP2P](https://github.com/ethereum/devp2p) [LibP2p](https://github.com/libp2p/specs) [コンセンサスレイヤーネットワークの仕様](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/p2p-interface.md#enr-structure) [カデムリアからdiscv5](https://vac.dev/kademlia-to-discv5) [カデムリアペーパー](https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf) [Ethereumピアツーピア入門](https://p2p.paris/en/talks/intro-ethereum-networking/) [eth1eth2の関係](http://ethresear.ch/t/eth1-eth2-client-relationship/7248) [マージとeth2クライアントの詳細に関するビデオ](https://www.youtube.com/watch?v=zNIrIninMgg)

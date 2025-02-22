@@ -45,7 +45,7 @@ Szerződésalapú megtartással működő platformok:
 - [Filecoin](https://docs.filecoin.io/about-filecoin/what-is-filecoin/)
 - [Skynet](https://siasky.net/)
 - [Storj](https://storj.io/)
-- [0Chain](https://0chain.net/)
+- [Züs](https://zus.network/)
 - [Crust Network](https://crust.network)
 - [Swarm](https://www.ethswarm.org/)
 - [4EVERLAND](https://www.4everland.org/)
@@ -61,6 +61,7 @@ Az IPFS (InterPlanetary File System) egy elosztott rendszer fájlok, honlapok, a
 - [IPFS Scan](https://ipfs-scan.io) _(IPFS pinning explorer)_
 - [4EVERLAND](https://www.4everland.org/)_（IPFS pinning service）_
 - [Filebase](https://filebase.com) _(IPFS Pinning Service)_
+- [Spheron Network](https://spheron.network/) _(IPFS/Filecoin pinning szolgáltatás)_
 
 A SWARM egy decentralizáld adattárhely és elosztási technológia, mely tárolási ösztönzőrendszerrel és egy tárhelybérleti-költséges orákulummal működik.
 
@@ -74,7 +75,7 @@ Az egyik legnépszerűbb módszer az adatmegtartásra, hogy valamilyen kriptogr�
 
 A kihívásmechanizmussal rendelkező decentralizált tárhelyek típusai:
 
-- 0Chain
+- Züs
 - Skynet
 - Arweave
 - Filecoin
@@ -87,7 +88,7 @@ A platformok decentralitását nem lehet könnyen mérni, de általában olyan e
 
 Decentralizált eszközök KYC nélkül:
 
-- 0Chain (egy KYC nélküli kiadást implementál)
+- Züs (egy KYC nélküli kiadást implementál)
 - Skynet
 - Arweave
 - Filecoin
@@ -109,7 +110,7 @@ Proof-of-stake-alapú:
 
 - Ethereum
 - Filecoin
-- 0Chain
+- Züs
 - Crust Network
 
 ## Kapcsolódó eszközök {#related-tools}
@@ -144,10 +145,10 @@ Proof-of-stake-alapú:
 - [Dokumentáció](https://docs.arweave.org/info/)
 - [Arweave](https://github.com/ArweaveTeam/arweave/)
 
-**0chain – _A 0Chain egy proof-of-stake dStorage platform shardinggal és blobberekkel._**
+**Züs – _A Züs egy proof-of-stake dStorage platform shardinggal és blobberekkel._**
 
-- [0Chain.net](https://0chain.net/)
-- [Dokumentáció](https://docs.0chain.net/0chain/)
+- - [zus.network](https://zus.network/)
+- [Dokumentáció](https://0chaindocs.gitbook.io/zus-docs)
 - [GitHub](https://github.com/0chain/)
 
 **Crust Network – _Crust egy dStorage platform az IPFS tetején._**
@@ -197,6 +198,12 @@ Proof-of-stake-alapú:
 - [Kaleido](https://kaleido.io/)
 - [Dokumentáció](https://docs.kaleido.io/kaleido-services/ipfs/)
 - [GitHub](https://github.com/kaleido-io)
+
+**Spheron Network - _A Spheron egy platform mint szolgáltatás (PaaS), amelyet olyan dappok számára terveztek, amelyek jó teljesítményű decentralizált infrastruktúrán szeretnék elindítani alkalmazásaikat. Számítási kapacitást, decentralizált tárolást, CDN & web hosting szolgáltatás kínál._**
+
+- [spheron.network](https://spheron.network/)
+- [Dokumentáció](https://docs.spheron.network/)
+- [GitHub](https://github.com/spheronFdn)
 
 ## További olvasnivaló {#further-reading}
 

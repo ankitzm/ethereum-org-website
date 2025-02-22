@@ -108,3 +108,4 @@ contract VendingMachine {
 - [Coinbase: スマートコントラクトとは何か](https://www.coinbase.com/learn/crypto-basics/what-is-a-smart-contract)
 - [Chainlink: スマートコントラクトとは何か](https://chain.link/education/smart-contracts)
 - [スマートコントラクトの概要を説明するビデオ](https://youtu.be/ZE2HxTmxfrI)
+- [Cyfrin Updraft: Web3学習および監査プラットフォーム](https://updraft.cyfrin.io)

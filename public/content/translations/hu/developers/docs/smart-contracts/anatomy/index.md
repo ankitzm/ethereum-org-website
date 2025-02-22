@@ -203,7 +203,7 @@ Egy kész szerződés nagyjából így nézne ki. Itt a `constructor` függvény
 
 ## Események és naplózások {#events-and-logs}
 
-Az eseményeken keresztül tud kommunikálni az okosszerződés és a frontend vagy más feliratkozó alkalmazás. Amikor egy tranzakciót kibányásztak, az okosszerződések eseményeket bocsáthatnak ki és naplófájlokat írhatnak a blokkláncra, melyet a frontend fel tud dolgozni.
+Az eseményeken keresztül tud kommunikálni az okosszerződés és a frontend vagy más feliratkozó alkalmazás. Amikor egy tranzakciót validálnak, az okosszerződések eseményeket és naplófájlokat bocsáthatnak ki, melyet a frontend feldolgozhat és hasznosíthat.
 
 ## Jegyzetekkel ellátott példák {#annotated-examples}
 

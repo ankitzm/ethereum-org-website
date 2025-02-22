@@ -42,7 +42,7 @@ L1のブロックチェーンおよびL2の[スケーリング](/developers/docs
 
 - **ネイティブブリッジ** - 通常、特定のブロックチェーンにおいて流動性を自動供給するための構築されたブリッジであり、当該エコシステムに対する資金の転送を容易にするものです。 例えば、[ Arbitrumブリッジ](https://bridge.arbitrum.io/)は、イーサリアムからArbitrumへの資金転送を容易にするために開発されたブリッジです。 この種類のブリッジとしては、Polygon PoSブリッジや[Optimismゲートウェイ](https://app.optimism.io/bridge)等があります。
 - **バリデータ／オラクルベースのブリッジ** - クロスチェーン間の転送につき、外部のバリデータ群またはオラクルによる検証に依存するブリッジです。 MultichainやAcrossが含まれます。
-- **一般的なメッセージの受け渡しを伴うブリッジ** - チェーン間の資産転送につき、メッセージおよび任意のデータと共に実行するもの。 NomadやLayerZeroが含まれます。
+- **一般的なメッセージの受け渡しを伴うブリッジ** - チェーン間の資産転送につき、メッセージおよび任意のデータと共に実行するもの。 例: Axelar、LayerZero、Nomad。
 - **流動性ネットワーク** - 主に、アトミック・スワップによるチェーン間の資産転送に焦点をあてたブリッジです。 通常、この種類のブリッジはチェーン間のメッセージの受け渡しには対応しません。 ConextやHopが含まれます。
 
 ## 考慮すべきトレードオフ {#trade-offs}
@@ -103,7 +103,7 @@ Dappにブリッジやブリッジアグリゲーターを組み込む場合、�
 
 ### 複数のチェーン上でDappをデプロイする {#deploying-a-dapp-on-multiple-chains}
 
-複数のブロックチェーン上でDappをデプロイするには、[Alchemy](https://www.alchemy.com/)、[Hardhat](https://hardhat.org/)、あるいは[Truffle](https://trufflesuite.com/), [Moralis](https://moralis.io/)などの開発プラットフォームを利用することができます。 一般にこれらのプラットフォームには、Dappのクロスチェーン化を実現するコンポーザブルなプラグインが含まれています。 例えば、 [hardhat-deploy plugin](https://github.com/wighawag/hardhat-deploy)で提供される決定論的なデプロイ用プロキシを活用することができます。
+To deploy a dapp on multiple chains, developers can use development platforms like [Alchemy](https://www.alchemy.com/), [Hardhat](https://hardhat.org/), [Moralis](https://moralis.io/), etc. 一般にこれらのプラットフォームには、Dappのクロスチェーン化を実現するコンポーザブルなプラグインが含まれています。 例えば、 [hardhat-deploy plugin](https://github.com/wighawag/hardhat-deploy)で提供される決定論的なデプロイ用プロキシを活用することができます。
 
 #### 例:
 
